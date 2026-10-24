@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="uk">
+<html lang="uk" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,6 +41,9 @@
   </script>
 </head>
 <body>
+<div class="progress" aria-hidden="true"></div>
+<div class="fx-spot" aria-hidden="true"></div>
+<div class="fx-grain" aria-hidden="true"></div>
 <a class="skip" href="#main">До контенту</a>
 
 <header class="site-header">
@@ -48,7 +51,7 @@
     <span class="brand-mark" aria-hidden="true">ОБ</span>
     <span class="brand-name">Олександр Бенца</span>
   </a>
-  <nav class="site-nav" aria-label="Розділи">
+  <nav class="site-nav" aria-label="Розділи"><span class="nav-ind" aria-hidden="true"></span>
     <a href="#about">Про мене</a>
     <a href="#work">Що роблю</a>
     <a href="#case">Кейс</a>
@@ -65,23 +68,30 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero" id="top">
-    <p class="eyebrow">Тячів, Закарпаття · засновник 404bureau</p>
-    <h1>Будую бізнес-системи для&nbsp;малого бізнесу.</h1>
-    <p class="lead">
+    <p class="eyebrow" data-rise>Тячів, Закарпаття · засновник 404bureau</p>
+    <h1 data-words>Будую бізнес-системи для&nbsp;малого бізнесу.</h1>
+    <p class="lead" data-rise>
       Не «сайт» і не «реклама» окремо. Сайт, продажі, CRM, логістика і AI&nbsp;— як одна конструкція, що тримається без мене.
       Health Time зібрав так з нуля за 12 місяців.
     </p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="#contact">Написати</a>
-      <a class="btn btn-ghost" href="#case">Подивитись кейс</a>
+    <div class="cta-row" data-rise>
+      <a class="btn btn-primary" href="#contact" data-magnetic><span>Написати</span></a>
+      <a class="btn btn-ghost" href="#case" data-magnetic><span>Подивитись кейс</span></a>
     </div>
     <ul class="hero-facts" aria-label="Коротко">
       <li><strong>Shopify</strong><span>з 2021 року</span></li>
-      <li><strong>12 місяців</strong><span>Health Time з нуля</span></li>
-      <li><strong>7 людей</strong><span>у відділі продажу, який зібрав</span></li>
+      <li><strong><span data-count="12">0</span> місяців</strong><span>Health Time з нуля</span></li>
+      <li><strong><span data-count="7">0</span> людей</strong><span>у відділі продажу, який зібрав</span></li>
       <li><strong>AI щодня</strong><span>Claude, ChatGPT, Gemini</span></li>
     </ul>
   </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Shopify</span><i></i><span>Відділ продажу</span><i></i><span>CRM</span><i></i><span>Логістика з Китаю</span><i></i><span>GTM / DataLayer</span><i></i><span>Claude · ChatGPT · Gemini</span><i></i><span>Промпт-інжиніринг</span><i></i><span>SEO</span><i></i><span>404bureau</span><i></i>
+      <span>Shopify</span><i></i><span>Відділ продажу</span><i></i><span>CRM</span><i></i><span>Логістика з Китаю</span><i></i><span>GTM / DataLayer</span><i></i><span>Claude · ChatGPT · Gemini</span><i></i><span>Промпт-інжиніринг</span><i></i><span>SEO</span><i></i><span>404bureau</span><i></i>
+    </div>
+  </div>
 
   <!-- ============ ABOUT ============ -->
   <section class="section" id="about">
@@ -187,7 +197,7 @@
     </div>
     <div class="bureau-inner">
       <div class="bureau-mark" aria-hidden="true">
-        <span class="b404">404</span>
+        <span class="b404" data-scramble="404">404</span>
         <span class="bline"></span>
       </div>
       <div class="prose">
@@ -195,7 +205,7 @@
         <p>В ІТ 404&nbsp;— «сторінку не знайдено». Ми перевернули метафору: де звичайна агенція бачить тупик, ми шукаємо хід.</p>
         <p>Агенція для малого і середнього бізнесу, який має гроші, але не має системи. Один контакт замість п'яти підрядників: стратегія → сайт → процеси → продажі → AI-автоматизація.</p>
         <p class="status"><span class="dot"></span>Стартуємо. Перші проєкти&nbsp;— Закарпаття.</p>
-        <a class="btn btn-ghost" href="https://404bureau.com" target="_blank" rel="noopener">404bureau.com ↗</a>
+        <a class="btn btn-ghost" href="https://404bureau.com" target="_blank" rel="noopener" data-magnetic><span>404bureau.com ↗</span></a>
       </div>
     </div>
   </section>
@@ -273,6 +283,9 @@
   <a href="#top">Нагору ↑</a>
 </footer>
 
+<script src="assets/vendor/gsap.min.js" defer></script>
+<script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="assets/vendor/lenis.min.js" defer></script>
 <script src="assets/script.js" defer></script>
 </body>
 </html>
