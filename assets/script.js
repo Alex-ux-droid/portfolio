@@ -37,6 +37,22 @@
   nodes.forEach((el) => ukCache.set(el, el.innerHTML));
   metaNodes.forEach((el) => ukCache.set(el, el.getAttribute('content')));
   let splitHero = null; // set later
+
+  /* ---------- Marquee: безшовна петля на будь-якій ширині ---------- */
+  const track = document.querySelector('.marquee-track');
+  let marqueeSet = track ? track.innerHTML : '';
+  const buildMarquee = () => {
+    if (!track) return;
+    track.style.animation = 'none';
+    track.innerHTML = marqueeSet;
+    const setWidth = track.scrollWidth + 30; // + gap
+    let copies = 1;
+    while (copies * setWidth < innerWidth * 2 + setWidth && copies < 16) { track.insertAdjacentHTML('beforeend', marqueeSet); copies++; }
+    track.style.setProperty('--shift', `-${(100 / copies).toFixed(4)}%`);
+    track.style.setProperty('--dur', `${Math.max(12, Math.round(setWidth / 60))}s`); // ~60px/s
+    void track.offsetWidth; track.style.animation = '';
+  };
+  let mqTimer; window.addEventListener('resize', () => { clearTimeout(mqTimer); mqTimer = setTimeout(buildMarquee, 200); });
   const setLang = (lang) => {
     const d = lang === 'uk' ? null : dict[lang];
     if (lang !== 'uk' && !d) return;
@@ -52,6 +68,7 @@
     root.setAttribute('lang', lang);
     document.querySelectorAll('.lang-toggle span').forEach((s) => s.classList.toggle('on', s.dataset.lang === lang));
     store.set('lang', lang);
+    if (track) { const n = nodes.find((el) => el === track); marqueeSet = n ? (d && d['marquee'] != null ? d['marquee'] : ukCache.get(track)) : marqueeSet; buildMarquee(); }
     if (splitHero) splitHero();
     if (window.ScrollTrigger) ScrollTrigger.refresh();
   };
@@ -63,11 +80,36 @@
   /* ---------- Cookie consent ---------- */
   const cookie = document.querySelector('.cookie');
   if (cookie) {
-    const consent = store.get('consent');
-    if (!consent) setTimeout(() => (cookie.hidden = false), 1200);
+    const inner = cookie.querySelector('.cookie-inner');
+    const icon = cookie.querySelector('.cookie-icon');
+    const parts = [cookie.querySelector('.cookie-head'), cookie.querySelector('p'), cookie.querySelector('.cookie-actions')];
+    let shown = false;
+    const show = () => {
+      if (shown || store.get('consent')) return;
+      shown = true; cookie.hidden = false;
+      if (!window.gsap || reduce) { inner.style.opacity = 1; parts.forEach((p) => (p.style.opacity = 1)); return; }
+      const tl = gsap.timeline();
+      tl.fromTo(inner, { y: 90, scale: .86, rotate: -6, autoAlpha: 0 }, { y: 0, scale: 1, rotate: 0, autoAlpha: 1, duration: .9, ease: 'back.out(1.6)' })
+        .fromTo(icon, { x: -60, rotate: -540 }, { x: 0, rotate: 0, duration: 1.1, ease: 'power3.out' }, .1)
+        .to(parts, { autoAlpha: 1, y: 0, duration: .5, stagger: .1, ease: 'power2.out' }, .35)
+        .fromTo(parts, { y: 10 }, { y: 0, duration: .5, stagger: .1 }, .35)
+        .to(icon, { rotate: 10, yoyo: true, repeat: 3, duration: .18, ease: 'sine.inOut' }, 1.2);
+    };
+    // Не одразу: через 8 с або коли прочитано чверть сторінки.
+    const timer = setTimeout(show, 8000);
+    const onScrollShow = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      if (max > 0 && window.scrollY / max > .25) { clearTimeout(timer); show(); window.removeEventListener('scroll', onScrollShow); }
+    };
+    if (!store.get('consent')) window.addEventListener('scroll', onScrollShow, { passive: true });
     cookie.querySelectorAll('[data-ck]').forEach((b) => b.addEventListener('click', () => {
       store.set('consent', b.dataset.ck);
-      cookie.hidden = true;
+      const done = () => { cookie.hidden = true; };
+      if (window.gsap && !reduce) {
+        gsap.timeline({ onComplete: done })
+          .to(icon, { rotate: 360, scale: 1.3, duration: .4, ease: 'power2.out' })
+          .to(inner, { y: 40, scale: .9, autoAlpha: 0, duration: .45, ease: 'power3.in' }, .15);
+      } else done();
       if (b.dataset.ck === 'accept') window.dispatchEvent(new CustomEvent('consent:accepted'));
     }));
   }
@@ -151,7 +193,7 @@
     document.querySelectorAll('.skill-bar i').forEach((b) => (b.style.transform = 'none'));
     document.querySelectorAll('[data-count]').forEach((c) => (c.textContent = c.dataset.count));
     document.querySelectorAll('.section-head').forEach((s) => s.classList.add('in'));
-    const pic = document.querySelector('[data-photo] picture'); if (pic) pic.style.clipPath = 'none';
+    const pic = document.querySelector('[data-photo] picture'); if (pic) pic.style.opacity = '1';
     return;
   }
   gsap.registerPlugin(ScrollTrigger);
@@ -162,8 +204,8 @@
     .from('.site-header', { y: -20, autoAlpha: 0, duration: .8 }, 0)
     .from('.hero .eyebrow', { y: 20, autoAlpha: 0, duration: .7 }, .15)
     .from('[data-words] .wi', { yPercent: 110, duration: 1.1, stagger: .05, ease: 'power4.out' }, .25)
-    .to('[data-photo] picture', { clipPath: 'inset(0 0 0 0%)', duration: 1.4, ease: 'power4.inOut' }, .3)
-    .from('[data-photo] img', { scale: 1.12, duration: 1.8, ease: 'power3.out' }, .3)
+    .to('[data-photo] picture', { opacity: 1, duration: 1.6, ease: 'power2.out' }, .3)
+    .from('[data-photo] img', { scale: 1.1, duration: 2, ease: 'power3.out' }, .3)
     .from('.hero .lead', { y: 24, autoAlpha: 0, duration: .9 }, .8)
     .from('.hero .cta-row', { y: 24, autoAlpha: 0, duration: .9 }, .95)
     .from('.hero-facts', { y: 24, autoAlpha: 0, duration: .9 }, 1.05)
