@@ -6,6 +6,7 @@ window.I18N = {
     "meta.desc": "Oleksandr Bentsa. I treat a business as a system and build it end to end: website, sales team, CRM, sourcing, AI. Health Time from zero in 12 months. Shopify since 2021.",
     "skip": "Skip to content",
     "brand": "Oleksandr Bentsa",
+    "hdr.cta": "Portfolio",
     "nav.think": "Approach", "nav.work": "Services", "nav.works": "Work", "nav.case": "Case studies", "nav.now": "Now", "nav.contact": "Contact",
     "hero.eyebrow": "Oleksandr Bentsa · business systems",
     "hero.h1": "I build business systems that run without the founder.",
