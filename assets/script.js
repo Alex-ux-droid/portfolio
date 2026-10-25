@@ -192,7 +192,7 @@
     document.querySelectorAll('.skill-bar i').forEach((b) => (b.style.transform = 'none'));
     document.querySelectorAll('[data-count]').forEach((c) => (c.textContent = c.dataset.count));
     document.querySelectorAll('.section-head').forEach((s) => s.classList.add('in'));
-    const pic = document.querySelector('[data-photo] picture'); if (pic) pic.style.opacity = '1';
+    const pic = document.querySelector('[data-photo] picture'); if (pic) pic.style.clipPath = 'none';
     return;
   }
   gsap.registerPlugin(ScrollTrigger);
@@ -203,8 +203,8 @@
     .from('.site-header', { y: -20, autoAlpha: 0, duration: .8 }, 0)
     .from('.hero .eyebrow', { y: 20, autoAlpha: 0, duration: .7 }, .15)
     .from('[data-words] .wi', { yPercent: 110, duration: 1.1, stagger: .05, ease: 'power4.out' }, .25)
-    .to('[data-photo] picture', { opacity: 1, duration: 1.6, ease: 'power2.out' }, .3)
-    .from('[data-photo] img', { scale: 1.1, duration: 2, ease: 'power3.out' }, .3)
+    .to('[data-photo] picture', { clipPath: 'inset(0% 0 0 0 round 20px)', duration: 1.4, ease: 'power4.inOut' }, .3)
+    .from('[data-photo] img', { scale: 1.25, duration: 2.2, ease: 'power3.out' }, .3)
     .from('.hero .lead', { y: 24, autoAlpha: 0, duration: .9 }, .8)
     .from('.hero .cta-row', { y: 24, autoAlpha: 0, duration: .9 }, .95)
     .from('.hero-facts', { y: 24, autoAlpha: 0, duration: .9 }, 1.05)
@@ -246,7 +246,7 @@
     });
   }
 
-  gsap.to('[data-photo] img', { yPercent: 6, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.5 } });
+  gsap.to('[data-photo]', { y: 80, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.6 } });
 
   window.addEventListener('load', () => ScrollTrigger.refresh());
 })();
