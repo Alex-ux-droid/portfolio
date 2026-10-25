@@ -51,6 +51,7 @@
     store.set('lang', lang);
     if (track) { marqueeSet = (d && d['marquee'] != null) ? d['marquee'] : ukCache.get(track); buildMarquee(); }
     if (splitHero) splitHero();
+    document.dispatchEvent(new CustomEvent('lang:change'));
     if (window.ScrollTrigger) ScrollTrigger.refresh();
   };
   const urlLang = new URLSearchParams(location.search).get('lang');
@@ -221,6 +222,67 @@
     });
   }
 
+  /* ---------- Лабораторія: чат помічника друкує сам ---------- */
+  const chatLog = document.querySelector('[data-chat] .chat-log');
+  if (chatLog) {
+    const scriptUk = [
+      ['u', 'Клієнт з минулого тижня, той що питав про три апарати. Що з ним?'],
+      ['a', 'Петренко, запит 14.10. Чекав КП до п\'ятниці, я підготував його за твоїм шаблоном. Надіслати?'],
+      ['u', 'Так. І постав нагадування на вівторок.'],
+      ['a', 'Надіслав. Нагадування у вівторок о 10:00. Ще два клієнти без відповіді понад 3 дні, показати?'],
+    ];
+    const scriptEn = [
+      ['u', 'The client from last week, the one asking about three devices. Where are we?'],
+      ['a', 'Petrenko, enquiry of 14 Oct. He expected a proposal by Friday, I drafted it from your template. Send it?'],
+      ['u', 'Yes. And set a reminder for Tuesday.'],
+      ['a', 'Sent. Reminder Tuesday 10:00. Two more clients unanswered for over 3 days, show them?'],
+    ];
+    let running = false, stop = false;
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    const run = async () => {
+      if (running) return; running = true;
+      while (!stop) {
+        chatLog.innerHTML = '';
+        const lines = root.getAttribute('lang') === 'en' ? scriptEn : scriptUk;
+        for (const [who, text] of lines) {
+          if (stop) break;
+          const m = document.createElement('div'); m.className = 'msg ' + who;
+          const cur = document.createElement('i'); cur.className = 'cur';
+          chatLog.appendChild(m); m.appendChild(cur);
+          await sleep(who === 'a' ? 500 : 250);
+          for (let i = 0; i < text.length; i++) {
+            if (stop) break;
+            m.insertBefore(document.createTextNode(text[i]), cur);
+            await sleep(reduce ? 0 : (who === 'a' ? 18 : 28));
+          }
+          cur.remove();
+          await sleep(900);
+        }
+        await sleep(3500);
+      }
+      running = false;
+    };
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { stop = false; run(); } else { stop = true; } }), { threshold: .3 }).observe(chatLog);
+    } else run();
+  }
+
+  /* ---------- Лабораторія: журнал і архів з assets/lab.js ---------- */
+  const renderLab = () => {
+    const L = window.LAB; if (!L) return;
+    const en = root.getAttribute('lang') === 'en';
+    const jl = document.querySelector('[data-lab-journal]');
+    const tags = { agents: en ? 'agents' : 'агенти', base: en ? 'foundation' : 'фундамент', assistant: en ? 'assistant' : 'помічник', site: en ? 'site' : 'сайт' };
+    const fmt = (d) => { const [y, m, dd] = d.split('-'); const mu = ['січ', 'лют', 'бер', 'кві', 'тра', 'чер', 'лип', 'сер', 'вер', 'жов', 'лис', 'гру'], me = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']; return `${+dd} ${(en ? me : mu)[+m - 1]} ${y}`; };
+    if (jl) jl.innerHTML = L.journal.map((e) => `<li><time datetime="${e.date}">${fmt(e.date)}</time><p>${en ? e.en : e.uk}</p><span class="j-tag">${tags[e.tag] || e.tag}</span></li>`).join('');
+    const al = document.querySelector('[data-lab-archive]');
+    const st = { case: en ? 'became a case study' : 'стало кейсом', paused: en ? 'paused' : 'на паузі', closed: en ? 'closed' : 'закрито' };
+    if (al) al.innerHTML = L.archive.map((e) => `<li><span class="a-meta ${e.status}">${st[e.status]}</span><h3>${en ? e.en : e.uk}</h3><p>${en ? e.en_p : e.uk_p}</p>${e.href ? `<a href="${e.href}">${en ? 'Read the case study →' : 'Читати кейс →'}</a>` : ''}</li>`).join('');
+    const up = document.querySelector('[data-lab-updated]'); if (up) up.textContent = fmt(L.updated);
+  };
+  renderLab();
+  document.addEventListener('lang:change', renderLab);
+
   /* ---------- Hero words ---------- */
   const h1 = document.querySelector('[data-words]');
   let heroPlayed = false;
@@ -266,7 +328,18 @@
       .from('[data-words] .wi', { yPercent: 110, duration: 1.1, stagger: .06, ease: 'power4.out' }, .5)
       .from('.sm-lead > *, .case-hero .case-intro, .case-hero .ht-facts', { y: 24, autoAlpha: 0, duration: .9, stagger: .12 }, .9);
     gsap.to('.cover-media', { yPercent: 18, ease: 'none', scrollTrigger: { trigger: '.case-cover', start: 'top top', end: 'bottom top', scrub: .5 } });
+  } else if (!hasHero && document.querySelector('.lab-hero')) {
+    intro
+      .from('.site-header', { y: -20, autoAlpha: 0, duration: .8 }, 0)
+      .from('.lab-hero .eyebrow', { y: 16, autoAlpha: 0, duration: .7 }, .2)
+      .from('[data-words] .wi', { yPercent: 110, duration: 1.1, stagger: .06, ease: 'power4.out' }, .3)
+      .from('.lab-hero .lead, .lab-hero .lab-updated', { y: 20, autoAlpha: 0, duration: .9, stagger: .1 }, .8);
   } else if (!hasHero) gsap.from('.case-hero .section-head > *', { y: 20, autoAlpha: 0, duration: .8, stagger: .08, ease });
+
+  document.querySelectorAll('.lab-base').forEach((v) => {
+    const slabs = ['.s1', '.s2', '.s3', '.s4'].map((c) => v.querySelector(c)).filter(Boolean);
+    gsap.to(slabs, { opacity: 1, y: 0, duration: .9, stagger: .22, ease, scrollTrigger: { trigger: v, start: 'top 85%', once: true } });
+  });
 
   document.querySelectorAll('[data-count]').forEach((el) => {
     const target = +el.dataset.count; const obj = { v: 0 };
@@ -285,7 +358,7 @@
     ['.sm-hero', 0], ['.sm-cols > div', .1], ['.sm-grid figure', .08], ['.sm-foot', 0], ['.case-card', .1], ['.next-case', 0],
     ['.now-list li', .07],
     ['.contact-lead', 0], ['.contact-link', .08],
-    ['.cta', 0], ['.tt-story', 0], ['.tt-nums li', .06], ['.tt-how-text p', .08],
+    ['.cta', 0], ['.lab-card', .12], ['.stream', 0], ['.pipe', .08], ['.pipe-result', 0], ['.journal li', .05], ['.archive li', .06], ['.tt-story', 0], ['.tt-nums li', .06], ['.tt-how-text p', .08],
   ];
   groups.forEach(([sel, stagger]) => {
     const els = gsap.utils.toArray(sel);

@@ -258,20 +258,89 @@
   </section>
 
   <!-- ============ NOW ============ -->
-  <section class="section" id="now">
+  <section class="section lab-section" id="now">
     <div class="wrap">
     <div class="section-head">
       <span class="num">04</span>
       <h2 data-i18n="now.title">Над чим працюю</h2>
+      <p class="head-note" data-i18n="now.note">три напрямки, які рухаються щотижня</p>
     </div>
-    <ul class="now-list">
-      <li><span class="status s-on"></span><div><h3 data-i18n="now.0h">Відділ продажу під ключ</h3><p data-i18n="now.0p">Знайомий підприємець прийшов за рекламою. Проблема глибша: у бізнесі немає жодної системи. Роблю відділ продажу, сайт, телефонію, CRM, навчаю команду і ставлю дашборд керуючому, щоб він бачив увесь процес. Стане п'ятим кейсом.</p></div><span class="now-meta" data-i18n="st.on">в роботі</span></li>
-      <li><span class="status s-on"></span><div><h3 data-i18n="now.1h">ЖК «Aqua Vita»</h3><p data-i18n="now.1p">Забудовник з сильним продуктом і без бренду. Цифровий образ і система залучення покупців квартир: сайт, Google Ads, аналітика.</p></div><span class="now-meta" data-i18n="st.on">в роботі</span></li>
-      <li><span class="status s-on"></span><div><h3>Business Sim</h3><p data-i18n="now.2p">Тренажер бізнес-рішень на AI: береш збитковий бізнес, граєш 12 місяців, отримуєш розбір кожного ходу з ціною помилок. Перша партія зіграна, рівень «Оператор» у розробці.</p></div><span class="now-meta" data-i18n="st.on">в роботі</span></li>
-      <li><span class="status s-on"></span><div><h3 data-i18n="now.3h">Експертний контент</h3><p data-i18n="now.3p">Відео про бізнес-системи, незалежність і AI як робочий інструмент. Етап підготовки: формат, сценарії, виробництво.</p></div><span class="now-meta" data-i18n="st.prep">підготовка</span></li>
-      <li><span class="status s-idea"></span><div><h3>404bureau</h3><p data-i18n="now.4p">Концепт агенції для малого бізнесу: один партнер замість п'яти підрядників. Поки що ідея. Стане компанією після трьох живих кейсів, не раніше.</p></div><span class="now-meta" data-i18n="st.idea">задум</span></li>
-      <li><span class="status s-learn"></span><div><h3 data-i18n="now.5h">Навчання</h3><p data-i18n="now.5p">n8n і автоматизації, DataLayer глибше, англійська. UCU Business School (LvBS): «Інтернет-маркетинг: інтенсив для бізнесу», грудень 2025.</p></div><span class="now-meta" data-i18n="st.always">постійно</span></li>
-    </ul>
+    <div class="lab">
+
+      <article class="lab-card" data-lab="agents">
+        <div class="lab-visual lab-agents" aria-hidden="true">
+          <svg viewBox="0 0 360 220" fill="none">
+            <defs>
+              <linearGradient id="lg-edge" x1="0" x2="1"><stop offset="0" stop-color="#4F7CFF" stop-opacity=".15"/><stop offset="1" stop-color="#8FB0FF" stop-opacity=".5"/></linearGradient>
+              <filter id="f-glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <path id="e1" d="M48 110 C 90 110, 100 50, 150 50" class="edge"/>
+            <path id="e2" d="M48 110 C 100 110, 100 110, 150 110" class="edge"/>
+            <path id="e3" d="M48 110 C 90 110, 100 170, 150 170" class="edge"/>
+            <path id="e4" d="M186 50 C 220 50, 220 110, 256 110" class="edge"/>
+            <path id="e5" d="M186 110 C 220 110, 220 110, 256 110" class="edge"/>
+            <path id="e6" d="M186 170 C 220 170, 220 110, 256 110" class="edge"/>
+            <path id="e7" d="M292 110 C 310 110, 316 110, 332 110" class="edge"/>
+            <g class="node"><circle cx="30" cy="110" r="18"/><text x="30" y="114">in</text></g>
+            <g class="node agent"><circle cx="168" cy="50" r="18"/><text x="168" y="54">A1</text></g>
+            <g class="node agent"><circle cx="168" cy="110" r="18"/><text x="168" y="114">A2</text></g>
+            <g class="node agent"><circle cx="168" cy="170" r="18"/><text x="168" y="174">A3</text></g>
+            <g class="node check"><circle cx="274" cy="110" r="18"/><text x="274" y="114">QA</text></g>
+            <g class="node out"><circle cx="340" cy="110" r="10"/></g>
+            <g class="pulses" filter="url(#f-glow)">
+              <circle r="3.5"><animateMotion dur="2.4s" repeatCount="indefinite" begin="0s"><mpath href="#e1"/></animateMotion></circle>
+              <circle r="3.5"><animateMotion dur="2.4s" repeatCount="indefinite" begin="0.8s"><mpath href="#e2"/></animateMotion></circle>
+              <circle r="3.5"><animateMotion dur="2.4s" repeatCount="indefinite" begin="1.6s"><mpath href="#e3"/></animateMotion></circle>
+              <circle r="3.5"><animateMotion dur="2s" repeatCount="indefinite" begin="2.4s"><mpath href="#e4"/></animateMotion></circle>
+              <circle r="3.5"><animateMotion dur="2s" repeatCount="indefinite" begin="3.2s"><mpath href="#e5"/></animateMotion></circle>
+              <circle r="3.5"><animateMotion dur="2s" repeatCount="indefinite" begin="4s"><mpath href="#e6"/></animateMotion></circle>
+              <circle r="4"><animateMotion dur="1.2s" repeatCount="indefinite" begin="4.4s"><mpath href="#e7"/></animateMotion></circle>
+            </g>
+          </svg>
+          <div class="lab-tags"><span data-i18n="lab.a.t1">вхід</span><span data-i18n="lab.a.t2">агенти</span><span data-i18n="lab.a.t3">перевірка</span><span data-i18n="lab.a.t4">результат</span></div>
+        </div>
+        <div class="lab-body">
+          <span class="lab-stage"><i class="st-dot s-test"></i><span data-i18n="lab.a.stage">тестую · з серпня 2026</span></span>
+          <h3 data-i18n="lab.a.h">Армія агентів</h3>
+          <p data-i18n="lab.a.p">Не один промт, а ланцюг агентів, які передають роботу один одному і перевіряють один одного. Для довгих складних процесів, які не беруться однією командою.</p>
+          <p class="lab-next"><span data-i18n="lab.next">Далі:</span> <span data-i18n="lab.a.next">другий робочий процес у реальному офісі</span></p>
+        </div>
+      </article>
+
+      <article class="lab-card" data-lab="base">
+        <div class="lab-visual lab-base" aria-hidden="true">
+          <svg viewBox="0 0 360 220" fill="none">
+            <g class="slab s4"><path d="M38 60 L138 30 L238 60 L138 90 Z"/><text x="250" y="64" data-i18n="lab.b.l4">масштаб</text></g>
+            <g class="slab s3"><path d="M38 100 L138 70 L238 100 L138 130 Z"/><text x="250" y="104" data-i18n="lab.b.l3">процеси і звіти</text></g>
+            <g class="slab s2"><path d="M38 140 L138 110 L238 140 L138 170 Z"/><text x="250" y="144" data-i18n="lab.b.l2">CRM і облік</text></g>
+            <g class="slab s1"><path d="M38 180 L138 150 L238 180 L138 210 Z"/><text x="250" y="184" data-i18n="lab.b.l1">сайт і телефонія</text></g>
+          </svg>
+        </div>
+        <div class="lab-body">
+          <span class="lab-stage"><i class="st-dot s-on"></i><span data-i18n="lab.b.stage">в роботі · з 2025</span></span>
+          <h3 data-i18n="lab.b.h">Фундамент для бізнесу</h3>
+          <p data-i18n="lab.b.p">Базовий інструментарій для тих, у кого на старті мало грошей, але бізнесу треба вийти на продажі й обробляти клієнтів якісно. Спочатку фундамент, потім каркас, потім стіни.</p>
+          <p class="lab-next"><span data-i18n="lab.next">Далі:</span> <span data-i18n="lab.b.next">поточне впровадження: відділ продажу, сайт, телефонія, CRM, дашборд керуючому</span></p>
+        </div>
+      </article>
+
+      <article class="lab-card" data-lab="assistant">
+        <div class="lab-visual lab-chat" aria-hidden="true">
+          <div class="chat" data-chat>
+            <div class="chat-top"><i></i><span data-i18n="lab.c.title">помічник · контекст: 14 клієнтів, 3 задачі</span></div>
+            <div class="chat-log"></div>
+          </div>
+        </div>
+        <div class="lab-body">
+          <span class="lab-stage"><i class="st-dot s-start"></i><span data-i18n="lab.c.stage">старт · жовтень 2026</span></span>
+          <h3 data-i18n="lab.c.h">Агент-помічник для соло</h3>
+          <p data-i18n="lab.c.p">Для тих, хто не може найняти людей. Тримає контекст, знає одну задачу ідеально і дає брати більше клієнтів. Не загальний асистент, а власна ШІ-система під точкову справу.</p>
+          <p class="lab-next"><span data-i18n="lab.next">Далі:</span> <span data-i18n="lab.c.next">відточую на собі, потім перший зовнішній користувач</span></p>
+        </div>
+      </article>
+
+    </div>
+    <div class="cases-more"><a class="btn btn-ghost" href="lab/" data-magnetic><span data-i18n="lab.all">Уся лабораторія, журнал і архів →</span></a></div>
     </div>
   </section>
 
