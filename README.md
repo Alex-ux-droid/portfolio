@@ -18,6 +18,8 @@
 
 ## SEO
 
+`llms.txt` у корені: коротке резюме для ШІ-пошуку, онови, коли з'явиться новий кейс. Журнал і архів лабораторії зашиті в HTML (для краулерів без JS); після правки `assets/lab.js` перегенеруй їх у `lab/index.html`.
+
 `sitemap.xml` і `robots.txt` у корені, `404.html` для GitHub Pages. На кожній сторінці: canonical, hreflang uk/en/x-default, Open Graph, Twitter, JSON-LD (Person + WebSite на головній, Article + BreadcrumbList на кейсах, CollectionPage на списку кейсів, WebPage на лабораторії). Додаючи сторінку, допиши її в `sitemap.xml`.
 
 ## Локально
