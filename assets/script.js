@@ -170,6 +170,62 @@
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !lb.hidden) close(); });
   }
 
+  /* ---------- CTA: світло йде за курсором ---------- */
+  document.querySelectorAll('[data-cta]').forEach((cta) => {
+    if (!finePointer) return;
+    cta.addEventListener('pointermove', (e) => { const r = cta.getBoundingClientRect(); cta.style.setProperty('--mx', `${e.clientX - r.left}px`); cta.style.setProperty('--my', `${e.clientY - r.top}px`); });
+  });
+
+  /* ---------- Contact modal ---------- */
+  const modal = document.getElementById('contact-modal');
+  if (modal) {
+    const panel = modal.querySelector('.modal-panel');
+    const form = modal.querySelector('[data-contact-form]');
+    const status = modal.querySelector('.modal-status');
+    const tr = (k, uk) => { const d = dict[root.getAttribute('lang')]; return (d && d[k]) || uk; };
+    let lastFocus = null;
+    const openModal = () => {
+      lastFocus = document.activeElement;
+      modal.hidden = false; document.body.style.overflow = 'hidden';
+      if (window.gsap && !reduce) {
+        gsap.fromTo(modal.querySelector('.modal-backdrop'), { autoAlpha: 0 }, { autoAlpha: 1, duration: .35 });
+        gsap.fromTo(panel, { y: 28, scale: .97, autoAlpha: 0 }, { y: 0, scale: 1, autoAlpha: 1, duration: .55, ease: 'power3.out', clearProps: 'transform' });
+      }
+      setTimeout(() => { const f = form.querySelector('input'); f && f.focus(); }, 60);
+    };
+    const closeModal = () => {
+      const done = () => { modal.hidden = true; document.body.style.overflow = ''; if (lastFocus && lastFocus.focus) lastFocus.focus(); };
+      if (window.gsap && !reduce) gsap.to(panel, { y: 16, autoAlpha: 0, duration: .25, ease: 'power2.in', onComplete: () => { gsap.set(panel, { clearProps: 'all' }); done(); } });
+      else done();
+    };
+    document.querySelectorAll('[data-open-contact]').forEach((b) => b.addEventListener('click', openModal));
+    modal.querySelectorAll('[data-close-contact]').forEach((b) => b.addEventListener('click', closeModal));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const name = (fd.get('name') || '').toString().trim(), contact = (fd.get('contact') || '').toString().trim(), message = (fd.get('message') || '').toString().trim();
+      if (!name || !contact || !message) { status.textContent = tr('cm.fill', 'Заповніть усі три поля.'); return; }
+      const endpoint = form.dataset.endpoint;
+      const btn = form.querySelector('[type="submit"]');
+      if (endpoint) {
+        btn.disabled = true;
+        try {
+          const r = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ name, contact, message, page: location.href, lang: root.getAttribute('lang') }) });
+          if (!r.ok) throw new Error(r.status);
+          status.textContent = tr('cm.ok', 'Надіслано. Відповім протягом дня.'); form.reset();
+          document.dispatchEvent(new CustomEvent('contact:sent'));
+        } catch (_) { status.textContent = tr('cm.err', 'Не вдалося надіслати. Напишіть на casperlavkor@gmail.com або в Telegram.'); }
+        btn.disabled = false;
+      } else {
+        const subject = encodeURIComponent(`Запит з сайту: ${name}`);
+        const body = encodeURIComponent(`${message}\n\n— ${name}\nКонтакт: ${contact}`);
+        location.href = `mailto:casperlavkor@gmail.com?subject=${subject}&body=${body}`;
+        status.textContent = tr('cm.mail', 'Відкриваю вашу пошту з готовим листом. Якщо нічого не сталося, напишіть на casperlavkor@gmail.com або в Telegram.');
+      }
+    });
+  }
+
   /* ---------- Hero words ---------- */
   const h1 = document.querySelector('[data-words]');
   let heroPlayed = false;
@@ -224,6 +280,7 @@
     ['.sm-facts li', .07], ['.sm-hero', 0], ['.sm-cols > div', .1], ['.sm-grid figure', .08], ['.sm-foot', 0], ['.case-card', .1], ['.next-case', 0],
     ['.now-list li', .07],
     ['.contact-lead', 0], ['.contact-link', .08],
+    ['.cta', 0], ['.tt-story', 0], ['.tt-nums li', .06], ['.tt-how-text p', .08],
   ];
   groups.forEach(([sel, stagger]) => {
     const els = gsap.utils.toArray(sel);

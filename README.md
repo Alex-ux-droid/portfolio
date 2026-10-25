@@ -45,3 +45,7 @@ GitHub Pages через Actions (`.github/workflows/deploy.yml`). Деплоїт
 Роботи — `.works-list`: один `<li class="work" data-cat="...">` на роботу; категорії фільтра: `system`, `web`, `docs`, `deck`, `own`.
 Фото — `assets/img/portrait*.jpg|webp`, заміняй файли з тими самими іменами.
 Соцмережі — закоментований блок у секції `CONTACT`.
+
+## Форма контакту
+
+Модалка `#contact-modal` (кнопка «Написати мені» в CTA перед футером). Поки `data-endpoint=""` порожній, форма відкриває поштовий клієнт (mailto). Щоб листи приходили без пошти, впиши у `data-endpoint` URL вебхука (n8n, Web3Forms, Formspree): форма POST-ить JSON `{name, contact, message, page, lang}`.
