@@ -20,6 +20,9 @@ GitHub Pages через Actions (`.github/workflows/deploy.yml`). Деплоїт
 
 ## Як правити контент
 
-Увесь текст живе в `index.html`, секції підписані коментарями (`HERO`, `ABOUT`, `WORK`, `CASE`, `404BUREAU`, `CONTACT`).
-Кольори та шрифти — у `assets/styles.css`, блок `:root`.
+Увесь текст живе в `index.html`, секції підписані коментарями (`HERO`, `THINK`, `WORK`, `WORKS`, `CASE`, `NOW`, `CONTACT`).
+Роботи — список `.works-list` у секції `WORKS`: один `<li class="work" data-cat="...">` на роботу, категорії для фільтра: `system`, `web`, `docs`, `deck`, `own`.
+Фото — `assets/img/portrait*.jpg|webp`; заміни файли з тими самими іменами.
+Кольори та шрифти — у `assets/styles.css`, блок `:root` (світла) і блоки з `data-theme="dark"` (темна). Шрифт — Golos Text з Google Fonts.
+Анімації — `assets/script.js` (GSAP + ScrollTrigger + Lenis, вендорені в `assets/vendor/`).
 Соцмережі — закоментований блок у секції `CONTACT`.
