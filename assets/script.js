@@ -337,8 +337,20 @@
   } else if (!hasHero) gsap.from('.case-hero .section-head > *', { y: 20, autoAlpha: 0, duration: .8, stagger: .08, ease });
 
   document.querySelectorAll('.lab-base').forEach((v) => {
-    const slabs = ['.s1', '.s2', '.s3', '.s4'].map((c) => v.querySelector(c)).filter(Boolean);
-    gsap.to(slabs, { opacity: 1, y: 0, duration: .9, stagger: .22, ease, scrollTrigger: { trigger: v, start: 'top 85%', once: true } });
+    const q = (sel) => v.querySelectorAll(sel);
+    const tl = gsap.timeline({ scrollTrigger: { trigger: v, start: 'top 80%', once: true }, defaults: { ease } });
+    gsap.set(q('.f2 .col'), { scaleY: 0 });
+    tl.from(q('.floor'), { autoAlpha: 0, duration: .8 }, 0)
+      .fromTo(q('.f1'), { y: 30 }, { y: 0, autoAlpha: 1, duration: .8 }, .1)
+      .to(q('.lbl:nth-child(1)'), { autoAlpha: 1, duration: .4 }, .7)
+      .to(q('.f2'), { autoAlpha: 1, duration: .2 }, .8)
+      .to(q('.f2 .col'), { scaleY: 1, duration: .7, stagger: .08, ease: 'power2.out' }, .8)
+      .to(q('.lbl:nth-child(2)'), { autoAlpha: 1, duration: .4 }, 1.4)
+      .fromTo(q('.f3'), { y: 40 }, { y: 0, autoAlpha: 1, duration: .9 }, 1.5)
+      .to(q('.lbl:nth-child(3)'), { autoAlpha: 1, duration: .4 }, 2.2)
+      .fromTo(q('.f4'), { y: 40 }, { y: 0, autoAlpha: 1, duration: .9 }, 2.3)
+      .to(q('.f5'), { autoAlpha: 1, duration: .5 }, 3)
+      .to(q('.lbl:nth-child(4)'), { autoAlpha: 1, duration: .4 }, 3);
   });
 
   document.querySelectorAll('[data-count]').forEach((el) => {

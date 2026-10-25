@@ -567,15 +567,25 @@ img { display: block; max-width: 100%; height: auto; }
 .lab-agents .node text { fill: var(--ink-2); font-size: 11px; font-weight: 600; text-anchor: middle; font-family: var(--font); letter-spacing: .04em; }
 .lab-agents .pulses circle { fill: #BFD3FF; }
 .lab-tags { position: absolute; left: 14px; right: 14px; bottom: 10px; display: flex; justify-content: space-between; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; }
-/* foundation slabs */
-.lab-base .slab path { fill: rgba(79,124,255,.10); stroke: var(--accent-2); stroke-width: 1; stroke-opacity: .6; }
-.lab-base .slab.s1 path { fill: rgba(79,124,255,.26); }
-.lab-base .slab.s2 path { fill: rgba(79,124,255,.20); }
-.lab-base .slab.s3 path { fill: rgba(79,124,255,.14); }
-.lab-base .slab text { fill: var(--ink-2); font-size: 10.5px; font-family: var(--font); font-weight: 500; letter-spacing: .02em; }
-.js .lab-base .slab { opacity: 0; transform: translateY(26px); }
-.lab-base .slab.s4 path { animation: slabglow 3s ease-in-out infinite; }
-@keyframes slabglow { 0%,100% { fill: rgba(79,124,255,.10); } 50% { fill: rgba(143,176,255,.3); } }
+/* foundation building */
+.lab-base .floor { stroke: rgba(143,176,255,.14); stroke-width: .8; }
+.lab-base .f .ft { fill: rgba(143,176,255,.32); stroke: rgba(191,211,255,.7); stroke-width: .8; }
+.lab-base .f .fl { fill: rgba(79,124,255,.22); stroke: rgba(191,211,255,.35); stroke-width: .8; }
+.lab-base .f .fr { fill: rgba(40,70,160,.45); stroke: rgba(191,211,255,.35); stroke-width: .8; }
+.lab-base .f1 .ft { fill: rgba(143,176,255,.22); }
+.lab-base .f2 .beam { fill: none; stroke: rgba(191,211,255,.6); stroke-width: 1; stroke-dasharray: 3 3; }
+.lab-base .f3 .win { fill: rgba(191,211,255,.25); stroke: none; animation: win 4.5s ease-in-out infinite; animation-delay: var(--d, 0s); }
+@keyframes win { 0%, 100% { fill: rgba(191,211,255,.18); } 50% { fill: rgba(255,255,255,.75); } }
+.lab-base .f4 .ft { fill: rgba(191,211,255,.6); }
+.lab-base .f5 .core { fill: #fff; filter: drop-shadow(0 0 6px #8FB0FF); }
+.lab-base .f5 .ring { fill: none; stroke: #8FB0FF; stroke-width: 1; animation: ring 2.6s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+.lab-base .f5 .ring.r2 { animation-delay: 1.3s; }
+@keyframes ring { 0% { transform: scale(.4); opacity: .9; } 100% { transform: scale(4); opacity: 0; } }
+.lab-base .lbl path { stroke: rgba(143,176,255,.45); stroke-width: .8; }
+.lab-base .lbl circle { fill: #BFD3FF; }
+.lab-base .lbl text { fill: var(--ink-2); font-size: 10.5px; font-family: var(--font); font-weight: 500; letter-spacing: .02em; }
+.js .lab-base .f, .js .lab-base .lbl { opacity: 0; }
+.lab-base .f2 .col { transform-box: fill-box; transform-origin: 50% 100%; }
 /* chat */
 .lab-chat { aspect-ratio: 16 / 10; }
 .chat { position: absolute; inset: 14px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--bg); display: flex; flex-direction: column; overflow: hidden; }
