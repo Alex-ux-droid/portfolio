@@ -739,3 +739,6 @@ img { display: block; max-width: 100%; height: auto; }
 @media (max-width: 600px) { .contact-main { grid-template-columns: 1fr; } .c-card { min-height: 0; } .contact-social em { display: none; } .contact-social a { grid-template-columns: 22px 1fr auto; } }
 .about-hero .sm-facts { grid-template-columns: repeat(4, 1fr); }
 @media (max-width: 860px) { .about-hero .sm-facts { grid-template-columns: 1fr 1fr; } }
+.byline { margin: 28px 0 0; font-size: 14px; color: var(--ink-3); }
+.byline a { color: var(--ink-2); text-decoration: none; border-bottom: 1px solid var(--line-2); }
+.byline a:hover { color: var(--ink); border-color: var(--accent); }

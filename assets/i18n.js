@@ -246,6 +246,7 @@ window.I18N = {
     "about.q2": "What exactly does Oleksandr Bentsa do?", "about.a2": "He looks at a business as a whole, finds the problem everyone avoids, designs a system around real people, builds it together with AI and hands it over so it lives without him. Case studies: Turbo Terminal, Dilnytsia 10.6, Smirnovich, Health Time.",
     "about.q3": "Does Oleksandr Bentsa work with small businesses?", "about.a3": "Yes. One of his directions is a basic foundation for businesses with a small budget at the start: website, telephony, CRM, records, reports, and training the team to use them.",
     "about.q4": "How to contact Oleksandr Bentsa?", "about.a4": "E-mail casperlavkor@gmail.com, Telegram @alexbentsa, LinkedIn. He replies personally within a day.",
+    "case.by": "Author and builder:",
     "ck.title": "Cookies",
     "ck.text": "Only to remember your language and to understand which sections get read. No ads.",
     "ck.accept": "Accept", "ck.decline": "Decline"
