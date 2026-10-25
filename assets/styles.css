@@ -743,3 +743,4 @@ img { display: block; max-width: 100%; height: auto; }
 .byline a { color: var(--ink-2); text-decoration: none; border-bottom: 1px solid var(--line-2); }
 .byline a:hover { color: var(--ink); border-color: var(--accent); }
 @media (max-width: 640px) { .m-num { display: none; } }
+@media (max-width: 640px) { .step-n { display: none; } .step h3 { margin-top: 0; } }
