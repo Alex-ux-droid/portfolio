@@ -49,7 +49,7 @@
     root.setAttribute('lang', lang);
     document.querySelectorAll('.lang-toggle span').forEach((s) => s.classList.toggle('on', s.dataset.lang === lang));
     store.set('lang', lang);
-    if (track) { const n = nodes.find((el) => el === track); marqueeSet = n ? (d && d['marquee'] != null ? d['marquee'] : ukCache.get(track)) : marqueeSet; buildMarquee(); }
+    buildMarquee();
     if (splitHero) splitHero();
     if (window.ScrollTrigger) ScrollTrigger.refresh();
   };
@@ -204,7 +204,7 @@
 
   const groups = [
     ['.manifesto li', .07], ['.about-strip > *', .12],
-    ['.grid.cards .card', .08], ['.skills li', .05], ['.sub-head', 0],
+    ['.grid.cards .card', .08], ['.skills li', .05], ['.sub-head', 0], ['.testimonial', 0],
     ['.works-filter', 0], ['.work', .03], ['.works-note', 0],
     ['.case-intro', 0], ['.case-block', .07],
     ['.now-list li', .07],
