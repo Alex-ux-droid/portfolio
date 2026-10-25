@@ -150,7 +150,7 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
 }
 .hero-facts li { background: var(--bg); padding: 22px 22px 20px; display: grid; gap: 4px; }
 .hero-facts strong { font-size: 24px; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
-.hero-facts span { font-size: 13px; color: var(--ink-2); line-height: 1.4; font-weight: 600; }
+.hero-facts li > span { font-size: 13px; color: var(--ink-2); line-height: 1.4; font-weight: 600; }
 
 /* ---------- Marquee ---------- */
 .marquee { overflow: hidden; border-top: 1px solid var(--line); padding: 16px 0; margin: 0 calc(-1 * var(--gutter)); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
