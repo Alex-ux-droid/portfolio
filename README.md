@@ -36,7 +36,7 @@ GitHub Pages через Actions (`.github/workflows/deploy.yml`). Деплоїт
 
 ## Кейси
 
-На головній блок `CASES` з картками. Повний розбір кожного кейсу — окрема сторінка в `cases/` (`smirnovich.html`, `health-time.html`).
+На головній блок `CASES` з картками. Повний розбір кожного кейсу — окрема сторінка в `cases/` (`index.html` — усі кейси, сюди веде кнопка «Портфоліо»; `smirnovich.html`, `health-time.html`, `turbo-terminal.html`).
 Новий кейс: скопіюй одну зі сторінок, заміни контент, додай картку на головній і ключі в `i18n.js`. PDF кейсів лежать в `assets/docs/`, скріншоти в `assets/img/<кейс>/`.
 
 ## Контент
