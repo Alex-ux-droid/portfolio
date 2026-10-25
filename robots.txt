@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /assets/vendor/
 
-Sitemap: https://alex-ux-droid.github.io/portfolio/sitemap.xml
+Sitemap: https://alexbentsa.com/sitemap.xml

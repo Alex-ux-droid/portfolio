@@ -14,7 +14,7 @@
 Команда збірки підставляє хеш коміту в `?v=` для CSS/JS, щоб після оновлення браузери не тримали старі файли.
 `_headers` задає кеш для `/assets/*` і security-заголовки. `404.html` розрахований на хостинг у корені домену.
 
-Після підключення домену замінити `https://alex-ux-droid.github.io/portfolio/` на новий домен у всіх сторінках, `sitemap.xml` і `robots.txt`.
+Після підключення домену замінити `https://alexbentsa.com/` на новий домен у всіх сторінках, `sitemap.xml` і `robots.txt`.
 
 ## SEO
 
@@ -29,7 +29,7 @@ npx serve .
 ## Деплой
 
 GitHub Pages через Actions (`.github/workflows/deploy.yml`). Деплоїться при пуші в `main` або `claude/determined-ritchie-6vjlx6`.
-Адреса: https://alex-ux-droid.github.io/portfolio/
+Адреса: https://alexbentsa.com/
 
 ## Правило розкладки
 
