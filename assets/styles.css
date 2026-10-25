@@ -675,3 +675,15 @@ img { display: block; max-width: 100%; height: auto; }
 @media (max-width: 860px) { .stream { grid-template-columns: 1fr; } .stream:nth-of-type(even) .stream-visual { order: 0; } .archive { grid-template-columns: 1fr; } .journal li { grid-template-columns: 1fr; gap: 6px; } }
 .cc-body h2 { font-size: 1.4rem; font-weight: 500; letter-spacing: -0.02em; }
 .case-page .case-hero > .wrap > .sub-head:first-of-type { margin-top: 0; }
+
+/* ---------- Кнопка «нагору»: завжди в кутку, з кільцем прогресу читання ---------- */
+.to-top { position: fixed; right: 22px; bottom: 22px; z-index: 60; width: 52px; height: 52px; border-radius: 50%; border: 0; padding: 0; background: color-mix(in srgb, var(--bg-elev) 85%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: var(--ink); cursor: pointer; display: grid; place-items: center; box-shadow: 0 10px 30px -12px rgba(0,0,0,.8), 0 0 0 1px var(--line-2); opacity: 0; transform: translateY(16px) scale(.9); pointer-events: none; transition: opacity .35s, transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .25s, color .2s; }
+.to-top.on { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover { color: var(--accent-2); box-shadow: 0 14px 36px -12px rgba(79,124,255,.6), 0 0 0 1px var(--accent); }
+.to-top > svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.to-top .tt-track { fill: none; stroke: var(--line-2); stroke-width: 2; }
+.to-top .tt-ring { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 119.4; stroke-dashoffset: calc(119.4 * (1 - var(--p, 0))); transition: stroke-dashoffset .1s linear; }
+.to-top i { position: relative; display: grid; place-items: center; transition: transform .3s cubic-bezier(.2,.7,.2,1); }
+.to-top:hover i { transform: translateY(-2px); }
+.to-top:active { transform: scale(.94); }
+@media (max-width: 480px) { .to-top { right: 14px; bottom: 14px; width: 46px; height: 46px; } .cookie { bottom: 72px; } }

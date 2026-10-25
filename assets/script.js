@@ -105,6 +105,8 @@
   /* ---------- Header, nav, progress ---------- */
   const header = document.querySelector('.site-header');
   const progress = document.querySelector('.progress');
+  const toTop = document.querySelector('[data-to-top]');
+  if (toTop) toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }));
   const nav = document.querySelector('.site-nav');
   const ind = document.querySelector('.nav-ind');
   const navLinks = nav ? [...nav.querySelectorAll('a')] : [];
@@ -120,6 +122,7 @@
     const sy = window.scrollY;
     if (header) header.classList.toggle('scrolled', sy > 24);
     if (progress) { const max = document.documentElement.scrollHeight - innerHeight; progress.style.transform = `scaleX(${max > 0 ? sy / max : 0})`; }
+    if (toTop) { const max = document.documentElement.scrollHeight - innerHeight; toTop.style.setProperty('--p', (max > 0 ? sy / max : 0).toFixed(3)); toTop.classList.toggle('on', sy > innerHeight * .6); }
     let cur = null;
     sections.forEach((s, i) => { if (s.getBoundingClientRect().top <= innerHeight * .4) cur = navLinks[i]; });
     if (cur !== activeLink) { activeLink = cur; moveInd(cur); }
