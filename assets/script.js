@@ -10,25 +10,6 @@
     set: (k, v) => { try { localStorage.setItem(k, v); } catch (_) {} },
   };
 
-  /* ---------- Theme ---------- */
-  const saved = store.get('theme');
-  if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
-  const isDark = () => (root.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')) === 'dark';
-  const toggle = document.querySelector('.theme-toggle');
-  if (toggle) {
-    toggle.addEventListener('click', (e) => {
-      const next = isDark() ? 'light' : 'dark';
-      const apply = () => { root.setAttribute('data-theme', next); store.set('theme', next); };
-      if (!document.startViewTransition || reduce) { apply(); return; }
-      const r0 = toggle.getBoundingClientRect();
-      const x = e.clientX || r0.left + 18, y = e.clientY || r0.top + 18;
-      const r = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
-      const vt = document.startViewTransition(apply);
-      vt.ready.then(() => root.animate({ clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${r}px at ${x}px ${y}px)`] },
-        { duration: 650, easing: 'cubic-bezier(.2,.7,.2,1)', pseudoElement: '::view-transition-new(root)' }));
-    });
-  }
-
   /* ---------- i18n ---------- */
   const dict = window.I18N || {};
   const nodes = [...document.querySelectorAll('[data-i18n]')];
