@@ -1,10 +1,8 @@
 # Портфоліо — Олександр Бенца
 
-Статичний сайт без збірки: `index.html` + `assets/`. Жодних залежностей.
+Статичний сайт без збірки: `index.html` + `assets/`. Жодних залежностей на рантаймі, GSAP вендорений.
 
 ## Локально
-
-Відкрий `index.html` у браузері або підніми будь-який статичний сервер:
 
 ```bash
 npx serve .
@@ -12,17 +10,33 @@ npx serve .
 
 ## Деплой
 
-GitHub Pages через Actions (`.github/workflows/deploy.yml`). Деплоїться при пуші в `main`.
-
-Один раз у налаштуваннях репозиторію: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-
+GitHub Pages через Actions (`.github/workflows/deploy.yml`). Деплоїться при пуші в `main` або `claude/determined-ritchie-6vjlx6`.
 Адреса: https://alex-ux-droid.github.io/portfolio/
 
-## Як правити контент
+## Правило розкладки
 
-Увесь текст живе в `index.html`, секції підписані коментарями (`HERO`, `THINK`, `WORK`, `WORKS`, `CASE`, `NOW`, `CONTACT`).
-Роботи — список `.works-list` у секції `WORKS`: один `<li class="work" data-cat="...">` на роботу, категорії для фільтра: `system`, `web`, `docs`, `deck`, `own`.
-Фото — `assets/img/portrait*.jpg|webp`; заміни файли з тими самими іменами.
-Кольори та шрифти — у `assets/styles.css`, блок `:root` (світла) і блоки з `data-theme="dark"` (темна). Шрифт — Golos Text з Google Fonts.
-Анімації — `assets/script.js` (GSAP + ScrollTrigger + Lenis, вендорені в `assets/vendor/`).
+1. Секції (`.section`) завжди на всю ширину екрана: фон, лінії, смуги.
+2. Контент усередині — у `.wrap`: по центру, `max-width: var(--wrap)` (1320px), бічні поля `--gutter` ростуть з екраном.
+3. Блоки на весь екран виходять з `.wrap`: фото в hero (bleed вправо), marquee, темна смуга «Підхід» (`.band`), контактна смуга (`.band-2`).
+4. Порожні поля по боках робочі: на ≥1500px туди виноситься великий номер секції.
+5. Базовий розмір шрифту трохи росте з екраном (`html { font-size: clamp(...) }`), тому на 4K усе масштабується.
+
+Коментар з цим правилом є на початку `assets/styles.css`.
+
+## Дві мови
+
+Українська — джерело, в `index.html`. Англійська — `assets/i18n.js`, ключ = атрибут `data-i18n` елемента.
+Перемикач у шапці, вибір запам'ятовується; `?lang=en` у посиланні відкриває англійську одразу.
+Додаючи текст: постав `data-i18n="ключ"` в HTML і додай ключ у `i18n.js`.
+
+## Кукі
+
+Банер у кінці `index.html` (`.cookie`). Згода зберігається у localStorage.
+Аналітику підключати після події `consent:accepted` у `assets/script.js` (є коментар). Поки аналітики немає.
+
+## Контент
+
+Секції підписані коментарями: `HERO`, `THINK`, `WORK`, `WORKS`, `CASE`, `NOW`, `CONTACT`.
+Роботи — `.works-list`: один `<li class="work" data-cat="...">` на роботу; категорії фільтра: `system`, `web`, `docs`, `deck`, `own`.
+Фото — `assets/img/portrait*.jpg|webp`, заміняй файли з тими самими іменами.
 Соцмережі — закоментований блок у секції `CONTACT`.
