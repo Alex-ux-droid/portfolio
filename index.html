@@ -4,13 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title data-i18n="meta.title">Олександр Бенца — переношу бізнеси в майбутнє</title>
-  <meta name="description" data-i18n-content="meta.desc" content="Олександр Бенца. У всьому бачу систему. Беру бізнес, який «так склався», і переношу його в майбутнє: відділ продажу, CRM, телефонія, кіоски для людей 60+, ШІ, дашборд власнику. Три системи, що працюють без мене.">
+  <meta name="description" data-i18n-content="meta.desc" content="У всьому бачу систему. Беру бізнес, який «так склався», і переношу його в майбутнє: продажі, CRM, телефонія, ШІ-агенти. Чотири системи, що працюють без мене.">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#0A0C10">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="canonical" href="https://alex-ux-droid.github.io/portfolio/">
   <link rel="alternate" hreflang="uk" href="https://alex-ux-droid.github.io/portfolio/">
   <link rel="alternate" hreflang="en" href="https://alex-ux-droid.github.io/portfolio/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://alex-ux-droid.github.io/portfolio/">
 
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Олександр Бенца — переношу бізнеси в майбутнє">
@@ -20,27 +22,19 @@
   <meta property="og:locale" content="uk_UA">
   <meta property="og:locale:alternate" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Олександр Бенца — переношу бізнеси в майбутнє">
+  <meta name="twitter:description" content="У всьому бачу систему. Беру бізнес, який «так склався», і переношу його в майбутнє. Наукова фантастика, яка вже працює.">
+  <meta name="twitter:image" content="https://alex-ux-droid.github.io/portfolio/assets/og.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
   <link rel="preload" as="image" href="assets/img/portrait.webp" type="image/webp">
   <link rel="stylesheet" href="assets/styles.css?v=dev">
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Олександр Бенца",
-    "alternateName": "Oleksandr Bentsa",
-    "jobTitle": "Systems builder and innovator",
-    "email": "mailto:casperlavkor@gmail.com",
-    "url": "https://alex-ux-droid.github.io/portfolio/",
-    "image": "https://alex-ux-droid.github.io/portfolio/assets/img/portrait.jpg",
-    "address": { "@type": "PostalAddress", "addressCountry": "UA" },
-    "knowsAbout": ["Business systems", "Automation", "AI-first development", "Shopify", "Sales operations", "CRM", "China sourcing", "AI tools", "Prompt engineering", "Google Tag Manager"],
-    "sameAs": ["https://github.com/Alex-ux-droid", "https://www.linkedin.com/in/oleksandr-bentsa-8b295433a", "https://www.instagram.com/alex.bentsa", "https://t.me/alexbentsa"]
-  }
+  {"@context": "https://schema.org", "@graph": [{"@type": "Person", "name": "Олександр Бенца", "alternateName": "Oleksandr Bentsa", "url": "https://alex-ux-droid.github.io/portfolio/", "image": "https://alex-ux-droid.github.io/portfolio/assets/img/portrait.jpg", "sameAs": ["https://github.com/Alex-ux-droid", "https://www.linkedin.com/in/oleksandr-bentsa-8b295433a", "https://www.instagram.com/alex.bentsa", "https://t.me/alexbentsa"], "jobTitle": "Systems builder and innovator", "email": "mailto:casperlavkor@gmail.com", "address": {"@type": "PostalAddress", "addressCountry": "UA"}, "knowsAbout": ["Business systems", "AI agents", "Automation", "AI-first development", "Shopify", "Sales operations", "CRM", "Telephony", "China sourcing"]}, {"@type": "WebSite", "name": "Олександр Бенца — портфоліо", "url": "https://alex-ux-droid.github.io/portfolio/", "inLanguage": ["uk", "en"], "author": {"@type": "Person", "name": "Олександр Бенца"}}]}
   </script>
 </head>
 <body>
@@ -48,7 +42,7 @@
 <a class="skip" href="#main" data-i18n="skip">До контенту</a>
 
 <header class="site-header">
-  <a class="brand" href="#top" aria-label="На початок">
+  <a class="brand" href="#top">
     <span class="brand-mark" aria-hidden="true">ОБ</span>
     <span class="brand-name" data-i18n="brand">Олександр Бенца</span>
   </a>
@@ -62,7 +56,7 @@
   </nav>
   <div class="header-tools">
     <a class="btn btn-primary btn-sm hdr-cta" href="cases/" data-magnetic><span data-i18n="hdr.cta">Портфоліо</span></a>
-    <button class="lang-toggle" type="button" aria-label="Switch language"><span data-lang="uk" class="on">UA</span><i></i><span data-lang="en">EN</span></button>
+    <button class="lang-toggle" type="button" title="UA / EN"><span data-lang="uk" class="on">UA</span><i></i><span data-lang="en">EN</span></button>
   </div>
 </header>
 
@@ -213,7 +207,7 @@
     </div>
     <div class="cases">
       <a class="case-card" href="cases/turbo-terminal.html">
-        <div class="cc-cover"><picture><source srcset="assets/img/turbo-terminal/cover.webp" type="image/webp"><img src="assets/img/turbo-terminal/cover.jpg" alt="" loading="lazy"></picture></div>
+        <div class="cc-cover"><picture><source srcset="assets/img/turbo-terminal/cover.webp" type="image/webp"><img src="assets/img/turbo-terminal/cover.jpg" alt="" loading="lazy" width="1600" height="900"></picture></div>
         <div class="cc-body">
           <span class="cc-meta"><span data-i18n="cases.tt.type">Система обліку митного терміналу</span> · 2026</span>
           <h3 data-i18n="cases.tt.h">Турбо Термінал</h3>
@@ -223,7 +217,7 @@
         </div>
       </a>
       <a class="case-card" href="cases/dilnytsia.html">
-        <div class="cc-cover"><picture><source srcset="assets/img/dilnytsia/cover.webp" type="image/webp"><img src="assets/img/dilnytsia/cover.jpg" alt="" loading="lazy"></picture></div>
+        <div class="cc-cover"><picture><source srcset="assets/img/dilnytsia/cover.webp" type="image/webp"><img src="assets/img/dilnytsia/cover.jpg" alt="" loading="lazy" width="1600" height="900"></picture></div>
         <div class="cc-body">
           <span class="cc-meta"><span data-i18n="cases.dl.type">Система обліку станції техогляду</span> · 2026</span>
           <h3 data-i18n="cases.dl.h">Дільниця 10.6</h3>
@@ -233,7 +227,7 @@
         </div>
       </a>
       <a class="case-card" href="cases/smirnovich.html">
-        <div class="cc-cover"><picture><source srcset="assets/img/smirnovich/cover.webp" type="image/webp"><img src="assets/img/smirnovich/cover.jpg" alt="" loading="lazy"></picture></div>
+        <div class="cc-cover"><picture><source srcset="assets/img/smirnovich/cover.webp" type="image/webp"><img src="assets/img/smirnovich/cover.jpg" alt="" loading="lazy" width="1600" height="900"></picture></div>
         <div class="cc-body">
           <span class="cc-meta"><span data-i18n="cases.sm.type">Сайт-галерея з продажем картин</span> · 2026</span>
           <h3>Smirnovich</h3>
@@ -243,7 +237,7 @@
         </div>
       </a>
       <a class="case-card" href="cases/health-time.html">
-        <div class="cc-cover"><picture><source srcset="assets/img/health-time/cover.webp" type="image/webp"><img src="assets/img/health-time/cover.jpg" alt="" loading="lazy"></picture></div>
+        <div class="cc-cover"><picture><source srcset="assets/img/health-time/cover.webp" type="image/webp"><img src="assets/img/health-time/cover.jpg" alt="" loading="lazy" width="1600" height="900"></picture></div>
         <div class="cc-body">
           <span class="cc-meta"><span data-i18n="cases.ht.type">Бізнес-система для дистриб'ютора обладнання</span> · 2025–2026</span>
           <h3>Health Time</h3>
@@ -338,7 +332,7 @@
     <div class="section-head">
       <span class="num">05</span>
       <h2 data-i18n="works.title">Роботи</h2>
-      <p class="head-note" data-i18n="works.note">2025–2026 · здебільшого для Health Time</p>
+      <p class="head-note" data-i18n="works.note">23 позиції · 2025–2026</p>
     </div>
 
     <div class="works-filter" role="tablist" aria-label="Фільтр">
@@ -371,7 +365,7 @@
       <li class="work" data-cat="deck"><span class="w-idx">18</span><div class="w-main"><h3>LPG · VibroVacuum 360 · EndoSculpt · BTL Emsella</h3><p data-i18n="w15.p">Ще чотири презентації під лінійку апаратів для салонів і клінік.</p></div><span class="w-tag" data-i18n="tag.deck4">Презентації · 4</span><span class="w-year">2025–26</span></li>
       <li class="work" data-cat="deck"><span class="w-idx">19</span><div class="w-main"><h3 data-i18n="w16.h">Школа масажу Health Time</h3><p data-i18n="w16.p">Презентація курсу «Базовий масажист»: викладач, програма, працевлаштування.</p></div><span class="w-tag" data-i18n="tag.deck">Презентація</span><span class="w-year">2025</span></li>
       <li class="work" data-cat="docs"><span class="w-idx">20</span><div class="w-main"><h3 data-i18n="w17.h">Методичні рекомендації NeuroPulse EMS Pro</h3><p data-i18n="w17.p">Інструкція для спеціалістів. Щоб продане обладнання реально використовували.</p></div><span class="w-tag" data-i18n="tag.manual">Методичка</span><span class="w-year">2025</span></li>
-      <li class="work" data-cat="own"><span class="w-idx">21</span><div class="w-main"><h3 data-i18n="w18.h">Business Sim — тренажер бізнес-рішень</h3><p data-i18n="w18.p">12 місяців у чужому бізнесі зі збитком і боргом. Кожен хід&nbsp;— розбір: каса проти прибутку, патерни помилок, табель. Збираю на AI.</p></div><span class="w-tag" data-i18n="tag.own">Власне</span><span class="w-year">2026</span></li>
+      <li class="work" data-cat="own"><span class="w-idx">21</span><div class="w-main"><h3 data-i18n="w18.h">Business Sim — тренажер бізнес-рішень</h3><p data-i18n="w18.p">12 місяців у чужому бізнесі зі збитком і боргом. Кожен хід&nbsp;— розбір: каса проти прибутку, патерни помилок, табель. Перша партія зіграна, на паузі.</p></div><span class="w-tag" data-i18n="tag.own">Власне</span><span class="w-year">2026</span></li>
       <li class="work" data-cat="own"><span class="w-idx">22</span><div class="w-main"><h3 data-i18n="w19.h">Голос і тон — система письма</h3><p data-i18n="w19.p">Правила, за якими пишу для бізнесу: конкретний образ замість ідеї, короткі речення, нуль кліше.</p></div><span class="w-tag" data-i18n="tag.own">Власне</span><span class="w-year">2026</span></li>
       <li class="work" data-cat="own"><span class="w-idx">23</span><div class="w-main"><h3 data-i18n="w20.h">Цей сайт</h3><p data-i18n="w20.p">Статика без збірки, GSAP, дві мови, кейси окремими сторінками. Зібраний разом з Claude Code.</p></div><span class="w-tag" data-i18n="tag.own">Власне</span><span class="w-year">2026</span></li>
     </ol>
@@ -430,7 +424,7 @@
       <p data-i18n="cm.lead">Відповідаю особисто. Без спаму і розсилок: один лист або повідомлення у відповідь.</p>
       <div class="modal-person">
         <picture><source srcset="assets/img/portrait-800.webp" type="image/webp"><img src="assets/img/portrait-800.jpg" alt="Олександр Бенца" width="56" height="56" loading="lazy"></picture>
-        <div><strong data-i18n="brand">Олександр Бенца</strong><span data-i18n="cm.role">бізнес-системи</span></div>
+        <div><strong data-i18n="brand">Олександр Бенца</strong><span data-i18n="cm.role">системи, автоматизація, ШІ</span></div>
       </div>
     </div>
     <form class="modal-form" data-contact-form data-endpoint="" novalidate>
@@ -457,7 +451,7 @@
         <path d="M24 4a20 20 0 0 0-5 39.4A20 20 0 0 1 30 4.9 8 8 0 0 0 24 4z" fill="#C98B52" opacity=".55"/>
         <circle cx="15" cy="18" r="2.6" fill="#5A3A1E"/><circle cx="26" cy="30" r="3" fill="#5A3A1E"/><circle cx="15" cy="31" r="2" fill="#5A3A1E"/><circle cx="33" cy="20" r="2.2" fill="#5A3A1E"/><circle cx="22" cy="12" r="1.6" fill="#5A3A1E"/><circle cx="35" cy="34" r="1.8" fill="#5A3A1E"/>
       </svg>
-      <h3 data-i18n="ck.title">Файли cookie</h3>
+      <p class="ck-title" data-i18n="ck.title">Файли cookie</p>
     </div>
     <p data-i18n="ck.text">Тільки щоб запам'ятати мову та розуміти, які розділи читають. Без реклами.</p>
     <div class="cookie-actions">

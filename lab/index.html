@@ -8,9 +8,13 @@
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#0A0C10">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <link rel="canonical" href="https://alex-ux-droid.github.io/portfolio/lab/">
+  <link rel="alternate" hreflang="uk" href="https://alex-ux-droid.github.io/portfolio/lab/">
+  <link rel="alternate" hreflang="en" href="https://alex-ux-droid.github.io/portfolio/lab/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://alex-ux-droid.github.io/portfolio/lab/">
 
-  <meta property="og:type" content="profile">
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Лабораторія: над чим працюю · Олександр Бенца">
   <meta property="og:description" content="Три напрямки, які рухаються щотижня: армія агентів, фундамент для бізнесу, агент-помічник для соло. Журнал змін і архів.">
   <meta property="og:url" content="https://alex-ux-droid.github.io/portfolio/lab/">
@@ -18,20 +22,27 @@
   <meta property="og:locale" content="uk_UA">
   <meta property="og:locale:alternate" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Лабораторія: над чим працюю · Олександр Бенца">
+  <meta name="twitter:description" content="Три напрямки, які рухаються щотижня: армія агентів, фундамент для бізнесу, агент-помічник для соло. Журнал змін і архів.">
+  <meta name="twitter:image" content="https://alex-ux-droid.github.io/portfolio/assets/og.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
   <link rel="preload" as="image" href="../assets/img/smirnovich/cover.webp" type="image/webp">
   <link rel="stylesheet" href="../assets/styles.css?v=dev">
 
-  </head>
+    <script type="application/ld+json">
+  {"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "name": "Лабораторія: над чим працюю · Олександр Бенца", "url": "https://alex-ux-droid.github.io/portfolio/lab/", "inLanguage": "uk", "author": {"@type": "Person", "name": "Олександр Бенца", "alternateName": "Oleksandr Bentsa", "url": "https://alex-ux-droid.github.io/portfolio/", "image": "https://alex-ux-droid.github.io/portfolio/assets/img/portrait.jpg", "sameAs": ["https://github.com/Alex-ux-droid", "https://www.linkedin.com/in/oleksandr-bentsa-8b295433a", "https://www.instagram.com/alex.bentsa", "https://t.me/alexbentsa"]}, "dateModified": "2026-10-25"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Головна", "item": "https://alex-ux-droid.github.io/portfolio/"}, {"@type": "ListItem", "position": 2, "name": "Лабораторія", "item": "https://alex-ux-droid.github.io/portfolio/lab/"}]}]}
+  </script>
+</head>
 <body>
 <div class="progress" aria-hidden="true"></div>
 <a class="skip" href="#main" data-i18n="skip">До контенту</a>
 
 <header class="site-header">
-  <a class="brand" href="../index.html" aria-label="На початок">
+  <a class="brand" href="../index.html">
     <span class="brand-mark" aria-hidden="true">ОБ</span>
     <span class="brand-name" data-i18n="brand">Олександр Бенца</span>
   </a>
@@ -45,7 +56,7 @@
   </nav>
   <div class="header-tools">
     <a class="btn btn-primary btn-sm hdr-cta" href="../cases/" data-magnetic><span data-i18n="hdr.cta">Портфоліо</span></a>
-    <button class="lang-toggle" type="button" aria-label="Switch language"><span data-lang="uk" class="on">UA</span><i></i><span data-lang="en">EN</span></button>
+    <button class="lang-toggle" type="button" title="UA / EN"><span data-lang="uk" class="on">UA</span><i></i><span data-lang="en">EN</span></button>
   </div>
 </header>
 
@@ -72,7 +83,7 @@
     <div class="stream" data-lab="agents">
       <div class="stream-text">
         <span class="lab-stage"><i class="st-dot s-test"></i><span data-i18n="lab.a.stage">тестую · з серпня 2026</span></span>
-        <h2 data-i18n="lab.a.h">Армія агентів</h2>
+        <h3 data-i18n="lab.a.h">Армія агентів</h3>
         <p data-i18n="lab.a.long1">Один промт добре робить одну річ. Довгий процес із десятком кроків, перевірками і винятками він не витримує: губить контекст, вигадує, не помічає помилку на третьому кроці. Тому я будую ланцюги: кожен агент знає одну роль, передає результат далі, а окремий агент перевіряє.</p>
         <p data-i18n="lab.a.long2">Два-три місяці пішли не на код, а на розуміння: де ділити процес на ролі, що саме передавати між ними, як ловити помилку до того, як вона дійде до людини.</p>
         <div class="stream-facts">
@@ -101,7 +112,7 @@
     <div class="stream" data-lab="base">
       <div class="stream-text">
         <span class="lab-stage"><i class="st-dot s-on"></i><span data-i18n="lab.b.stage">в роботі · з 2025</span></span>
-        <h2 data-i18n="lab.b.h">Фундамент для бізнесу</h2>
+        <h3 data-i18n="lab.b.h">Фундамент для бізнесу</h3>
         <p data-i18n="lab.b.long1">У багатьох бізнесів на старті мало грошей, але без базового інструментарію вони не вийдуть на продажі: заявки губляться, клієнтів ніхто не веде, власник не бачить цифр. Я ставлю мінімум, який працює: сайт, телефонія, CRM, облік, звіти, і вчу команду цим користуватись.</p>
         <p data-i18n="lab.b.long2">Логіка проста: спочатку фундамент, потім каркас, потім стіни. Не можна масштабувати те, що не стоїть.</p>
         <div class="stream-facts">
@@ -125,7 +136,7 @@
     <div class="stream" data-lab="assistant">
       <div class="stream-text">
         <span class="lab-stage"><i class="st-dot s-start"></i><span data-i18n="lab.c.stage">старт · жовтень 2026</span></span>
-        <h2 data-i18n="lab.c.h">Агент-помічник для соло</h2>
+        <h3 data-i18n="lab.c.h">Агент-помічник для соло</h3>
         <p data-i18n="lab.c.long1">Для підприємців, у яких немає бюджету на людей. Помічник тримає контекст: клієнтів, домовленості, відкриті задачі, і допомагає вирішувати їх швидко. Більше клієнтів тією самою кількістю рук.</p>
         <p data-i18n="lab.c.long2">Це не загальний асистент «про все». Це власна ШІ-система під одну точкову задачу, відточена так, щоб знати її ідеально. Спершу роблю для себе, щоб вигострити, потім перший зовнішній користувач.</p>
         <div class="stream-facts">
@@ -202,7 +213,7 @@
         <path d="M24 4a20 20 0 0 0-5 39.4A20 20 0 0 1 30 4.9 8 8 0 0 0 24 4z" fill="#C98B52" opacity=".55"/>
         <circle cx="15" cy="18" r="2.6" fill="#5A3A1E"/><circle cx="26" cy="30" r="3" fill="#5A3A1E"/><circle cx="15" cy="31" r="2" fill="#5A3A1E"/><circle cx="33" cy="20" r="2.2" fill="#5A3A1E"/><circle cx="22" cy="12" r="1.6" fill="#5A3A1E"/><circle cx="35" cy="34" r="1.8" fill="#5A3A1E"/>
       </svg>
-      <h3 data-i18n="ck.title">Файли cookie</h3>
+      <p class="ck-title" data-i18n="ck.title">Файли cookie</p>
     </div>
     <p data-i18n="ck.text">Тільки щоб запам'ятати мову та розуміти, які розділи читають. Без реклами.</p>
     <div class="cookie-actions">

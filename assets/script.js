@@ -66,7 +66,7 @@
   if (cookie) {
     const inner = cookie.querySelector('.cookie-inner');
     const icon = cookie.querySelector('.cookie-icon');
-    const parts = [cookie.querySelector('.cookie-head'), cookie.querySelector('p'), cookie.querySelector('.cookie-actions')];
+    const parts = [cookie.querySelector('.cookie-head'), cookie.querySelector('.cookie-inner > p'), cookie.querySelector('.cookie-actions')];
     let shown = false;
     const show = () => {
       if (shown || store.get('consent')) return;
@@ -334,7 +334,7 @@
       .from('.lab-hero .eyebrow', { y: 16, autoAlpha: 0, duration: .7 }, .2)
       .from('[data-words] .wi', { yPercent: 110, duration: 1.1, stagger: .06, ease: 'power4.out' }, .3)
       .from('.lab-hero .lead, .lab-hero .lab-updated', { y: 20, autoAlpha: 0, duration: .9, stagger: .1 }, .8);
-  } else if (!hasHero) gsap.from('.case-hero .section-head > *', { y: 20, autoAlpha: 0, duration: .8, stagger: .08, ease });
+  }
 
 
   /* ---------- Лабораторія: конвеєр агентів (детермінована петля) ---------- */

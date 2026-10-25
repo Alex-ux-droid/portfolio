@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://alex-ux-droid.github.io/portfolio/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://alex-ux-droid.github.io/portfolio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-ux-droid.github.io/portfolio/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-ux-droid.github.io/portfolio/"/>
+    <image:image><image:loc>https://alex-ux-droid.github.io/portfolio/assets/og.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-ux-droid.github.io/portfolio/cases/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://alex-ux-droid.github.io/portfolio/cases/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-ux-droid.github.io/portfolio/cases/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-ux-droid.github.io/portfolio/cases/"/>
+    <image:image><image:loc>https://alex-ux-droid.github.io/portfolio/assets/og.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-ux-droid.github.io/portfolio/cases/turbo-terminal.html</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://alex-ux-droid.github.io/portfolio/cases/turbo-terminal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-ux-droid.github.io/portfolio/cases/turbo-terminal.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-ux-droid.github.io/portfolio/cases/turbo-terminal.html"/>
+    <image:image><image:loc>https://alex-ux-droid.github.io/portfolio/assets/img/turbo-terminal/cover.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-ux-droid.github.io/portfolio/cases/dilnytsia.html</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://alex-ux-droid.github.io/portfolio/cases/dilnytsia.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-ux-droid.github.io/portfolio/cases/dilnytsia.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-ux-droid.github.io/portfolio/cases/dilnytsia.html"/>
+    <image:image><image:loc>https://alex-ux-droid.github.io/portfolio/assets/img/dilnytsia/cover.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-ux-droid.github.io/portfolio/cases/smirnovich.html</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://alex-ux-droid.github.io/portfolio/cases/smirnovich.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-ux-droid.github.io/portfolio/cases/smirnovich.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-ux-droid.github.io/portfolio/cases/smirnovich.html"/>
+    <image:image><image:loc>https://alex-ux-droid.github.io/portfolio/assets/img/smirnovich/cover.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-ux-droid.github.io/portfolio/cases/health-time.html</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://alex-ux-droid.github.io/portfolio/cases/health-time.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-ux-droid.github.io/portfolio/cases/health-time.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-ux-droid.github.io/portfolio/cases/health-time.html"/>
+    <image:image><image:loc>https://alex-ux-droid.github.io/portfolio/assets/img/health-time/cover.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-ux-droid.github.io/portfolio/lab/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://alex-ux-droid.github.io/portfolio/lab/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-ux-droid.github.io/portfolio/lab/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-ux-droid.github.io/portfolio/lab/"/>
+    <image:image><image:loc>https://alex-ux-droid.github.io/portfolio/assets/og.png</image:loc></image:image>
+  </url>
+</urlset>

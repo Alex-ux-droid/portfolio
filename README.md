@@ -2,6 +2,10 @@
 
 Статичний сайт без збірки: `index.html`, сторінки кейсів у `cases/`, ресурси в `assets/`. Жодних залежностей на рантаймі, GSAP вендорений.
 
+## SEO
+
+`sitemap.xml` і `robots.txt` у корені, `404.html` для GitHub Pages. На кожній сторінці: canonical, hreflang uk/en/x-default, Open Graph, Twitter, JSON-LD (Person + WebSite на головній, Article + BreadcrumbList на кейсах, CollectionPage на списку кейсів, WebPage на лабораторії). Додаючи сторінку, допиши її в `sitemap.xml`.
+
 ## Локально
 
 ```bash
