@@ -336,6 +336,53 @@
       .from('.lab-hero .lead, .lab-hero .lab-updated', { y: 20, autoAlpha: 0, duration: .9, stagger: .1 }, .8);
   } else if (!hasHero) gsap.from('.case-hero .section-head > *', { y: 20, autoAlpha: 0, duration: .8, stagger: .08, ease });
 
+
+  /* ---------- Лабораторія: конвеєр агентів (детермінована петля) ---------- */
+  document.querySelectorAll('[data-agents]').forEach((svg) => {
+    const edge = (id) => svg.querySelector(`[data-e="${id}"]`);
+    const pks = [...svg.querySelectorAll('.pk')];
+    const agents = [...svg.querySelectorAll('.n-a')];
+    const qa = svg.querySelector('.n-q'), out = svg.querySelector('.n-out');
+    const travel = (pk, id, dur, reverse) => {
+      const p = edge(id); const len = p.getTotalLength(); const o = { t: 0 };
+      return gsap.to(o, { t: 1, duration: dur, ease: 'power1.inOut',
+        onStart: () => { p.classList.add('hot'); gsap.set(pk, { opacity: 1 }); },
+        onUpdate: () => { const pt = p.getPointAtLength((reverse ? 1 - o.t : o.t) * len); gsap.set(pk, { attr: { cx: pt.x, cy: pt.y } }); },
+        onComplete: () => { p.classList.remove('hot'); gsap.set(pk, { opacity: 0 }); } });
+    };
+    const reset = () => { agents.forEach((a) => { a.classList.remove('busy', 'done'); gsap.set(a.querySelector('.a-prog'), { strokeDashoffset: 94.2 }); }); qa.classList.remove('busy', 'ok'); out.classList.remove('lit'); };
+    const build = () => {
+      const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.6, onRepeat: reset });
+      tl.add(travel(pks[0], 'e-in', .7), 0);
+      tl.to(svg.querySelector('.orb'), { attr: { r: 21 }, duration: .25, yoyo: true, repeat: 1 }, .7);
+      agents.forEach((a, i) => {
+        const t0 = 1 + i * .12;
+        tl.add(travel(pks[i], `e-o${i}`, .6), t0);
+        tl.call(() => a.classList.add('busy'), null, t0 + .6);
+        tl.to(a.querySelector('.a-prog'), { strokeDashoffset: 0, duration: .9 + i * .25, ease: 'power1.inOut' }, t0 + .6);
+        tl.call(() => { a.classList.remove('busy'); a.classList.add('done'); }, null, t0 + 1.5 + i * .25);
+        tl.add(travel(pks[i], `e-q${i}`, .55), t0 + 1.55 + i * .25);
+      });
+      tl.call(() => qa.classList.add('busy'), null, 3.1);
+      // перевірка повертає A3 на доробку
+      tl.add(travel(pks[2], 'e-q2', .5, true), 3.9);
+      tl.call(() => { agents[2].classList.remove('done'); agents[2].classList.add('busy'); gsap.set(agents[2].querySelector('.a-prog'), { strokeDashoffset: 94.2 }); }, null, 4.4);
+      tl.to(agents[2].querySelector('.a-prog'), { strokeDashoffset: 0, duration: .6 }, 4.45);
+      tl.call(() => { agents[2].classList.remove('busy'); agents[2].classList.add('done'); }, null, 5.05);
+      tl.add(travel(pks[2], 'e-q2', .5), 5.1);
+      tl.call(() => { qa.classList.remove('busy'); qa.classList.add('ok'); }, null, 5.7);
+      tl.add(travel(pks[4], 'e-out', .5), 6.1);
+      tl.call(() => out.classList.add('lit'), null, 6.6);
+      return tl;
+    };
+    let tl = null;
+    const start = () => { if (!tl) tl = build(); else tl.play(); };
+    const stopTl = () => { if (tl) tl.pause(); };
+    if (reduce) { agents.forEach((a) => a.classList.add('done')); qa.classList.add('ok'); out.classList.add('lit'); return; }
+    if ('IntersectionObserver' in window) new IntersectionObserver((es) => es.forEach((e) => (e.isIntersecting ? start() : stopTl())), { threshold: .25 }).observe(svg);
+    else start();
+  });
+
   document.querySelectorAll('.lab-base').forEach((v) => {
     const q = (sel) => v.querySelectorAll(sel);
     const tl = gsap.timeline({ scrollTrigger: { trigger: v, start: 'top 80%', once: true }, defaults: { ease } });

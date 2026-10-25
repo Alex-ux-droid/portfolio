@@ -558,14 +558,36 @@ img { display: block; max-width: 100%; height: auto; }
 .lab-body p { margin: 0; color: var(--ink-2); font-size: .95rem; }
 .lab-next { font-size: 13px; color: var(--ink-3); padding-top: 10px; border-top: 1px solid var(--line); margin-top: 4px; }
 .lab-next span:first-child { color: var(--accent-2); font-weight: 600; }
-/* agents graph */
-.lab-agents .edge { stroke: url(#lg-edge); stroke-width: 1.2; fill: none; }
-.lab-agents .node circle { fill: var(--bg-elev); stroke: var(--line-2); stroke-width: 1.2; }
-.lab-agents .node.agent circle { stroke: var(--accent); }
-.lab-agents .node.check circle { stroke: var(--accent-2); stroke-dasharray: 3 3; }
-.lab-agents .node.out circle { fill: var(--accent); stroke: none; filter: drop-shadow(0 0 8px rgba(79,124,255,.9)); }
-.lab-agents .node text { fill: var(--ink-2); font-size: 11px; font-weight: 600; text-anchor: middle; font-family: var(--font); letter-spacing: .04em; }
-.lab-agents .pulses circle { fill: #BFD3FF; }
+/* agents pipeline */
+.lab-agents .edge { stroke: rgba(143,176,255,.22); stroke-width: 1.1; fill: none; transition: stroke .3s; }
+.lab-agents .edge.hot { stroke: rgba(191,211,255,.85); }
+.lab-agents .node text { fill: var(--ink-2); font-size: 10.5px; font-weight: 600; text-anchor: middle; font-family: var(--font); letter-spacing: .04em; }
+.lab-agents .node text.role { text-anchor: start; font-weight: 500; fill: var(--ink-3); font-size: 9.5px; letter-spacing: .02em; }
+.lab-agents .n-in rect { fill: var(--bg-elev); stroke: var(--line-2); stroke-width: 1.1; }
+.lab-agents .orb { fill: rgba(79,124,255,.18); stroke: var(--accent); stroke-width: 1.2; }
+.lab-agents .orb-ring { fill: none; stroke: var(--accent-2); stroke-width: 1; stroke-dasharray: 6 8; opacity: .7; transform-box: fill-box; transform-origin: center; animation: spin 14s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.lab-agents .a-bg { fill: var(--bg-elev); stroke: var(--line-2); stroke-width: 1.1; transition: stroke .3s, fill .3s; }
+.lab-agents .n-a.busy .a-bg { stroke: var(--accent); fill: rgba(79,124,255,.12); }
+.lab-agents .n-a.done .a-bg { stroke: #35D07F; }
+.lab-agents .a-prog { fill: none; stroke: var(--accent-2); stroke-width: 2.2; stroke-linecap: round; stroke-dasharray: 94.2; stroke-dashoffset: 94.2; transform-box: fill-box; transform-origin: center; transform: rotate(-90deg); }
+.lab-agents .n-a.done .a-prog { stroke: #35D07F; }
+.lab-agents .a-dot { fill: var(--ink-3); transition: fill .3s; }
+.lab-agents .n-a.busy .a-dot { fill: var(--accent-2); animation: blink .8s steps(2) infinite; }
+.lab-agents .n-a.done .a-dot { fill: #35D07F; animation: none; }
+.lab-agents .q-bg { fill: var(--bg-elev); stroke: var(--line-2); stroke-width: 1.1; transition: stroke .3s; }
+.lab-agents .q-ring { fill: none; stroke: var(--accent-2); stroke-width: 1.4; stroke-dasharray: 3 4; opacity: 0; transform-box: fill-box; transform-origin: center; }
+.lab-agents .n-q.busy .q-ring { opacity: 1; animation: spin 2s linear infinite; }
+.lab-agents .n-q.ok .q-bg { stroke: #35D07F; }
+.lab-agents .q-ok { stroke: #35D07F; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 22; stroke-dashoffset: 22; }
+.lab-agents .n-q.ok text { opacity: 0; }
+.lab-agents .n-q.ok .q-ok { stroke-dashoffset: 0; transition: stroke-dashoffset .4s ease .1s; }
+.lab-agents .n-q text { transition: opacity .2s; }
+.lab-agents .out-c { fill: var(--line-2); transition: fill .3s; }
+.lab-agents .n-out.lit .out-c { fill: var(--accent); filter: drop-shadow(0 0 8px rgba(79,124,255,.9)); }
+.lab-agents .out-ring { fill: none; stroke: #8FB0FF; stroke-width: 1; opacity: 0; transform-box: fill-box; transform-origin: center; }
+.lab-agents .n-out.lit .out-ring { animation: ring 1.2s ease-out 2; }
+.lab-agents .pk { fill: #DCE7FF; opacity: 0; }
 .lab-tags { position: absolute; left: 14px; right: 14px; bottom: 10px; display: flex; justify-content: space-between; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; }
 /* foundation building */
 .lab-base .floor { stroke: rgba(143,176,255,.14); stroke-width: .8; }

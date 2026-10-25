@@ -269,35 +269,20 @@
 
       <article class="lab-card" data-lab="agents">
         <div class="lab-visual lab-agents" aria-hidden="true">
-          <svg viewBox="0 0 360 220" fill="none">
-            <defs>
-              <linearGradient id="lg-edge" x1="0" x2="1"><stop offset="0" stop-color="#4F7CFF" stop-opacity=".15"/><stop offset="1" stop-color="#8FB0FF" stop-opacity=".5"/></linearGradient>
-              <filter id="f-glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            </defs>
-            <path id="e1" d="M48 110 C 90 110, 100 50, 150 50" class="edge"/>
-            <path id="e2" d="M48 110 C 100 110, 100 110, 150 110" class="edge"/>
-            <path id="e3" d="M48 110 C 90 110, 100 170, 150 170" class="edge"/>
-            <path id="e4" d="M186 50 C 220 50, 220 110, 256 110" class="edge"/>
-            <path id="e5" d="M186 110 C 220 110, 220 110, 256 110" class="edge"/>
-            <path id="e6" d="M186 170 C 220 170, 220 110, 256 110" class="edge"/>
-            <path id="e7" d="M292 110 C 310 110, 316 110, 332 110" class="edge"/>
-            <g class="node"><circle cx="30" cy="110" r="18"/><text x="30" y="114">in</text></g>
-            <g class="node agent"><circle cx="168" cy="50" r="18"/><text x="168" y="54">A1</text></g>
-            <g class="node agent"><circle cx="168" cy="110" r="18"/><text x="168" y="114">A2</text></g>
-            <g class="node agent"><circle cx="168" cy="170" r="18"/><text x="168" y="174">A3</text></g>
-            <g class="node check"><circle cx="274" cy="110" r="18"/><text x="274" y="114">QA</text></g>
-            <g class="node out"><circle cx="340" cy="110" r="10"/></g>
-            <g class="pulses" filter="url(#f-glow)">
-              <circle r="3.5"><animateMotion dur="2.4s" repeatCount="indefinite" begin="0s"><mpath href="#e1"/></animateMotion></circle>
-              <circle r="3.5"><animateMotion dur="2.4s" repeatCount="indefinite" begin="0.8s"><mpath href="#e2"/></animateMotion></circle>
-              <circle r="3.5"><animateMotion dur="2.4s" repeatCount="indefinite" begin="1.6s"><mpath href="#e3"/></animateMotion></circle>
-              <circle r="3.5"><animateMotion dur="2s" repeatCount="indefinite" begin="2.4s"><mpath href="#e4"/></animateMotion></circle>
-              <circle r="3.5"><animateMotion dur="2s" repeatCount="indefinite" begin="3.2s"><mpath href="#e5"/></animateMotion></circle>
-              <circle r="3.5"><animateMotion dur="2s" repeatCount="indefinite" begin="4s"><mpath href="#e6"/></animateMotion></circle>
-              <circle r="4"><animateMotion dur="1.2s" repeatCount="indefinite" begin="4.4s"><mpath href="#e7"/></animateMotion></circle>
-            </g>
+          <svg viewBox="0 0 360 220" fill="none" data-agents>
+            <defs><filter id="ag-glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+            <g class="edges"><path class="edge" data-e="e-in" d="M40 110 C 59.0 110, 59.0 110, 78 110"/><path class="edge" data-e="e-o0" d="M114 110 C 147.5 110, 147.5 42, 181 42"/><path class="edge" data-e="e-o1" d="M114 110 C 147.5 110, 147.5 88, 181 88"/><path class="edge" data-e="e-o2" d="M114 110 C 147.5 110, 147.5 134, 181 134"/><path class="edge" data-e="e-o3" d="M114 110 C 147.5 110, 147.5 180, 181 180"/><path class="edge" data-e="e-q0" d="M211 42 C 239.5 42, 239.5 110, 268 110"/><path class="edge" data-e="e-q1" d="M211 88 C 239.5 88, 239.5 110, 268 110"/><path class="edge" data-e="e-q2" d="M211 134 C 239.5 134, 239.5 110, 268 110"/><path class="edge" data-e="e-q3" d="M211 180 C 239.5 180, 239.5 110, 268 110"/><path class="edge" data-e="e-out" d="M304 110 C 318.0 110, 318.0 110, 332 110"/></g>
+            <g class="node n-in"><rect x="12" y="99" width="28" height="22" rx="5"/><text x="26" y="114">in</text></g>
+            <g class="node n-o"><circle class="orb" cx="96" cy="110" r="18"/><circle class="orb-ring" cx="96" cy="110" r="23"/><text x="96" y="114">O</text></g>
+            <g class="node n-a" data-a="0"><circle class="a-bg" cx="196" cy="42" r="15"/><circle class="a-prog" cx="196" cy="42" r="15"/><circle class="a-dot" cx="208" cy="31" r="2.6"/><text x="196" y="46">A1</text><text class="role" x="218" y="46" data-i18n="lab.a.r1">читач</text></g>
+            <g class="node n-a" data-a="1"><circle class="a-bg" cx="196" cy="88" r="15"/><circle class="a-prog" cx="196" cy="88" r="15"/><circle class="a-dot" cx="208" cy="77" r="2.6"/><text x="196" y="92">A2</text><text class="role" x="218" y="92" data-i18n="lab.a.r2">планувальник</text></g>
+            <g class="node n-a" data-a="2"><circle class="a-bg" cx="196" cy="134" r="15"/><circle class="a-prog" cx="196" cy="134" r="15"/><circle class="a-dot" cx="208" cy="123" r="2.6"/><text x="196" y="138">A3</text><text class="role" x="218" y="138" data-i18n="lab.a.r3">виконавець</text></g>
+            <g class="node n-a" data-a="3"><circle class="a-bg" cx="196" cy="180" r="15"/><circle class="a-prog" cx="196" cy="180" r="15"/><circle class="a-dot" cx="208" cy="169" r="2.6"/><text x="196" y="184">A4</text><text class="role" x="218" y="184" data-i18n="lab.a.r4">збирач</text></g>
+            <g class="node n-q"><circle class="q-bg" cx="286" cy="110" r="18"/><circle class="q-ring" cx="286" cy="110" r="18"/><text x="286" y="114">QA</text><path class="q-ok" d="M279 110 l5 5 l9 -10"/></g>
+            <g class="node n-out"><circle class="out-c" cx="342" cy="110" r="9"/><circle class="out-ring" cx="342" cy="110" r="9"/></g>
+            <g class="packets" filter="url(#ag-glow)"><circle class="pk" r="3.6" cx="-10" cy="-10"/><circle class="pk" r="3.6" cx="-10" cy="-10"/><circle class="pk" r="3.6" cx="-10" cy="-10"/><circle class="pk" r="3.6" cx="-10" cy="-10"/><circle class="pk" r="3.6" cx="-10" cy="-10"/></g>
           </svg>
-          <div class="lab-tags"><span data-i18n="lab.a.t1">вхід</span><span data-i18n="lab.a.t2">агенти</span><span data-i18n="lab.a.t3">перевірка</span><span data-i18n="lab.a.t4">результат</span></div>
+          <div class="lab-tags"><span data-i18n="lab.a.t1">вхід</span><span data-i18n="lab.a.t0">оркестратор</span><span data-i18n="lab.a.t2">агенти</span><span data-i18n="lab.a.t3">перевірка</span><span data-i18n="lab.a.t4">результат</span></div>
         </div>
         <div class="lab-body">
           <span class="lab-stage"><i class="st-dot s-test"></i><span data-i18n="lab.a.stage">тестую · з серпня 2026</span></span>
