@@ -509,3 +509,4 @@ img { display: block; max-width: 100%; height: auto; }
 .sm-grid-2 { grid-template-columns: 1fr 1fr; }
 .case-page .sm-grid-2 + .sub-head { margin-top: clamp(44px, 6vw, 72px); }
 @media (max-width: 860px) { .sm-grid-2 { grid-template-columns: 1fr; } }
+.dl-dark { width: 44%; bottom: -14%; }
