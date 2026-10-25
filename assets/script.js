@@ -176,6 +176,16 @@
     chips.forEach((c) => c.addEventListener('click', () => { if (c.dataset.filter !== 'all') { worksList.classList.add('open'); moreBtn.hidden = true; } else { moreBtn.hidden = false; } }));
   }
 
+  /* ---------- Lightbox ---------- */
+  const lb = document.querySelector('.lightbox');
+  if (lb) {
+    const lbImg = lb.querySelector('img');
+    document.querySelectorAll('[data-lightbox]').forEach((el) => el.addEventListener('click', () => { lbImg.src = el.dataset.lightbox; lb.hidden = false; document.body.style.overflow = 'hidden'; }));
+    const close = () => { lb.hidden = true; document.body.style.overflow = ''; };
+    lb.addEventListener('click', close);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !lb.hidden) close(); });
+  }
+
   /* ---------- Hero words ---------- */
   const h1 = document.querySelector('[data-words]');
   let heroPlayed = false;
@@ -225,6 +235,7 @@
     ['.grid.cards .card', .08], ['.skills li', .05], ['.sub-head', 0],
     ['.works-filter', 0], ['.work', .03], ['.works-note', 0],
     ['.case-intro', 0], ['.case-block', .07],
+    ['.sm-facts li', .07], ['.sm-hero', 0], ['.sm-cols > div', .1], ['.sm-grid figure', .08], ['.sm-foot', 0],
     ['.now-list li', .07],
     ['.contact-lead', 0], ['.contact-link', .08],
   ];
