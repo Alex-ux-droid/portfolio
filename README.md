@@ -2,6 +2,20 @@
 
 Статичний сайт без збірки: `index.html`, сторінки кейсів у `cases/`, ресурси в `assets/`. Жодних залежностей на рантаймі, GSAP вендорений.
 
+## Деплой на Cloudflare Pages
+
+Проєкт підключається до GitHub-репо напряму (Workers & Pages → Create → Pages → Connect to Git).
+Налаштування збірки:
+
+- Framework preset: None
+- Build command: `sed -i "s/?v=dev/?v=${CF_PAGES_COMMIT_SHA:0:8}/g" index.html 404.html cases/*.html lab/*.html`
+- Build output directory: `/`
+
+Команда збірки підставляє хеш коміту в `?v=` для CSS/JS, щоб після оновлення браузери не тримали старі файли.
+`_headers` задає кеш для `/assets/*` і security-заголовки. `404.html` розрахований на хостинг у корені домену.
+
+Після підключення домену замінити `https://alex-ux-droid.github.io/portfolio/` на новий домен у всіх сторінках, `sitemap.xml` і `robots.txt`.
+
 ## SEO
 
 `sitemap.xml` і `robots.txt` у корені, `404.html` для GitHub Pages. На кожній сторінці: canonical, hreflang uk/en/x-default, Open Graph, Twitter, JSON-LD (Person + WebSite на головній, Article + BreadcrumbList на кейсах, CollectionPage на списку кейсів, WebPage на лабораторії). Додаючи сторінку, допиши її в `sitemap.xml`.
