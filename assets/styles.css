@@ -353,12 +353,7 @@ img { display: block; max-width: 100%; height: auto; }
 .site-header, main, .site-footer { position: relative; z-index: 2; }
 [data-words] .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .1em; margin-bottom: -.1em; }
 [data-words] .wi { display: inline-block; will-change: transform; }
-[data-magnetic] { position: relative; overflow: hidden; will-change: transform; }
-[data-magnetic] > span { position: relative; z-index: 1; display: inline-block; will-change: transform; }
-[data-magnetic]::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--accent-2); transform: translateY(101%); transition: transform .35s cubic-bezier(.2,.7,.2,1); z-index: 0; }
-.btn-primary[data-magnetic]:hover { color: #0A0C10; }
-.btn-ghost[data-magnetic]:hover { color: #0A0C10; border-color: var(--accent-2); }
-[data-magnetic]:hover::after { transform: translateY(0); }
+[data-magnetic] > span { position: relative; z-index: 1; display: inline-block; }
 .js [data-photo] picture { clip-path: inset(100% 0 0 0 round 20px); }
 
 
