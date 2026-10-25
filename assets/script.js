@@ -56,7 +56,9 @@
   const urlLang = new URLSearchParams(location.search).get('lang');
   const startLang = (urlLang === 'en' || urlLang === 'uk') ? urlLang : (store.get('lang') || (navigator.language && !/^uk|^ru/i.test(navigator.language) ? 'en' : 'uk'));
   const langBtn = document.querySelector('.lang-toggle');
-  if (langBtn) langBtn.addEventListener('click', () => setLang(root.getAttribute('lang') === 'uk' ? 'en' : 'uk'));
+  const flip = () => setLang(root.getAttribute('lang') === 'uk' ? 'en' : 'uk');
+  if (langBtn) langBtn.addEventListener('click', flip);
+  document.querySelectorAll('[data-lang-switch]').forEach((b) => b.addEventListener('click', flip));
 
   /* ---------- Cookie consent ---------- */
   const cookie = document.querySelector('.cookie');
@@ -158,6 +160,22 @@
     if (window.ScrollTrigger) ScrollTrigger.refresh();
   }));
 
+  /* ---------- Works: show more ---------- */
+  const moreBtn = document.querySelector('[data-more]');
+  const worksList = document.querySelector('.works-list');
+  if (moreBtn && worksList) {
+    moreBtn.addEventListener('click', () => {
+      const open = worksList.classList.toggle('open');
+      const span = moreBtn.querySelector('span');
+      const d = root.getAttribute('lang') === 'en' ? dict.en : null;
+      span.textContent = open ? (d ? d['works.less'] : 'Показати менше') : (d ? d['works.more'] : 'Показати всі 20');
+      if (window.ScrollTrigger) ScrollTrigger.refresh();
+      if (!open) worksList.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    });
+    // filters: open the list so the filtered category is fully visible
+    chips.forEach((c) => c.addEventListener('click', () => { if (c.dataset.filter !== 'all') { worksList.classList.add('open'); moreBtn.hidden = true; } else { moreBtn.hidden = false; } }));
+  }
+
   /* ---------- Hero words ---------- */
   const h1 = document.querySelector('[data-words]');
   let heroPlayed = false;
@@ -204,7 +222,7 @@
 
   const groups = [
     ['.manifesto li', .07], ['.about-strip > *', .12],
-    ['.grid.cards .card', .08], ['.skills li', .05], ['.sub-head', 0], ['.testimonial', 0],
+    ['.grid.cards .card', .08], ['.skills li', .05], ['.sub-head', 0],
     ['.works-filter', 0], ['.work', .03], ['.works-note', 0],
     ['.case-intro', 0], ['.case-block', .07],
     ['.now-list li', .07],
