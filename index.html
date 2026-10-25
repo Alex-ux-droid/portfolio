@@ -65,7 +65,7 @@
 <main id="main">
 
   <!-- ============ HERO ============ -->
-  <section class="hero" id="top">
+  <section class="hero" id="top" data-hero-tilt>
     <div class="hero-sky" aria-hidden="true"><i></i><i></i></div>
     <div class="hero-horizon" aria-hidden="true"><div class="hz-plane"></div></div>
     <div class="hero-text">
@@ -74,15 +74,20 @@
       <p class="lead" data-i18n="hero.lead">
         Мене просять зробити рекламу або сайт. Я бачу, що в бізнесі немає системи, і будую її: відділ продажу, CRM, телефонія, дашборд власнику, ШІ там, де раніше була команда. Наукова фантастика, яка вже працює в руках охоронця 60+ і на телефоні власника.
       </p>
+      <ul class="hero-value" aria-label="Що це дає">
+        <li data-i18n="hero.v1">Власник бачить цифри з телефона</li>
+        <li data-i18n="hero.v2">Команда працює без вас</li>
+        <li data-i18n="hero.v3">Тижні до запуску, не роки</li>
+      </ul>
       <div class="cta-row">
         <button type="button" class="btn btn-primary" data-open-contact data-magnetic><span data-i18n="hero.cta1">Показати мені проблему</span></button>
         <a class="btn btn-ghost" href="cases/" data-magnetic><span data-i18n="hero.cta2">Дивитись кейси</span></a>
       </div>
       <ul class="hero-facts" aria-label="Коротко">
-        <li><strong><span data-count="9">0</span></strong><span data-i18n="facts.1">тижнів: митний термінал від інтерв'ю з власником до продакшну</span></li>
-        <li><strong><span data-count="12">0</span></strong><span data-i18n="facts.2">місяців: Health Time з нуля до системи, що працює без мене</span></li>
-        <li><strong><span data-count="3">0</span></strong><span data-i18n="facts.3">дні від ідеї до живого smirnovich.com</span></li>
-        <li><strong>$10k+</strong><span data-i18n="facts.4">рекламного бюджету відкрутив у Meta Ads</span></li>
+        <li><strong><span data-count="9">0</span></strong><span data-i18n="facts.1">тижнів від інтерв'ю з власником до системи в продакшні</span></li>
+        <li><strong>−<span data-count="80">0</span>%</strong><span data-i18n="facts.2">ручної роботи в офісному процесі після ланцюга агентів</span></li>
+        <li><strong><span data-count="59">0</span>/60</strong><span data-i18n="facts.3">змін за перший місяць каса зійшлась копійка в копійку</span></li>
+        <li><strong><span data-count="12">0</span></strong><span data-i18n="facts.4">місяців: Health Time з нуля до системи, що працює без мене</span></li>
       </ul>
     </div>
     <figure class="hero-photo" data-photo>
@@ -181,13 +186,16 @@
       </div>
     </div>
 
-    <h3 class="sub-head" data-i18n="skills.title">Експертиза</h3>
-    <ul class="skills" aria-label="Експертиза">
-      <li><span class="skill-name" data-i18n="skills.1n">ШІ-агенти та AI-first розробка</span><span class="skill-bar"><i style="--w:95%"></i></span><span class="skill-level" data-i18n="skills.1l">системи в продакшні, 85 000+ рядків коду</span></li>
-      <li><span class="skill-name" data-i18n="skills.2n">Автоматизація бізнес-процесів</span><span class="skill-bar"><i style="--w:90%"></i></span><span class="skill-level" data-i18n="skills.2l">боти, інтеграції, парсинг документів, звіти</span></li>
+    <h3 class="sub-head" data-i18n="skills.title">Експертиза: ядро</h3>
+    <ul class="skills" aria-label="Ядро експертизи">
+      <li><span class="skill-name" data-i18n="skills.1n">ШІ-агенти та AI-first розробка</span><span class="skill-bar"><i style="--w:95%"></i></span><span class="skill-level" data-i18n="skills.1l">4 системи в продакшні, працюють без мене</span></li>
+      <li><span class="skill-name" data-i18n="skills.2n">Автоматизація бізнес-процесів</span><span class="skill-bar"><i style="--w:90%"></i></span><span class="skill-level" data-i18n="skills.2l">−80% ручної роботи на реальному процесі</span></li>
       <li><span class="skill-name" data-i18n="skills.3n">Системне мислення і розбір бізнесу</span><span class="skill-bar"><i style="--w:92%"></i></span><span class="skill-level" data-i18n="skills.3l">від інтерв'ю з власником до бізнес-правил</span></li>
-      <li><span class="skill-name" data-i18n="skills.4n">Проєктування систем під людей</span><span class="skill-bar"><i style="--w:85%"></i></span><span class="skill-level" data-i18n="skills.4l">інтерфейси для тих, хто не сідав за комп'ютер</span></li>
+      <li><span class="skill-name" data-i18n="skills.4n">Проєктування систем під людей</span><span class="skill-bar"><i style="--w:85%"></i></span><span class="skill-level" data-i18n="skills.4l">кіоск для 60+: 7 тиків замість 19</span></li>
       <li><span class="skill-name" data-i18n="skills.5n">Операційка, відділ продажу, CRM</span><span class="skill-bar"><i style="--w:80%"></i></span><span class="skill-level" data-i18n="skills.5l">відділ на 7 людей з нуля</span></li>
+    </ul>
+    <h3 class="sub-head sub-head-2" data-i18n="skills.title2">Супутнє, коли треба для системи</h3>
+    <ul class="skills skills-minor" aria-label="Супутня експертиза">
       <li><span class="skill-name" data-i18n="skills.6n">E-commerce і сайти</span><span class="skill-bar"><i style="--w:85%"></i></span><span class="skill-level" data-i18n="skills.6l">Shopify з 2021, власний код</span></li>
       <li><span class="skill-name" data-i18n="skills.7n">Продажні матеріали і стратегія</span><span class="skill-bar"><i style="--w:75%"></i></span><span class="skill-level" data-i18n="skills.7l">каталоги, КП, презентації, B2B-концепції</span></li>
       <li><span class="skill-name" data-i18n="skills.8n">Реклама і дані</span><span class="skill-bar"><i style="--w:60%"></i></span><span class="skill-level" data-i18n="skills.8l">Meta Ads $10k+, GTM, DataLayer, колтрекінг</span></li>
@@ -214,7 +222,7 @@
           <span class="cc-meta"><span data-i18n="cases.tt.type">Система обліку митного терміналу</span> · 2026</span>
           <h3 data-i18n="cases.tt.h">Турбо Термінал</h3>
           <p data-i18n="cases.tt.p">Заїзди фур, зважування, тарифи, каса й борги замість зошита охоронця і Excel. Працює в руках людей 60+. Один розробник + ШІ, від інтерв'ю з власником до продакшну.</p>
-          <ul class="cc-stats"><li><strong>9</strong><span data-i18n="cases.tt.s1">тижнів</span></li><li><strong>7</strong><span data-i18n="cases.tt.s2">людей у системі</span></li><li><strong>24/7</strong><span data-i18n="cases.tt.s3">живі гроші</span></li></ul>
+          <ul class="cc-stats"><li><strong>9</strong><span data-i18n="cases.tt.s1">тижнів до продакшну</span></li><li><strong>59/60</strong><span data-i18n="cases.tt.s2">змін без розбіжностей каси</span></li><li><strong>0</strong><span data-i18n="cases.tt.s3">паперових записів</span></li></ul>
           <span class="cc-link" data-i18n="cases.read">Читати кейс →</span>
         </div>
       </a>
@@ -223,8 +231,8 @@
         <div class="cc-body">
           <span class="cc-meta"><span data-i18n="cases.dl.type">Система обліку станції техогляду</span> · 2026</span>
           <h3 data-i18n="cases.dl.h">Дільниця 10.6</h3>
-          <p data-i18n="cases.dl.p">Telegram-бот і вебпанель замість зошита: протокол і сертифікат розпізнаються з файлу, облік зводиться щовечора, місячний звіт збирається сам. 1 964 автотести, кожен зламаний навмисно.</p>
-          <ul class="cc-stats"><li><strong>1 964</strong><span data-i18n="cases.dl.s1">автотести</span></li><li><strong>26</strong><span data-i18n="cases.dl.s2">таблиць у базі</span></li><li><strong>4</strong><span data-i18n="cases.dl.s3">місяці в роботі</span></li></ul>
+          <p data-i18n="cases.dl.p">Telegram-бот і вебпанель замість зошита: протокол і сертифікат розпізнаються з файлу, облік зводиться щовечора, місячний звіт збирається сам замість двох днів із калькулятором.</p>
+          <ul class="cc-stats"><li><strong>2 → 0</strong><span data-i18n="cases.dl.s1">днів на місячний звіт</span></li><li><strong>сек.</strong><span data-i18n="cases.dl.s2">замість ручного набору документа</span></li><li><strong>4</strong><span data-i18n="cases.dl.s3">місяці в роботі щодня</span></li></ul>
           <span class="cc-link" data-i18n="cases.read">Читати кейс →</span>
         </div>
       </a>
@@ -234,7 +242,7 @@
           <span class="cc-meta"><span data-i18n="cases.sm.type">Сайт-галерея з продажем картин</span> · 2026</span>
           <h3>Smirnovich</h3>
           <p data-i18n="cases.sm.p">Від папки з Google Docs до магазину мистецтва: 43 картини з цінами, адмінка без CMS, окрема сторінка кожної роботи в Google. Три дні від ідеї до запуску.</p>
-          <ul class="cc-stats"><li><strong>3</strong><span data-i18n="cases.sm.s1">дні</span></li><li><strong>43</strong><span data-i18n="cases.sm.s2">картини</span></li><li><strong>49</strong><span data-i18n="cases.sm.s3">сторінок у Google</span></li></ul>
+          <ul class="cc-stats"><li><strong>3</strong><span data-i18n="cases.sm.s1">дні до запуску</span></li><li><strong>$0</strong><span data-i18n="cases.sm.s2">на місяць за хостинг і форму</span></li><li><strong>49</strong><span data-i18n="cases.sm.s3">сторінок у Google</span></li></ul>
           <span class="cc-link" data-i18n="cases.read">Читати кейс →</span>
         </div>
       </a>
@@ -259,7 +267,7 @@
     <div class="section-head">
       <span class="num">04</span>
       <h2 data-i18n="now.title">Над чим працюю</h2>
-      <p class="head-note" data-i18n="now.note">три напрямки, які рухаються щотижня</p>
+      <p class="head-note"><span data-i18n="now.note">три напрямки</span> · <span data-lab-stat></span></p>
     </div>
     <div class="lab">
 
@@ -347,8 +355,8 @@
     </div>
 
     <ol class="works-list">
-      <li class="work" data-cat="system"><span class="w-idx">01</span><div class="w-main"><h3 data-i18n="wtt.h">Турбо Термінал — облік митного терміналу</h3><p data-i18n="wtt.p">Кіоск для охоронців 60+, адмінка, Telegram-звіти власнику, агент вагів на Go, талони, заяви на митницю. 47 600 рядків коду за 9 тижнів разом з Claude Code.</p></div><span class="w-tag" data-i18n="tag.system">Система</span><span class="w-year">2026</span></li>
-      <li class="work" data-cat="system"><span class="w-idx">02</span><div class="w-main"><h3 data-i18n="wdl.h">Дільниця 10.6 — облік станції техогляду</h3><p data-i18n="wdl.p">Telegram-бот і вебпанель на 22 сторінки: розпізнавання протоколів і сертифікатів з файлу, щоденне зведення, місячний звіт, документи фірмам, нагадування клієнтам. 37 208 рядків, 1 964 автотести.</p></div><span class="w-tag" data-i18n="tag.system">Система</span><span class="w-year">2026</span></li>
+      <li class="work" data-cat="system"><span class="w-idx">01</span><div class="w-main"><h3 data-i18n="wtt.h">Турбо Термінал — облік митного терміналу</h3><p data-i18n="wtt.p">Кіоск для охоронців 60+, адмінка, Telegram-звіти власнику, агент вагів на Go, талони, заяви на митницю. 9 тижнів до продакшну, каса сходиться щовечора.</p></div><span class="w-tag" data-i18n="tag.system">Система</span><span class="w-year">2026</span></li>
+      <li class="work" data-cat="system"><span class="w-idx">02</span><div class="w-main"><h3 data-i18n="wdl.h">Дільниця 10.6 — облік станції техогляду</h3><p data-i18n="wdl.p">Telegram-бот і вебпанель на 22 сторінки: розпізнавання протоколів і сертифікатів з файлу, щоденне зведення, місячний звіт, документи фірмам, нагадування клієнтам. Місячний звіт: два дні → збирається сам.</p></div><span class="w-tag" data-i18n="tag.system">Система</span><span class="w-year">2026</span></li>
       <li class="work" data-cat="web"><span class="w-idx">03</span><div class="w-main"><h3>smirnovich.com</h3><p data-i18n="w0.p">Сайт-галерея для художника: 43 картини з цінами, вітрина і Sales, презентація кожної роботи, заявки на пошту, адмінка без CMS, SEO-сторінки. Три дні від ідеї до запуску.</p></div><span class="w-tag" data-i18n="tag.web">Сайт</span><span class="w-year">2026</span></li>
       <li class="work" data-cat="system"><span class="w-idx">04</span><div class="w-main"><h3 data-i18n="w1.h">Операційна система Health Time</h3><p data-i18n="w1.p">Відділ продажу на 7 людей, CRM, процес обробки звернень, KPI. Зібрано з нуля.</p></div><span class="w-tag" data-i18n="tag.system">Система</span><span class="w-year">2025</span></li>
       <li class="work" data-cat="system"><span class="w-idx">05</span><div class="w-main"><h3 data-i18n="w2.h">Логістика з Китаю</h3><p data-i18n="w2.p">Аналіз ринку, постачальники, ціни, оплати, доставка морем. Від першого листа до товару на складі.</p></div><span class="w-tag" data-i18n="tag.system">Система</span><span class="w-year">2025</span></li>

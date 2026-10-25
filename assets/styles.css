@@ -744,3 +744,17 @@ img { display: block; max-width: 100%; height: auto; }
 .byline a:hover { color: var(--ink); border-color: var(--accent); }
 @media (max-width: 640px) { .m-num { display: none; } }
 @media (max-width: 640px) { .step-n { display: none; } .step h3 { margin-top: 0; } }
+
+/* ---------- Hero: цінність одним рядком, курсор нахиляє сітку ---------- */
+.hero-value { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: -10px 0 26px; }
+.hero-value li { font-size: 14px; color: var(--ink-2); display: inline-flex; align-items: center; gap: 8px; }
+.hero-value li::before { content: ""; width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--accent); background: radial-gradient(circle, var(--accent) 0 3px, transparent 3.5px); flex: none; }
+.hero-horizon { transition: perspective-origin .6s ease; }
+.hz-plane { transition: transform .6s ease; }
+/* експертиза: ядро і супутнє */
+.sub-head-2 { margin-top: clamp(28px, 4vw, 44px); }
+.skills-minor { opacity: .72; }
+.skills-minor .skill-bar i { background: var(--ink-3); }
+/* CTA в кінці кейсу */
+.case-cta { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-top: clamp(32px, 5vw, 56px); padding: clamp(22px, 3vw, 32px); border-radius: var(--radius); border: 1px solid var(--line-2); background: radial-gradient(60% 80% at 0% 100%, rgba(79,124,255,.18), transparent 60%), var(--bg-elev); }
+.case-cta p { margin: 8px 0 0; color: var(--ink-2); max-width: 60ch; }

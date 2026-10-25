@@ -169,6 +169,18 @@
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !lb.hidden) close(); });
   }
 
+  /* ---------- Hero: сітка-горизонт реагує на курсор ---------- */
+  const heroTilt = document.querySelector('[data-hero-tilt]');
+  if (heroTilt && finePointer && !reduce) {
+    const hz = heroTilt.querySelector('.hero-horizon'), plane = heroTilt.querySelector('.hz-plane');
+    heroTilt.addEventListener('pointermove', (e) => {
+      const r = heroTilt.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      if (hz) hz.style.perspectiveOrigin = `${50 + x * 30}% ${y * 20}%`;
+      if (plane) plane.style.transform = `rotateX(${68 - y * 4}deg) translateX(${x * -40}px)`;
+    });
+    heroTilt.addEventListener('pointerleave', () => { if (hz) hz.style.perspectiveOrigin = ''; if (plane) plane.style.transform = ''; });
+  }
+
   /* ---------- CTA: світло йде за курсором ---------- */
   document.querySelectorAll('[data-cta]').forEach((cta) => {
     if (!finePointer) return;
@@ -294,6 +306,11 @@
     const st = { case: en ? 'became a case study' : 'стало кейсом', paused: en ? 'paused' : 'на паузі', closed: en ? 'closed' : 'закрито' };
     if (al) al.innerHTML = L.archive.map((e) => `<li><span class="a-meta ${e.status}">${st[e.status]}</span><h3>${en ? e.en : e.uk}</h3><p>${en ? e.en_p : e.uk_p}</p>${e.href ? `<a href="${e.href}">${en ? 'Read the case study →' : 'Читати кейс →'}</a>` : ''}</li>`).join('');
     const up = document.querySelector('[data-lab-updated]'); if (up) up.textContent = fmt(L.updated);
+    document.querySelectorAll('[data-lab-stat]').forEach((el) => {
+      const days = Math.max(0, Math.round((Date.now() - new Date(L.updated)) / 864e5));
+      const n30 = L.journal.filter((e) => Date.now() - new Date(e.date) < 30 * 864e5).length;
+      el.textContent = en ? `${n30} updates in 30 days · ${days === 0 ? 'updated today' : days + ' d since last update'}` : `${n30} ${n30 === 1 ? 'запис' : n30 < 5 ? 'записи' : 'записів'} за 30 днів · ${days === 0 ? 'оновлено сьогодні' : days + ' дн. з оновлення'}`;
+    });
   };
   renderLab();
   document.addEventListener('lang:change', renderLab);
@@ -440,7 +457,7 @@
     ['.sm-hero', 0], ['.sm-cols > div', .1], ['.sm-grid figure', .08], ['.sm-foot', 0], ['.case-card', .1], ['.next-case', 0],
     ['.now-list li', .07],
     ['.contact-lead', 0], ['.c-card', .1], ['.contact-social', 0],
-    ['.cta', 0], ['.lab-card', .12], ['.stream', 0], ['.pipe', .08], ['.pipe-result', 0], ['.journal li', .05], ['.faq', .06], ['.about-cols > *', .12], ['.archive li', .06], ['.tt-story', 0], ['.tt-nums li', .06], ['.tt-how-text p', .08],
+    ['.cta', 0], ['.case-cta', 0], ['.lab-card', .12], ['.stream', 0], ['.pipe', .08], ['.pipe-result', 0], ['.journal li', .05], ['.faq', .06], ['.about-cols > *', .12], ['.archive li', .06], ['.tt-story', 0], ['.tt-nums li', .06], ['.tt-how-text p', .08],
   ];
   groups.forEach(([sel, stagger]) => {
     const els = gsap.utils.toArray(sel);
