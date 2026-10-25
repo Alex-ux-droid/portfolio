@@ -13,9 +13,9 @@
 
 /* ---------- Tokens: одна палітра, міняти тут ---------- */
 :root {
-  --bg: #0A0C10;          /* фон сторінки */
-  --bg-2: #0E1116;        /* фон смуг і ховерів */
-  --bg-elev: #12161D;     /* картки */
+  --bg: #07090D;          /* фон сторінки */
+  --bg-2: #0B0E13;        /* фон смуг і ховерів */
+  --bg-elev: #10141B;     /* картки */
   --ink: #F2F4F7;         /* основний текст */
   --ink-2: #A9B1BE;       /* другорядний текст */
   --ink-3: #6B7382;       /* підписи, номери */
@@ -27,7 +27,7 @@
   --glow: rgba(79,124,255,.16);
   --btn: #F2F4F7; --btn-ink: #0A0C10;
   --bar: #1B212B;
-  --band: #0D1017; --band-ink: #F2F4F7; --band-ink-2: #A9B1BE; --band-line: #1F2633;
+  --band: #0A0D12; --band-ink: #F2F4F7; --band-ink-2: #A9B1BE; --band-line: #1F2633;
   --shadow: 0 1px 0 rgba(0,0,0,.4), 0 18px 44px -26px rgba(0,0,0,.85);
 
   --font: "Onest", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -109,8 +109,9 @@ img { display: block; max-width: 100%; height: auto; }
 /* ---------- Hero ---------- */
 .hero {
   display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); align-items: center; min-height: calc(100svh - 64px);
-  padding: 0 var(--gutter); column-gap: clamp(24px, 4vw, 72px);
+  padding: 0 var(--gutter); column-gap: clamp(24px, 4vw, 72px); position: relative; overflow: hidden; isolation: isolate;
 }
+.hero-text, .hero-photo { position: relative; z-index: 2; }
 .hero-text { max-width: calc(var(--wrap) * .52); justify-self: end; width: 100%; padding: clamp(40px, 6vw, 96px) 0; }
 @media (min-width: 1500px) { .hero-text { justify-self: end; margin-right: clamp(0px, 2vw, 40px); } }
 .eyebrow { font-size: 14px; font-weight: 500; color: var(--ink-2); margin-bottom: 22px; display: inline-flex; align-items: center; gap: 10px; }
@@ -156,15 +157,22 @@ img { display: block; max-width: 100%; height: auto; }
 .marquee:hover .marquee-track { animation-play-state: paused; }
 @keyframes marquee { to { transform: translateX(var(--shift, -50%)); } }
 
-/* ---------- Manifesto (band) ---------- */
-.manifesto { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1px; background: var(--band-line); border: 1px solid var(--band-line); border-radius: var(--radius); overflow: hidden; }
-.manifesto li { background: var(--band); padding: clamp(22px, 3vw, 36px); display: grid; grid-template-columns: auto 1fr; column-gap: 18px; row-gap: 10px; align-items: start; }
-.m-num { font-size: 13px; font-weight: 600; color: var(--accent); letter-spacing: .08em; padding-top: 6px; font-variant-numeric: tabular-nums; }
-.manifesto h3 { font-size: clamp(1.2rem, 1.8vw, 1.5rem); letter-spacing: -0.02em; font-weight: 500; }
-.manifesto p { grid-column: 2; margin: 0; color: var(--band-ink-2); font-size: 1rem; line-height: 1.55; }
+/* ---------- Manifesto (band, cinematic) ---------- */
+.band { position: relative; overflow: hidden; isolation: isolate; }
+.band > .wrap { position: relative; z-index: 1; }
+.band-light { position: absolute; inset: 0; z-index: 0; pointer-events: none; filter: blur(70px); }
+.band-light i { position: absolute; border-radius: 50%; }
+.band-light i:nth-child(1) { width: 50vw; height: 50vw; right: -15vw; top: -20vw; background: radial-gradient(closest-side, rgba(79,124,255,.28), transparent 70%); animation: aur1 24s ease-in-out infinite; }
+.band-light i:nth-child(2) { width: 40vw; height: 40vw; left: -15vw; bottom: -15vw; background: radial-gradient(closest-side, rgba(143,176,255,.14), transparent 70%); animation: aur2 30s ease-in-out infinite; }
+.manifesto { display: grid; gap: 0; border-top: 1px solid var(--band-line); }
+.manifesto li { display: grid; grid-template-columns: 72px minmax(0, 1fr); column-gap: clamp(16px, 3vw, 40px); row-gap: 12px; align-items: start; padding: clamp(28px, 4vw, 52px) 0; border-bottom: 1px solid var(--band-line); }
+.m-num { font-size: 13px; font-weight: 600; color: var(--accent); letter-spacing: .12em; padding-top: .55em; font-variant-numeric: tabular-nums; grid-row: 1 / span 2; }
+.manifesto h3 { font-size: clamp(1.5rem, 3.2vw, 2.8rem); letter-spacing: -0.03em; font-weight: 500; line-height: 1.08; max-width: 22ch; }
+.manifesto p { grid-column: 2; margin: 0; color: var(--band-ink-2); font-size: clamp(1rem, 1.25vw, 1.15rem); line-height: 1.55; max-width: 62ch; }
 .about-strip { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 5vw, 64px); margin-top: clamp(40px, 6vw, 72px); }
 .about-strip p { font-size: clamp(1rem, 1.3vw, 1.15rem); color: var(--band-ink-2); line-height: 1.6; margin: 0; }
 .about-strip p:first-child { color: var(--band-ink); }
+@media (max-width: 640px) { .manifesto li { grid-template-columns: 1fr; } .m-num { grid-row: auto; padding-top: 0; } .manifesto p { grid-column: 1; } }
 
 /* ---------- Cards ---------- */
 .grid.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
@@ -471,3 +479,29 @@ img { display: block; max-width: 100%; height: auto; }
 .case-page .case-hero .cases { margin-top: 0; }
 .case-page .case-intro a { color: var(--accent-2); text-decoration: none; border-bottom: 1px solid var(--line-2); }
 .case-page .case-intro a:hover { border-color: var(--accent); }
+
+/* ---------- Hero: небо і горизонт ---------- */
+.hero-sky { position: absolute; inset: 0; z-index: 0; pointer-events: none; filter: blur(70px); }
+.hero-sky i { position: absolute; border-radius: 50%; }
+.hero-sky i:nth-child(1) { width: 60vw; height: 60vw; right: -20vw; top: -30vw; background: radial-gradient(closest-side, rgba(79,124,255,.30), transparent 70%); animation: aur2 26s ease-in-out infinite; }
+.hero-sky i:nth-child(2) { width: 36vw; height: 36vw; left: -12vw; bottom: -10vw; background: radial-gradient(closest-side, rgba(143,176,255,.12), transparent 70%); animation: aur1 32s ease-in-out infinite; }
+.hero-horizon { position: absolute; left: 0; right: 0; bottom: 0; height: 46%; z-index: 0; pointer-events: none; perspective: 700px; perspective-origin: 50% 0%; -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 45%, #000 80%, transparent 100%); mask-image: linear-gradient(180deg, transparent 0%, #000 45%, #000 80%, transparent 100%); opacity: .55; }
+.hz-plane { position: absolute; left: -50%; right: -50%; top: 0; height: 200%; transform-origin: 50% 0; transform: rotateX(68deg); background-image: linear-gradient(rgba(143,176,255,.28) 1px, transparent 1px), linear-gradient(90deg, rgba(143,176,255,.22) 1px, transparent 1px); background-size: 100% 64px, 64px 100%; animation: hz 9s linear infinite; }
+@keyframes hz { to { background-position: 0 64px, 0 0; } }
+@media (prefers-reduced-motion: reduce) { .hz-plane, .hero-sky i, .band-light i, .cta-aurora i { animation: none; } }
+@media (max-width: 860px) { .hero-horizon { height: 34%; opacity: .4; } }
+
+/* ---------- How I work: steps ---------- */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; counter-reset: step; }
+.step { background: var(--bg); padding: clamp(22px, 2.6vw, 34px); display: flex; flex-direction: column; gap: 12px; position: relative; min-height: 300px; }
+.step::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--accent); transform: scaleY(0); transform-origin: top; transition: transform .35s cubic-bezier(.2,.7,.2,1); }
+.step:hover::before { transform: scaleY(1); }
+.step-n { font-size: clamp(2.2rem, 3.4vw, 3.4rem); font-weight: 300; letter-spacing: -0.04em; color: var(--ink-3); opacity: .55; line-height: 1; font-variant-numeric: tabular-nums; }
+.step h3 { font-size: 1.25rem; font-weight: 500; letter-spacing: -0.02em; margin-top: 6px; }
+.step p { margin: 0; color: var(--ink-2); font-size: .95rem; flex: 1; }
+.step-ex { font-size: 13px; color: var(--accent-2); line-height: 1.45; padding-top: 12px; border-top: 1px solid var(--line); }
+.tools { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 22px; }
+.tools-h { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; }
+.tools-row { margin-top: 0; }
+@media (max-width: 1100px) { .steps { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .steps { grid-template-columns: 1fr; } .step { min-height: 0; } }

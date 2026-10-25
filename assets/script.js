@@ -274,7 +274,7 @@
 
   const groups = [
     ['.manifesto li', .07], ['.about-strip > *', .12],
-    ['.grid.cards .card', .08], ['.skills li', .05], ['.sub-head', 0],
+    ['.step', .1], ['.tools', 0], ['.skills li', .05], ['.sub-head', 0],
     ['.works-filter', 0], ['.work', .03], ['.works-note', 0],
     ['.case-intro', 0], ['.case-block', .07],
     ['.sm-facts li', .07], ['.sm-hero', 0], ['.sm-cols > div', .1], ['.sm-grid figure', .08], ['.sm-foot', 0], ['.case-card', .1], ['.next-case', 0],
