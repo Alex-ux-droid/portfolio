@@ -186,7 +186,7 @@ img { display: block; max-width: 100%; height: auto; }
 .chip:hover { border-color: var(--ink); color: var(--ink); }
 .chip.on { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
 .works-list { border-top: 1px solid var(--line); }
-.work { display: grid; grid-template-columns: 48px 1fr auto auto; gap: 18px; align-items: baseline; padding: 18px 8px; border-bottom: 1px solid var(--line); position: relative; transition: background .25s, padding .25s; }
+.work { display: grid; grid-template-columns: 48px 1fr auto auto; gap: 18px; align-items: baseline; padding: 14px 8px; border-bottom: 1px solid var(--line); position: relative; transition: background .25s, padding .25s; }
 .work::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--accent); transform: scaleY(0); transform-origin: top; transition: transform .3s cubic-bezier(.2,.7,.2,1); }
 .work:hover { background: var(--bg-2); padding-left: 16px; }
 .work:hover::before { transform: scaleY(1); }
@@ -209,6 +209,41 @@ img { display: block; max-width: 100%; height: auto; }
 .case-block p { margin: 0; color: var(--ink-2); font-size: .95rem; flex: 1; }
 .link { font-weight: 600; font-size: 14px; text-decoration: none; border-bottom: 1px solid var(--line-2); align-self: flex-start; }
 .link:hover { border-color: var(--accent); }
+
+/* ---------- Cases (homepage cards) ---------- */
+.cases { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.case-card { display: flex; flex-direction: column; text-decoration: none; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-elev); overflow: hidden; transition: border-color .25s, transform .3s ease; }
+.case-card:hover { border-color: var(--line-2); transform: translateY(-3px); }
+.cc-cover { aspect-ratio: 16 / 9; overflow: hidden; background: #fff; position: relative; }
+.cc-cover picture, .cc-cover img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .6s ease; }
+.case-card:hover .cc-cover img { transform: scale(1.03); }
+.cc-cover-ht { background: radial-gradient(700px 300px at 10% 0%, var(--glow), transparent 60%), linear-gradient(135deg, #12161D, #0A0C10); display: grid; align-content: end; padding: 24px; gap: 6px; border-bottom: 1px solid var(--line); }
+.cc-ht-title { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 500; letter-spacing: -0.03em; color: var(--ink); }
+.cc-ht-sub { font-size: 13px; color: var(--ink-2); letter-spacing: .02em; }
+.cc-body { padding: 22px 24px 24px; display: grid; gap: 10px; }
+.cc-meta { font-size: 12px; color: var(--ink-3); letter-spacing: .04em; text-transform: uppercase; font-weight: 600; }
+.cc-body h3 { font-size: 1.4rem; font-weight: 500; letter-spacing: -0.02em; }
+.cc-body p { margin: 0; color: var(--ink-2); font-size: .95rem; }
+.cc-stats { display: flex; gap: 22px; margin-top: 6px; }
+.cc-stats li { display: grid; gap: 2px; }
+.cc-stats strong { font-size: 1.3rem; font-weight: 500; letter-spacing: -0.02em; }
+.cc-stats span { font-size: 12px; color: var(--ink-3); }
+.cc-link { margin-top: 6px; font-weight: 600; color: var(--accent-2); font-size: 14px; }
+@media (max-width: 860px) { .cases { grid-template-columns: 1fr; } }
+
+/* ---------- Case pages ---------- */
+.case-page .case-hero { border-top: 0; padding-top: clamp(32px, 5vw, 64px); }
+.case-page .section-head { flex-direction: column; align-items: flex-start; gap: 10px; }
+.case-page .section-head h1 { font-size: clamp(2rem, 4vw, 3.4rem); }
+.case-page .head-note { margin-left: 0; }
+.back { font-size: 14px; color: var(--ink-2); text-decoration: none; }
+.back:hover { color: var(--ink); }
+.ht-facts { grid-template-columns: repeat(4, 1fr); margin-bottom: clamp(28px, 4vw, 44px); }
+.next-case { margin-top: clamp(40px, 6vw, 72px); padding-top: 24px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.next-case span { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; }
+.next-case a { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 500; letter-spacing: -0.02em; text-decoration: none; }
+.next-case a:hover { color: var(--accent-2); }
+@media (max-width: 860px) { .ht-facts { grid-template-columns: 1fr 1fr; } }
 
 /* ---------- Case: Smirnovich ---------- */
 .sm-lead { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: start; margin-bottom: clamp(28px, 4vw, 44px); }

@@ -107,7 +107,7 @@
   const nav = document.querySelector('.site-nav');
   const ind = document.querySelector('.nav-ind');
   const navLinks = nav ? [...nav.querySelectorAll('a')] : [];
-  const sections = navLinks.map((a) => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const sections = navLinks.map((a) => { const h = a.getAttribute('href'); return h && h.startsWith('#') ? document.querySelector(h) : null; }).filter(Boolean);
   const moveInd = (a) => {
     if (!ind) return;
     if (!a) { ind.classList.remove('on'); return; }
@@ -160,22 +160,6 @@
     if (window.ScrollTrigger) ScrollTrigger.refresh();
   }));
 
-  /* ---------- Works: show more ---------- */
-  const moreBtn = document.querySelector('[data-more]');
-  const worksList = document.querySelector('.works-list');
-  if (moreBtn && worksList) {
-    moreBtn.addEventListener('click', () => {
-      const open = worksList.classList.toggle('open');
-      const span = moreBtn.querySelector('span');
-      const d = root.getAttribute('lang') === 'en' ? dict.en : null;
-      span.textContent = open ? (d ? d['works.less'] : 'Показати менше') : (d ? d['works.more'] : 'Показати всі 20');
-      if (window.ScrollTrigger) ScrollTrigger.refresh();
-      if (!open) worksList.scrollIntoView({ block: 'start', behavior: 'smooth' });
-    });
-    // filters: open the list so the filtered category is fully visible
-    chips.forEach((c) => c.addEventListener('click', () => { if (c.dataset.filter !== 'all') { worksList.classList.add('open'); moreBtn.hidden = true; } else { moreBtn.hidden = false; } }));
-  }
-
   /* ---------- Lightbox ---------- */
   const lb = document.querySelector('.lightbox');
   if (lb) {
@@ -208,8 +192,9 @@
   gsap.registerPlugin(ScrollTrigger);
   const ease = 'power3.out';
 
+  const hasHero = !!document.querySelector('.hero');
   const intro = gsap.timeline({ defaults: { ease }, onComplete: () => (heroPlayed = true) });
-  intro
+  if (hasHero) intro
     .from('.site-header', { y: -20, autoAlpha: 0, duration: .8 }, 0)
     .from('.hero .eyebrow', { y: 20, autoAlpha: 0, duration: .7 }, .15)
     .from('[data-words] .wi', { yPercent: 110, duration: 1.1, stagger: .05, ease: 'power4.out' }, .25)
@@ -220,6 +205,7 @@
     .from('.hero-facts', { y: 24, autoAlpha: 0, duration: .9 }, 1.05)
     .from('.hero-facts li', { y: 14, autoAlpha: 0, duration: .7, stagger: .08 }, 1.15)
     .from('.marquee', { autoAlpha: 0, duration: 1 }, 1.4);
+  if (!hasHero) gsap.from('.case-hero .section-head > *', { y: 20, autoAlpha: 0, duration: .8, stagger: .08, ease });
 
   document.querySelectorAll('[data-count]').forEach((el) => {
     const target = +el.dataset.count; const obj = { v: 0 };
@@ -235,7 +221,7 @@
     ['.grid.cards .card', .08], ['.skills li', .05], ['.sub-head', 0],
     ['.works-filter', 0], ['.work', .03], ['.works-note', 0],
     ['.case-intro', 0], ['.case-block', .07],
-    ['.sm-facts li', .07], ['.sm-hero', 0], ['.sm-cols > div', .1], ['.sm-grid figure', .08], ['.sm-foot', 0],
+    ['.sm-facts li', .07], ['.sm-hero', 0], ['.sm-cols > div', .1], ['.sm-grid figure', .08], ['.sm-foot', 0], ['.case-card', .1], ['.next-case', 0],
     ['.now-list li', .07],
     ['.contact-lead', 0], ['.contact-link', .08],
   ];
@@ -257,7 +243,7 @@
     });
   }
 
-  gsap.to('[data-photo]', { y: 80, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.6 } });
+  if (hasHero) gsap.to('[data-photo]', { y: 80, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.6 } });
 
   window.addEventListener('load', () => ScrollTrigger.refresh());
 })();

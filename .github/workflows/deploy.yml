@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Cache-bust assets with commit hash
-        run: sed -i "s/?v=dev/?v=${GITHUB_SHA::8}/g" index.html
+        run: sed -i "s/?v=dev/?v=${GITHUB_SHA::8}/g" index.html cases/*.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
