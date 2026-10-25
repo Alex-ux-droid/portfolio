@@ -8,7 +8,7 @@
 Налаштування збірки:
 
 - Framework preset: None
-- Build command: `sed -i "s/?v=dev/?v=${CF_PAGES_COMMIT_SHA:0:8}/g" index.html 404.html cases/*.html lab/*.html`
+- Build command: `find . -name "*.html" -not -path "./.git/*" -exec sed -i "s/?v=dev/?v=$(git rev-parse --short HEAD)/g" {} +`
 - Build output directory: `/`
 
 Команда збірки підставляє хеш коміту в `?v=` для CSS/JS, щоб після оновлення браузери не тримали старі файли.

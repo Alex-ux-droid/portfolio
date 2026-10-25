@@ -175,6 +175,18 @@
     cta.addEventListener('pointermove', (e) => { const r = cta.getBoundingClientRect(); cta.style.setProperty('--mx', `${e.clientX - r.left}px`); cta.style.setProperty('--my', `${e.clientY - r.top}px`); });
   });
 
+  /* ---------- Копіювання пошти ---------- */
+  document.querySelectorAll('[data-copy]').forEach((btn) => {
+    const label = btn.textContent;
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault(); e.stopPropagation();
+      try { await navigator.clipboard.writeText(btn.dataset.copy); } catch (_) { return; }
+      const d = dict[root.getAttribute('lang')];
+      btn.textContent = (d && d['contact.copied']) || 'Скопійовано'; btn.classList.add('ok');
+      setTimeout(() => { btn.textContent = (d && d['contact.copy']) || label; btn.classList.remove('ok'); }, 1600);
+    });
+  });
+
   /* ---------- Contact modal ---------- */
   const modal = document.getElementById('contact-modal');
   if (modal) {
@@ -331,6 +343,14 @@
       .from('[data-words] .wi', { yPercent: 110, duration: 1.1, stagger: .06, ease: 'power4.out' }, .5)
       .from('.sm-lead > *, .case-hero .case-intro, .case-hero .ht-facts', { y: 24, autoAlpha: 0, duration: .9, stagger: .12 }, .9);
     gsap.to('.cover-media', { yPercent: 18, ease: 'none', scrollTrigger: { trigger: '.case-cover', start: 'top top', end: 'bottom top', scrub: .5 } });
+  } else if (!hasHero && document.querySelector('.about-hero')) {
+    intro
+      .from('.site-header', { y: -20, autoAlpha: 0, duration: .8 }, 0)
+      .from('.about-hero .eyebrow', { y: 16, autoAlpha: 0, duration: .7 }, .2)
+      .from('[data-words] .wi', { yPercent: 110, duration: 1.1, stagger: .06, ease: 'power4.out' }, .3)
+      .from('.about-alt, .about-text .lead, .about-text .cta-row', { y: 20, autoAlpha: 0, duration: .9, stagger: .1 }, .7)
+      .from('.about-photo', { scale: .92, autoAlpha: 0, duration: 1.2, ease: 'power3.out' }, .3)
+      .from('.about-hero .sm-facts li', { y: 14, autoAlpha: 0, duration: .7, stagger: .08 }, 1);
   } else if (!hasHero && document.querySelector('.lab-hero')) {
     intro
       .from('.site-header', { y: -20, autoAlpha: 0, duration: .8 }, 0)
@@ -419,8 +439,8 @@
     ['.case-intro', 0], ['.case-block', .07],
     ['.sm-hero', 0], ['.sm-cols > div', .1], ['.sm-grid figure', .08], ['.sm-foot', 0], ['.case-card', .1], ['.next-case', 0],
     ['.now-list li', .07],
-    ['.contact-lead', 0], ['.contact-link', .08],
-    ['.cta', 0], ['.lab-card', .12], ['.stream', 0], ['.pipe', .08], ['.pipe-result', 0], ['.journal li', .05], ['.archive li', .06], ['.tt-story', 0], ['.tt-nums li', .06], ['.tt-how-text p', .08],
+    ['.contact-lead', 0], ['.c-card', .1], ['.contact-social', 0],
+    ['.cta', 0], ['.lab-card', .12], ['.stream', 0], ['.pipe', .08], ['.pipe-result', 0], ['.journal li', .05], ['.faq', .06], ['.about-cols > *', .12], ['.archive li', .06], ['.tt-story', 0], ['.tt-nums li', .06], ['.tt-how-text p', .08],
   ];
   groups.forEach(([sel, stagger]) => {
     const els = gsap.utils.toArray(sel);
@@ -434,7 +454,7 @@
   });
 
   if (finePointer) {
-    document.querySelectorAll('.card, .contact-link').forEach((el) => {
+    document.querySelectorAll('.card').forEach((el) => {
       el.addEventListener('pointerenter', () => gsap.to(el, { y: -3, duration: .3, ease, overwrite: 'auto' }));
       el.addEventListener('pointerleave', () => gsap.to(el, { y: 0, duration: .4, ease, overwrite: 'auto' }));
     });
