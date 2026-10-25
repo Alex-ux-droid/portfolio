@@ -22,6 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="../assets/img/health-time/cover.webp" type="image/webp">
   <link rel="stylesheet" href="../assets/styles.css?v=dev">
 
   </head>
@@ -38,8 +39,8 @@
     <a href="../index.html#think" data-i18n="nav.think">Маніфест</a>
     <a href="../index.html#work" data-i18n="nav.work">Як працюю</a>
     <a href="../index.html#case" data-i18n="nav.case">Кейси</a>
-    <a href="../index.html#works" data-i18n="nav.works">Роботи</a>
     <a href="../index.html#now" data-i18n="nav.now">Зараз</a>
+    <a href="../index.html#works" data-i18n="nav.works">Роботи</a>
     <a href="../index.html#contact" data-i18n="nav.contact">Контакти</a>
   </nav>
   <div class="header-tools">
@@ -49,13 +50,18 @@
 </header>
 
 <main id="main">
-  <section class="section case-hero" id="top">
-    <div class="wrap">
-    <div class="section-head">
+  <section class="case-cover" id="top">
+    <div class="cover-media" data-cover><picture><source srcset="../assets/img/health-time/cover.webp" type="image/webp"><img src="../assets/img/health-time/cover.jpg" alt="health-time.store на моніторі в клініці" fetchpriority="high"></picture></div>
+    <div class="cover-shade" aria-hidden="true"></div>
+    <div class="wrap cover-inner">
       <a class="back" href="index.html" data-i18n="cases.back">← Усі кейси</a>
-      <h1 data-i18n="case.title">Кейс: Health Time</h1>
       <p class="head-note" data-i18n="cases.ht.type">Бізнес-система для дистриб'ютора обладнання</p>
+      <h1 data-words data-i18n="case.title">Кейс: Health Time</h1>
     </div>
+  </section>
+
+  <section class="section case-hero">
+    <div class="wrap">
     <p class="case-intro" data-i18n="case.intro">
       Дистриб'ютор обладнання для масажу, реабілітації та фізіотерапії. Апарати ударно-хвильової терапії, Tecar, пресотерапія, школа масажу.
       Коли я прийшов, онлайн-частини не існувало. За 12 місяців зібрав систему, яка продає.
@@ -125,7 +131,7 @@
       </svg>
       <h3 data-i18n="ck.title">Файли cookie</h3>
     </div>
-    <p data-i18n="ck.text">Тільки щоб запам'ятати мову й тему та розуміти, які розділи читають. Без реклами.</p>
+    <p data-i18n="ck.text">Тільки щоб запам'ятати мову та розуміти, які розділи читають. Без реклами.</p>
     <div class="cookie-actions">
       <button type="button" class="btn btn-primary" data-ck="accept"><span data-i18n="ck.accept">Прийняти</span></button>
       <button type="button" class="btn btn-ghost" data-ck="decline"><span data-i18n="ck.decline">Відхилити</span></button>
@@ -144,8 +150,8 @@
       <a href="../index.html#think" data-i18n="nav.think">Маніфест</a>
       <a href="../index.html#work" data-i18n="nav.work">Як працюю</a>
       <a href="../index.html#case" data-i18n="nav.case">Кейси</a>
-      <a href="../index.html#works" data-i18n="nav.works">Роботи</a>
       <a href="../index.html#now" data-i18n="nav.now">Зараз</a>
+      <a href="../index.html#works" data-i18n="nav.works">Роботи</a>
     </nav>
     <div class="footer-contact">
       <span class="footer-h" data-i18n="footer.contact">Зв'язок</span>

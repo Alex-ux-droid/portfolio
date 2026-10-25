@@ -130,21 +130,16 @@
   if (nav) nav.addEventListener('mouseleave', () => moveInd(activeLink));
   onScroll();
 
-  /* ---------- Magnetic buttons ---------- */
+  /* ---------- Кнопки: світло йде за курсором, один прохід «сканера» при наведенні ---------- */
   if (finePointer && !reduce) {
     document.querySelectorAll('[data-magnetic]').forEach((el) => {
-      const inner = el.querySelector('span'); const k = 0.3;
+      el.classList.add('btn-light');
       el.addEventListener('pointermove', (e) => {
         const r = el.getBoundingClientRect();
-        const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
-        el.style.transform = `translate(${dx * k}px, ${dy * k}px)`;
-        if (inner) inner.style.transform = `translate(${dx * k * .4}px, ${dy * k * .4}px)`;
+        el.style.setProperty('--bx', `${((e.clientX - r.left) / r.width * 100).toFixed(1)}%`);
+        el.style.setProperty('--by', `${((e.clientY - r.top) / r.height * 100).toFixed(1)}%`);
       });
-      el.addEventListener('pointerleave', () => {
-        el.style.transition = 'transform .5s cubic-bezier(.2,.7,.2,1)'; el.style.transform = '';
-        if (inner) { inner.style.transition = 'transform .5s cubic-bezier(.2,.7,.2,1)'; inner.style.transform = ''; }
-        setTimeout(() => { el.style.transition = ''; if (inner) inner.style.transition = ''; }, 500);
-      });
+      el.addEventListener('pointerenter', () => { el.classList.remove('scan'); void el.offsetWidth; el.classList.add('scan'); });
     });
   }
 
@@ -261,7 +256,17 @@
     .from('.hero-facts', { y: 24, autoAlpha: 0, duration: .9 }, 1.05)
     .from('.hero-facts li', { y: 14, autoAlpha: 0, duration: .7, stagger: .08 }, 1.15)
     .from('.marquee', { autoAlpha: 0, duration: 1 }, 1.4);
-  if (!hasHero) gsap.from('.case-hero .section-head > *', { y: 20, autoAlpha: 0, duration: .8, stagger: .08, ease });
+  if (!hasHero && document.querySelector('.case-cover')) {
+    intro
+      .from('.site-header', { y: -20, autoAlpha: 0, duration: .8 }, 0)
+      .to('.cover-media img', { scale: 1, duration: 2.4, ease: 'power3.out' }, 0)
+      .from('.cover-shade', { autoAlpha: 0, duration: 1.2 }, 0)
+      .from('.cover-inner .back', { y: -12, autoAlpha: 0, duration: .7 }, .3)
+      .from('.cover-inner .head-note', { y: 14, autoAlpha: 0, duration: .7 }, .45)
+      .from('[data-words] .wi', { yPercent: 110, duration: 1.1, stagger: .06, ease: 'power4.out' }, .5)
+      .from('.sm-lead > *, .case-hero .case-intro, .case-hero .ht-facts', { y: 24, autoAlpha: 0, duration: .9, stagger: .12 }, .9);
+    gsap.to('.cover-media', { yPercent: 18, ease: 'none', scrollTrigger: { trigger: '.case-cover', start: 'top top', end: 'bottom top', scrub: .5 } });
+  } else if (!hasHero) gsap.from('.case-hero .section-head > *', { y: 20, autoAlpha: 0, duration: .8, stagger: .08, ease });
 
   document.querySelectorAll('[data-count]').forEach((el) => {
     const target = +el.dataset.count; const obj = { v: 0 };
@@ -277,7 +282,7 @@
     ['.step', .1], ['.tools', 0], ['.skills li', .05], ['.sub-head', 0],
     ['.works-filter', 0], ['.work', .03], ['.works-note', 0],
     ['.case-intro', 0], ['.case-block', .07],
-    ['.sm-facts li', .07], ['.sm-hero', 0], ['.sm-cols > div', .1], ['.sm-grid figure', .08], ['.sm-foot', 0], ['.case-card', .1], ['.next-case', 0],
+    ['.sm-hero', 0], ['.sm-cols > div', .1], ['.sm-grid figure', .08], ['.sm-foot', 0], ['.case-card', .1], ['.next-case', 0],
     ['.now-list li', .07],
     ['.contact-lead', 0], ['.contact-link', .08],
     ['.cta', 0], ['.tt-story', 0], ['.tt-nums li', .06], ['.tt-how-text p', .08],

@@ -183,7 +183,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 /* ---------- Skills ---------- */
 .skills { display: grid; gap: 14px; }
-.skills li { display: grid; grid-template-columns: minmax(200px, 1.3fr) 2fr minmax(160px, 1fr); align-items: center; gap: 16px; font-size: .95rem; }
+.skills li { display: grid; grid-template-columns: minmax(220px, 1.2fr) 1.4fr minmax(240px, 1.2fr); align-items: center; gap: 16px; font-size: .95rem; }
 .skill-name { font-weight: 500; }
 .skill-bar { height: 5px; border-radius: 999px; background: var(--bar); overflow: hidden; }
 .skill-bar i { display: block; height: 100%; width: var(--w); background: var(--accent); border-radius: inherit; transform-origin: left; }
@@ -242,7 +242,7 @@ img { display: block; max-width: 100%; height: auto; }
 @media (max-width: 860px) { .cases { grid-template-columns: 1fr; } }
 
 /* ---------- Case pages ---------- */
-.case-page .case-hero { border-top: 0; padding-top: clamp(32px, 5vw, 64px); }
+.case-page .case-hero { border-top: 0; padding-top: clamp(28px, 4vw, 48px); }
 .case-page .section-head { flex-direction: column; align-items: flex-start; gap: 10px; }
 .case-page .section-head h1 { font-size: clamp(2rem, 4vw, 3.4rem); }
 .case-page .head-note { margin-left: 0; }
@@ -304,8 +304,8 @@ img { display: block; max-width: 100%; height: auto; }
 
 /* ---------- Contact ---------- */
 .contact-lead { font-size: clamp(1.4rem, 2.6vw, 2.2rem); font-weight: 500; line-height: 1.2; max-width: 26ch; margin-bottom: 32px; letter-spacing: -0.025em; }
-.contact-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-@media (max-width: 1000px) { .contact-links { grid-template-columns: repeat(2, 1fr); } }
+.contact-links { display: flex; flex-wrap: wrap; gap: 12px; }
+.contact-link { flex: 1 1 220px; }
 .contact-link { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 14px; row-gap: 2px; align-items: center; padding: 18px 20px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--bg-elev); text-decoration: none; box-shadow: var(--shadow); transition: border-color .15s ease; }
 .contact-link:hover { border-color: var(--accent); }
 .c-icon { grid-row: 1 / 3; width: 36px; height: 36px; padding: 7px; border-radius: 9px; background: rgba(255,255,255,.06); border: 1px solid var(--line); }
@@ -494,12 +494,10 @@ img { display: block; max-width: 100%; height: auto; }
 /* ---------- How I work: steps ---------- */
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; counter-reset: step; }
 .step { background: var(--bg); padding: clamp(22px, 2.6vw, 34px); display: flex; flex-direction: column; gap: 12px; position: relative; min-height: 300px; }
-.step::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--accent); transform: scaleY(0); transform-origin: top; transition: transform .35s cubic-bezier(.2,.7,.2,1); }
-.step:hover::before { transform: scaleY(1); }
 .step-n { font-size: clamp(2.2rem, 3.4vw, 3.4rem); font-weight: 300; letter-spacing: -0.04em; color: var(--ink-3); opacity: .55; line-height: 1; font-variant-numeric: tabular-nums; }
 .step h3 { font-size: 1.25rem; font-weight: 500; letter-spacing: -0.02em; margin-top: 6px; }
 .step p { margin: 0; color: var(--ink-2); font-size: .95rem; flex: 1; }
-.step-ex { font-size: 13px; color: var(--accent-2); line-height: 1.45; padding-top: 12px; border-top: 1px solid var(--line); }
+.step-ex { font-size: 13px; color: var(--accent-2); line-height: 1.45; padding-top: 12px; border-top: 1px solid var(--line); min-height: calc(13px * 1.45 * 3 + 13px); }
 .tools { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 22px; }
 .tools-h { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; }
 .tools-row { margin-top: 0; }
@@ -510,3 +508,39 @@ img { display: block; max-width: 100%; height: auto; }
 .case-page .sm-grid-2 + .sub-head { margin-top: clamp(44px, 6vw, 72px); }
 @media (max-width: 860px) { .sm-grid-2 { grid-template-columns: 1fr; } }
 .dl-dark { width: 44%; bottom: -14%; }
+
+/* ---------- Case cover (верх сторінки кейсу) ---------- */
+.case-cover { position: relative; min-height: clamp(420px, 72vh, 760px); display: flex; align-items: flex-end; overflow: hidden; isolation: isolate; background: var(--bg-2); }
+.cover-media { position: absolute; inset: 0; z-index: 0; }
+.cover-media picture, .cover-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.js .cover-media img { transform: scale(1.12); }
+.cover-shade { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(7,9,13,.55) 0%, rgba(7,9,13,.15) 35%, rgba(7,9,13,.72) 72%, var(--bg) 100%), radial-gradient(60% 50% at 20% 100%, rgba(79,124,255,.18), transparent 70%); }
+.cover-inner { position: relative; z-index: 2; padding-top: clamp(96px, 14vh, 160px); padding-bottom: clamp(32px, 5vw, 64px); display: grid; gap: 14px; justify-items: start; }
+.cover-inner .back { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,.18); background: rgba(7,9,13,.45); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: var(--ink); font-size: 13px; font-weight: 600; margin-bottom: clamp(16px, 4vh, 48px); }
+.cover-inner .back:hover { border-color: var(--accent); }
+.cover-inner .head-note { margin: 0; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--accent-2); }
+.cover-inner h1 { font-size: clamp(2.4rem, 5.6vw, 5rem); letter-spacing: -0.035em; line-height: 1; max-width: 18ch; text-shadow: 0 10px 40px rgba(0,0,0,.6); }
+.cover-inner h1 .w { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .08em; margin-bottom: -.08em; }
+.cover-inner h1 .wi { display: inline-block; }
+
+@media (max-width: 860px) { .case-cover { min-height: 68vh; } .cover-inner { padding-top: 72px; } }
+
+/* ---------- Works: компактно ---------- */
+.w-main p { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; color: var(--ink-3); transition: color .2s; }
+.work:hover .w-main p, .work:focus-within .w-main p { -webkit-line-clamp: 4; color: var(--ink-2); }
+.work { padding: 12px 8px; }
+
+/* ---------- Кнопки: технологічне світло замість «магніту» ---------- */
+.btn-light { position: relative; overflow: hidden; isolation: isolate; transition: transform .25s cubic-bezier(.2,.7,.2,1), border-color .25s, box-shadow .25s, background .15s, color .15s; }
+.btn-light::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(120px 120px at var(--bx, 50%) var(--by, 50%), rgba(255,255,255,.22), transparent 60%); opacity: 0; transition: opacity .3s; pointer-events: none; }
+.btn-light:hover::before { opacity: 1; }
+.btn-light::after { content: ""; position: absolute; top: -20%; bottom: -20%; left: -30%; width: 22%; z-index: -1; background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,.35) 50%, transparent 100%); transform: translateX(-120%) skewX(-18deg); pointer-events: none; opacity: 0; }
+.btn-light.scan::after { animation: scan .7s cubic-bezier(.4,0,.2,1) forwards; }
+@keyframes scan { 0% { transform: translateX(-120%) skewX(-18deg); opacity: 0; } 15% { opacity: 1; } 100% { transform: translateX(640%) skewX(-18deg); opacity: 0; } }
+.btn-light:hover { transform: translateY(-1px); }
+.btn-primary.btn-light:hover { box-shadow: 0 0 0 1px rgba(143,176,255,.5), 0 12px 36px -14px rgba(79,124,255,.9); }
+.btn-ghost.btn-light:hover { border-color: var(--accent-2); box-shadow: 0 0 0 1px rgba(79,124,255,.25), 0 10px 30px -16px rgba(79,124,255,.6); }
+.btn-ghost.btn-light::before { background: radial-gradient(140px 140px at var(--bx, 50%) var(--by, 50%), rgba(79,124,255,.28), transparent 60%); }
+.btn-pill.btn-light::before { background: radial-gradient(160px 160px at var(--bx, 50%) var(--by, 50%), rgba(79,124,255,.18), transparent 60%); }
+.btn-pill.btn-light:hover { box-shadow: 0 0 0 1px rgba(79,124,255,.35), 0 16px 44px -18px rgba(79,124,255,.8); }
+.btn-pill .pill-arrow { position: relative; z-index: 1; }
