@@ -144,12 +144,16 @@ img { display: block; max-width: 100%; height: auto; }
 .marquee { overflow: hidden; border-top: 1px solid var(--line); padding: 18px 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
 .marquee-track { display: flex; align-items: center; gap: 30px; width: max-content; animation: marquee var(--dur, 40s) linear infinite; font-weight: 500; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); white-space: nowrap; }
 .marquee-track i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex: none; }
-.logo { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-2); text-transform: none; letter-spacing: 0; font-size: 14px; font-weight: 500; transition: border-color .25s, color .25s; }
-.logo img { width: 22px; height: 22px; filter: invert(1) brightness(.85); transition: filter .25s; }
-.logo em { font-style: normal; }
-.logo-text { font-weight: 700; letter-spacing: -0.01em; color: var(--ink); }
-.marquee:hover .logo { color: var(--ink); border-color: var(--line-2); }
-.marquee:hover .logo img { filter: invert(1) brightness(1); }
+.brands { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.brand { width: 22px; height: 22px; border-radius: 6px; opacity: .92; transition: transform .2s, opacity .2s; }
+.brand.sm { width: 18px; height: 18px; }
+.brands .brand { padding: 5px; width: 32px; height: 32px; background: #fff; box-shadow: 0 1px 0 rgba(0,0,0,.3); }
+.brands .brand:hover { transform: translateY(-2px); opacity: 1; }
+.skill-icons { display: inline-flex; gap: 6px; align-items: center; }
+.skill-icons .brand { background: #fff; padding: 3px; }
+.work .brands { margin-top: 10px; gap: 6px; }
+.work .brands .brand { width: 26px; height: 26px; padding: 4px; }
+.case-block .brands, .now-list .brands { margin-top: 12px; }
 .marquee:hover .marquee-track { animation-play-state: paused; }
 @keyframes marquee { to { transform: translateX(var(--shift, -50%)); } }
 
@@ -172,7 +176,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 /* ---------- Skills ---------- */
 .skills { display: grid; gap: 14px; }
-.skills li { display: grid; grid-template-columns: minmax(200px, 1.3fr) 2fr minmax(160px, 1fr); align-items: center; gap: 16px; font-size: .95rem; }
+.skills li { display: grid; grid-template-columns: auto minmax(180px, 1.2fr) 2fr minmax(160px, 1fr); align-items: center; gap: 14px; font-size: .95rem; }
 .skill-name { font-weight: 500; }
 .skill-bar { height: 5px; border-radius: 999px; background: var(--bar); overflow: hidden; }
 .skill-bar i { display: block; height: 100%; width: var(--w); background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-radius: inherit; transform-origin: left; }
@@ -291,7 +295,8 @@ img { display: block; max-width: 100%; height: auto; }
   .hero-text { max-width: none; justify-self: stretch; padding-bottom: 32px; }
   .hero-photo { width: min(78vw, 420px); margin: 0 auto 8px; }
   .about-strip { grid-template-columns: 1fr; }
-  .skills li { grid-template-columns: 1fr; gap: 6px; }
+  .skills li { grid-template-columns: auto 1fr; gap: 6px 10px; }
+  .skill-bar, .skill-level { grid-column: 1 / -1; }
   .skill-level { text-align: left; }
   .work { grid-template-columns: 36px 1fr; row-gap: 8px; }
   .w-tag, .w-year { grid-column: 2; justify-self: start; }

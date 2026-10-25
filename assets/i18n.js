@@ -15,6 +15,7 @@ window.I18N = {
     "facts.2": "people in the sales team I assembled and launched",
     "facts.3": "sales documents: catalogues, proposals, decks",
     "facts.4": "the year I started working with Shopify and e-commerce",
+    "marquee": "<span>Business systems</span><i></i><span>Shopify</span><i></i><span>Sales team</span><i></i><span>CRM</span><i></i><span>China sourcing</span><i></i><span>GTM / DataLayer</span><i></i><span>AI in operations</span><i></i><span>Catalogues &amp; proposals</span><i></i><span>Decks</span><i></i>",
     "think.title": "Approach", "think.note": "How I look at a business",
     "think.1h": "A business is a system.", "think.1p": "A store, a sales team, a warehouse: each has inputs, outputs and a bottleneck. I look for the bottleneck instead of polishing what already works.",
     "think.2h": "Numbers first, decisions second.", "think.2p": "No move on numbers I have not read. The most expensive decision in business is a confident one made without understanding.",

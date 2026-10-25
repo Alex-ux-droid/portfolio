@@ -49,7 +49,7 @@
     root.setAttribute('lang', lang);
     document.querySelectorAll('.lang-toggle span').forEach((s) => s.classList.toggle('on', s.dataset.lang === lang));
     store.set('lang', lang);
-    buildMarquee();
+    if (track) { marqueeSet = (d && d['marquee'] != null) ? d['marquee'] : ukCache.get(track); buildMarquee(); }
     if (splitHero) splitHero();
     if (window.ScrollTrigger) ScrollTrigger.refresh();
   };
