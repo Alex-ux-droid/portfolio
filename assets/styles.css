@@ -224,8 +224,8 @@ img { display: block; max-width: 100%; height: auto; }
 .cases { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .case-card { display: flex; flex-direction: column; text-decoration: none; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-elev); overflow: hidden; transition: border-color .25s, transform .3s ease; }
 .case-card:hover { border-color: var(--line-2); transform: translateY(-3px); }
-.cc-cover { aspect-ratio: 16 / 9; overflow: hidden; background: #fff; position: relative; }
-.cc-cover picture, .cc-cover img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .6s ease; }
+.cc-cover { aspect-ratio: 16 / 9; overflow: hidden; background: var(--bg-2); position: relative; }
+.cc-cover picture, .cc-cover img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .6s ease; }
 .case-card:hover .cc-cover img { transform: scale(1.03); }
 .cc-cover-ht { background: radial-gradient(700px 300px at 10% 0%, var(--glow), transparent 60%), linear-gradient(135deg, #12161D, #0A0C10); display: grid; align-content: end; padding: 24px; gap: 6px; border-bottom: 1px solid var(--line); }
 .cc-ht-title { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 500; letter-spacing: -0.03em; color: var(--ink); }
