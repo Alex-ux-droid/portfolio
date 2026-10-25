@@ -505,3 +505,7 @@ img { display: block; max-width: 100%; height: auto; }
 .tools-row { margin-top: 0; }
 @media (max-width: 1100px) { .steps { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .steps { grid-template-columns: 1fr; } .step { min-height: 0; } }
+.ht-hero .sm-desktop { width: 100%; }
+.sm-grid-2 { grid-template-columns: 1fr 1fr; }
+.case-page .sm-grid-2 + .sub-head { margin-top: clamp(44px, 6vw, 72px); }
+@media (max-width: 860px) { .sm-grid-2 { grid-template-columns: 1fr; } }
