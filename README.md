@@ -4,7 +4,7 @@
 
 ## Деплой на Cloudflare Pages
 
-Проєкт підключається до GitHub-репо напряму (Workers & Pages → Create → Pages → Connect to Git).
+Проєкт підключається до GitHub-репо напряму (Workers & Pages → Create → Pages, або Workers з Git: конфіг у `wrangler.jsonc`, зайве в `.assetsignore`).
 Налаштування збірки:
 
 - Framework preset: None
