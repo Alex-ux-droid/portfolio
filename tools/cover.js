@@ -2,6 +2,7 @@
 const { chromium } = require('playwright');
 const [slug, title, number, date] = process.argv.slice(2);
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+const photo = 'data:image/jpeg;base64,' + require('fs').readFileSync('/home/user/portfolio/assets/img/portrait-480.jpg').toString('base64');
 (async () => {
   const b = await chromium.launch();
   const p = await (await b.newContext({ viewport: { width: 1200, height: 630 } })).newPage();
@@ -19,7 +20,7 @@ const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
   .by{display:flex;align-items:center;gap:16px;font-size:22px;color:#A9B1BE}.by img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:1px solid #2C3441}.by b{color:#F2F4F7;font-weight:600}
   </style></head><body><div class="sky"><i></i><i></i></div><div class="grid"><div class="plane"></div></div>
   <div class="wrap"><div class="top"><i></i>Сигнал · №${esc(number)} · ${esc(date)}</div><h1>${esc(title)}</h1>
-  <div class="by"><img src="file:///home/user/portfolio/assets/img/portrait-480.jpg"><div><b>Олександр Бенца</b> · alexbentsa.com/signal</div></div></div></body></html>`);
+  <div class="by"><img src="${photo}"><div><b>Олександр Бенца</b> · alexbentsa.com/signal</div></div></div></body></html>`);
   await p.waitForTimeout(900);
   await p.screenshot({ path: `/home/user/portfolio/signal/img/${slug}.png` });
   await b.close();
