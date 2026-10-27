@@ -95,7 +95,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="uk" href="https://alexbentsa.com/signal/zoshyt.html"/>
-    <image:image><image:loc>https://alexbentsa.com/assets/og.png</image:loc></image:image>
+    <image:image><image:loc>https://alexbentsa.com/signal/img/zoshyt.png</image:loc></image:image>
   </url>
 <!-- signal:end -->
 </urlset>

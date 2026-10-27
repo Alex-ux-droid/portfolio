@@ -19,13 +19,19 @@ tmpl = (ROOT/'tools/post-template.html').read_text(encoding='utf-8')
 def nav_link(p, cls, label):
     if not p: return f'<a class="{cls} empty"><span>{label}</span><b>—</b></a>'
     return f'<a class="{cls}" href="{p["slug"]}.html"><span>{label}</span><b>{html.escape(p["title"])}</b></a>'
+import subprocess, os
 for i, p in enumerate(posts):
     body = (ROOT/f'signal/src/{p["slug"]}.html').read_text(encoding='utf-8')
+    cover_png = ROOT/f'signal/img/{p["slug"]}.png'
+    if not cover_png.exists():
+        subprocess.run(['node', str(ROOT/'tools/cover.js'), p['slug'], p['title'], p['number'], d_uk(p['date'])], check=False)
+    if cover_png.exists(): p['cover'] = f'signal/img/{p["slug"]}.png'
+    p.setdefault('seo_title', p['title']); p.setdefault('seo_desc', p['deck'])
     ld = {"@context":"https://schema.org","@graph":[
-        {"@type":"BlogPosting","headline":p['title'],"description":p['deck'],"datePublished":p['date'],"dateModified":p.get('updated',p['date']),"inLanguage":"uk","url":BASE+f'signal/{p["slug"]}.html',"mainEntityOfPage":BASE+f'signal/{p["slug"]}.html',"image":BASE+p['cover'],"keywords":", ".join(p.get('tags',[])),"wordCount":len(re.sub(r'<[^>]+>',' ',body).split()),"author":{"@type":"Person","@id":BASE+"#person","name":"Олександр Бенца","url":BASE+"about/"},"publisher":{"@type":"Person","name":"Олександр Бенца"},"isPartOf":{"@type":"Blog","@id":BASE+"signal/","name":"Сигнал"}},
+        {"@type":"BlogPosting","headline":p['title'],"description":p['deck'],"datePublished":p['date'],"dateModified":p.get('updated',p['date']),"inLanguage":"uk","url":BASE+f'signal/{p["slug"]}.html',"mainEntityOfPage":BASE+f'signal/{p["slug"]}.html',"image":BASE+p['cover'],"keywords":", ".join(p.get('tags',[])),"articleSection":"Сигнал","wordCount":len(re.sub(r'<[^>]+>',' ',body).split()),"author":{"@type":"Person","@id":BASE+"#person","name":"Олександр Бенца","url":BASE+"about/"},"publisher":{"@type":"Person","name":"Олександр Бенца"},"isPartOf":{"@type":"Blog","@id":BASE+"signal/","name":"Сигнал"}},
         {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Головна","item":BASE},{"@type":"ListItem","position":2,"name":"Сигнал","item":BASE+"signal/"},{"@type":"ListItem","position":3,"name":p['title'],"item":BASE+f'signal/{p["slug"]}.html'}]}]}
     out = tmpl
-    for k, v in {'title':html.escape(p['title']),'deck':html.escape(p['deck']),'slug':p['slug'],'date':p['date'],'date_uk':d_uk(p['date']),'minutes':str(p['minutes']),'number':p['number'],'cover':p['cover'],'ld':json.dumps(ld,ensure_ascii=False),'header':header,'modal':modal,'tail':tail,'body':body,'title_enc':urllib.parse.quote(p['title']),'prev':nav_link(posts[i-1] if i>0 else None,'prev','Попередня'),'next':nav_link(posts[i+1] if i+1<len(posts) else None,'next','Наступна')}.items():
+    for k, v in {'title':html.escape(p['title']),'deck':html.escape(p['deck']),'seo_title':html.escape(p['seo_title']),'seo_desc':html.escape(p['seo_desc']),'slug':p['slug'],'date':p['date'],'date_uk':d_uk(p['date']),'minutes':str(p['minutes']),'number':p['number'],'cover':p['cover'],'ld':json.dumps(ld,ensure_ascii=False),'header':header,'modal':modal,'tail':tail,'body':body,'title_enc':urllib.parse.quote(p['title']),'prev':nav_link(posts[i-1] if i>0 else None,'prev','Попередня'),'next':nav_link(posts[i+1] if i+1<len(posts) else None,'next','Наступна')}.items():
         out = out.replace('{{'+k+'}}', v)
     (ROOT/f'signal/{p["slug"]}.html').write_text(out, encoding='utf-8')
 # список
