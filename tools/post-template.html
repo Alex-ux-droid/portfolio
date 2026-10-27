@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="uk" class="no-js case-page">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{title}} · Сигнал · Олександр Бенца</title>
+  <meta name="description" content="{{deck}}">
+  <meta name="author" content="Олександр Бенца (Oleksandr Bentsa)">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#07090D">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="canonical" href="https://alexbentsa.com/signal/{{slug}}.html">
+  <link rel="alternate" type="application/rss+xml" title="Сигнал · Олександр Бенца" href="https://alexbentsa.com/signal/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="{{date}}">
+  <meta property="article:author" content="Олександр Бенца">
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:description" content="{{deck}}">
+  <meta property="og:url" content="https://alexbentsa.com/signal/{{slug}}.html">
+  <meta property="og:image" content="https://alexbentsa.com/{{cover}}">
+  <meta property="og:locale" content="uk_UA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{title}}">
+  <meta name="twitter:description" content="{{deck}}">
+  <meta name="twitter:image" content="https://alexbentsa.com/{{cover}}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="../assets/styles.css?v=dev">
+  <script type="application/ld+json">
+  {{ld}}
+  </script>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<a class="skip" href="#main" data-i18n="skip">До контенту</a>
+
+{{header}}
+
+<main id="main">
+  <section class="post-hero" id="top">
+    <div class="wrap">
+      <p class="eyebrow"><a href="index.html" style="color:inherit;text-decoration:none">Сигнал</a> · №{{number}} · {{date_uk}} · {{minutes}} хв читання</p>
+      <h1 data-words>{{title}}</h1>
+      <p class="post-deck">{{deck}}</p>
+      <div class="post-by">
+        <img src="../assets/img/portrait-480.jpg" alt="Олександр Бенца" width="40" height="40">
+        <div><strong><a href="../about/" rel="author">Олександр Бенца</a></strong><span>системи, автоматизація, ШІ</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="post-body">
+    <div class="wrap">
+      <article class="prose">
+{{body}}
+      </article>
+      <div class="post-foot" style="margin-top:clamp(40px,6vw,64px)">
+        <div class="share"><span>Поділитись</span>
+          <a href="https://t.me/share/url?url=https%3A%2F%2Falexbentsa.com%2Fsignal%2F{{slug}}.html&text={{title_enc}}" target="_blank" rel="noopener"><img src="../assets/logos/telegram.svg" alt="">Telegram</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Falexbentsa.com%2Fsignal%2F{{slug}}.html" target="_blank" rel="noopener"><img src="../assets/logos/linkedin.svg" alt="">LinkedIn</a>
+          <button type="button" data-copy="https://alexbentsa.com/signal/{{slug}}.html">Скопіювати лінк</button>
+        </div>
+        <div class="case-cta">
+          <div><span class="cta-eyebrow">Є що сказати?</span><p>Згодні, не згодні, маєте схожу історію. Напишіть, я читаю все сам.</p></div>
+          <button type="button" class="btn-pill" data-open-contact data-magnetic><span>Написати</span><i class="pill-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button>
+        </div>
+        <nav class="post-nav" aria-label="Сусідні статті">
+          {{prev}}
+          {{next}}
+        </nav>
+        <p class="byline"><a href="index.html">← Усі статті Сигналу</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+{{modal}}
+
+{{tail}}

@@ -368,6 +368,13 @@
       .from('.about-alt, .about-text .lead, .about-text .cta-row', { y: 20, autoAlpha: 0, duration: .9, stagger: .1 }, .7)
       .from('.about-photo', { scale: .92, autoAlpha: 0, duration: 1.2, ease: 'power3.out' }, .3)
       .from('.about-hero .sm-facts li', { y: 14, autoAlpha: 0, duration: .7, stagger: .08 }, 1);
+  } else if (!hasHero && document.querySelector('.post-hero, .signal-hero')) {
+    const root2 = document.querySelector('.post-hero, .signal-hero');
+    intro
+      .from('.site-header', { y: -20, autoAlpha: 0, duration: .8 }, 0)
+      .from(root2.querySelector('.eyebrow'), { y: 16, autoAlpha: 0, duration: .7 }, .2)
+      .from('[data-words] .wi', { yPercent: 110, duration: 1.1, stagger: .05, ease: 'power4.out' }, .3)
+      .from(root2.querySelectorAll('.post-deck, .lead, .post-by, .signal-sub'), { y: 20, autoAlpha: 0, duration: .9, stagger: .1 }, .8);
   } else if (!hasHero && document.querySelector('.lab-hero')) {
     intro
       .from('.site-header', { y: -20, autoAlpha: 0, duration: .8 }, 0)
@@ -457,7 +464,7 @@
     ['.sm-hero', 0], ['.sm-cols > div', .1], ['.sm-grid figure', .08], ['.sm-foot', 0], ['.case-card', .1], ['.next-case', 0],
     ['.now-list li', .07],
     ['.contact-lead', 0], ['.c-card', .1], ['.contact-social', 0],
-    ['.cta', 0], ['.case-cta', 0], ['.lab-card', .12], ['.stream', 0], ['.pipe', .08], ['.pipe-result', 0], ['.journal li', .05], ['.faq', .06], ['.about-cols > *', .12], ['.archive li', .06], ['.tt-story', 0], ['.tt-nums li', .06], ['.tt-how-text p', .08],
+    ['.cta', 0], ['.case-cta', 0], ['.post-row', .06], ['.prose h2', 0], ['.prose .pull', 0], ['.prose .key', 0], ['.prose .steps li', .08], ['.prose .note', 0], ['.post-nav', 0], ['.share', 0], ['.lab-card', .12], ['.stream', 0], ['.pipe', .08], ['.pipe-result', 0], ['.journal li', .05], ['.faq', .06], ['.about-cols > *', .12], ['.archive li', .06], ['.tt-story', 0], ['.tt-nums li', .06], ['.tt-how-text p', .08],
   ];
   groups.forEach(([sel, stagger]) => {
     const els = gsap.utils.toArray(sel);

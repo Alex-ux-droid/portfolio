@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Сигнал · Олександр Бенца</title>
+  <link>https://alexbentsa.com/signal/</link>
+  <atom:link href="https://alexbentsa.com/signal/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>Думки про бізнес-системи, ШІ-агентів і бізнес, який можна перенести в майбутнє.</description>
+  <language>uk</language>
+  <item>
+    <title>Мене просять зробити рекламу. Я беру зошит.</title>
+    <link>https://alexbentsa.com/signal/zoshyt.html</link>
+    <guid isPermaLink="true">https://alexbentsa.com/signal/zoshyt.html</guid>
+    <pubDate>Wed, 28 Oct 2026 09:00:00 +0200</pubDate>
+    <description>Чому майже кожен запит від бізнесу це не про те, що просять, і що я роблю з цим замість того, щоб просто виконати замовлення.</description>
+  </item>
+</channel>
+</rss>

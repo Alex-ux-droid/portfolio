@@ -16,6 +16,10 @@
 
 Після підключення домену замінити `https://alexbentsa.com/` на новий домен у всіх сторінках, `sitemap.xml` і `robots.txt`.
 
+## Сигнал (статті)
+
+Джерело статті: `signal/src/<slug>.html` (тільки тіло, без обгортки) + запис у `signal/posts.json`. Потім `python3 tools/signal.py`: збирає сторінки з `tools/post-template.html`, список `signal/index.html`, `signal/feed.xml`, тизер на головній, записи в `sitemap.xml` і `llms.txt`. Пам'ять проєкту для Claude: `CLAUDE.md`.
+
 ## SEO
 
 `llms.txt` у корені: коротке резюме для ШІ-пошуку, онови, коли з'явиться новий кейс. Журнал і архів лабораторії зашиті в HTML (для краулерів без JS); після правки `assets/lab.js` перегенеруй їх у `lab/index.html`.

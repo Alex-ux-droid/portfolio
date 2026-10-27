@@ -249,6 +249,9 @@ window.I18N = {
     "case.by": "Author and builder:",
     "hero.v1": "The owner sees the numbers from a phone", "hero.v2": "The team works without you", "hero.v3": "Weeks to launch, not years",
     "case.cta.k": "A similar task?", "case.cta.p": "A notebook, Excel, “that's how it is”. Describe it in two sentences, I will look a few steps ahead and tell you honestly what to do about it.",
+    "nav.signal": "Signal", "signal.title": "Signal", "signal.note": "thoughts, not news · new once a week", "signal.all": "All articles →",
+    "signal.ptitle": "Signal · Oleksandr Bentsa on systems, AI and business", "signal.desc": "Signal: Oleksandr Bentsa's articles on business systems, AI agents and moving an ordinary business into the future. No filler, with examples from live systems. Articles are in Ukrainian.",
+    "signal.eyebrow": "Signal · thoughts, not news", "signal.lead": "What I think about business systems, AI agents and businesses that can be moved into the future. No filler, with examples from live systems. Articles are in Ukrainian and read on a phone in five minutes.", "signal.tg": "New posts in Telegram",
     "ck.title": "Cookies",
     "ck.text": "Only to remember your language and to understand which sections get read. No ads.",
     "ck.accept": "Accept", "ck.decline": "Decline"

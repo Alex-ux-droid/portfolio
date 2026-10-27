@@ -28,6 +28,13 @@
 - [Кейс: Health Time](https://alexbentsa.com/cases/health-time.html)
 - [Лабораторія](https://alexbentsa.com/lab/): три напрямки, журнал змін з датами, архів
 
+## Сигнал: статті
+
+Думки Олександра про системи, ШІ і бізнес: https://alexbentsa.com/signal/ (RSS: https://alexbentsa.com/signal/feed.xml)
+<!-- signal:start -->
+- [Мене просять зробити рекламу. Я беру зошит.](https://alexbentsa.com/signal/zoshyt.html): Чому майже кожен запит від бізнесу це не про те, що просять, і що я роблю з цим замість того, щоб просто виконати замовлення.
+<!-- signal:end -->
+
 ## Контакти
 
 - Email: casperlavkor@gmail.com
