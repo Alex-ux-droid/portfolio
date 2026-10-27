@@ -826,9 +826,9 @@ img { display: block; max-width: 100%; height: auto; }
 .prose figcaption { font-size: 13px; color: var(--ink-3); margin: 10px var(--gutter) 0; }
 @media (min-width: 760px) { .prose figure { margin: 2em -40px; } .prose figure img { border-radius: 14px; border: 1px solid var(--line-2); } .prose figcaption { margin: 10px 0 0; } }
 .prose hr { border: 0; height: 1px; margin: 2.4em auto; width: 80px; background: var(--line-2); }
-.prose .steps { counter-reset: st; display: grid; gap: 14px; padding: 0; list-style: none; }
-.prose .steps li { padding: 16px 18px 16px 56px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg-elev); position: relative; }
-.prose .steps li::before { counter-increment: st; content: counter(st, decimal-leading-zero); position: absolute; left: 18px; top: 16px; font-size: 12px; font-weight: 600; letter-spacing: .08em; color: var(--accent-2); background: none; width: auto; height: auto; }
+.prose .flow { counter-reset: st; display: grid; grid-template-columns: 1fr; gap: 12px; padding: 0; list-style: none; }
+.prose .flow li { padding: 16px 18px 16px 58px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg-elev); position: relative; }
+.prose .flow li::before { counter-increment: st; content: counter(st, decimal-leading-zero); position: absolute; left: 18px; top: 17px; font-size: 12px; font-weight: 600; letter-spacing: .08em; color: var(--accent-2); }
 .prose .end { margin-top: 2.4em; padding-top: 1.4em; border-top: 1px solid var(--line); font-weight: 500; color: var(--ink); }
 .post-foot { max-width: 680px; margin: 0 auto; display: grid; gap: 22px; }
 .share { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
@@ -852,3 +852,24 @@ img { display: block; max-width: 100%; height: auto; }
 .signal-teaser .post-row::before { display: none; }
 .signal-teaser .post-arrow { display: none; }
 @media (max-width: 860px) { .signal-teaser { grid-template-columns: 1fr; } }
+
+/* ---------- Стаття на десктопі: бокова панель зі змістом ---------- */
+@media (min-width: 1100px) {
+  .post-hero .wrap { max-width: 1100px; }
+  .post-hero h1 { max-width: 20ch; }
+  .post-body .wrap { display: grid; grid-template-columns: 240px minmax(0, 720px); column-gap: 72px; justify-content: center; align-items: start; }
+  .prose { max-width: 720px; margin: 0; font-size: 1.2rem; grid-column: 2; }
+  .post-foot { grid-column: 2; max-width: 720px; margin: 0; }
+  .post-rail { grid-column: 1; grid-row: 1 / span 2; position: sticky; top: 92px; display: grid; gap: 22px; font-size: 13px; }
+}
+.post-rail { display: none; }
+.post-rail .r-h { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; margin-bottom: 10px; }
+.post-rail ol { list-style: none; padding: 0; display: grid; gap: 2px; border-left: 1px solid var(--line); }
+.post-rail ol a { display: block; padding: 7px 0 7px 14px; color: var(--ink-3); text-decoration: none; margin-left: -1px; border-left: 1px solid transparent; transition: color .2s, border-color .2s; line-height: 1.35; }
+.post-rail ol a:hover { color: var(--ink); }
+.post-rail ol a.on { color: var(--ink); border-left-color: var(--accent); }
+.post-rail .r-meta { color: var(--ink-3); display: grid; gap: 4px; }
+.post-rail .r-meta b { color: var(--ink-2); font-weight: 600; }
+.post-rail .share { gap: 6px; }
+.post-rail .share span { display: none; }
+.post-rail .share a, .post-rail .share button { padding: 7px 11px; font-size: 12px; }

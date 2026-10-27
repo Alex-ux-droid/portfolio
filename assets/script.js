@@ -187,6 +187,16 @@
     cta.addEventListener('pointermove', (e) => { const r = cta.getBoundingClientRect(); cta.style.setProperty('--mx', `${e.clientX - r.left}px`); cta.style.setProperty('--my', `${e.clientY - r.top}px`); });
   });
 
+  /* ---------- Стаття: зміст у боковій панелі ---------- */
+  const toc = document.querySelector('[data-toc]');
+  if (toc) {
+    const heads = [...document.querySelectorAll('.prose h2')];
+    heads.forEach((h, i) => { if (!h.id) h.id = 's' + (i + 1); const li = document.createElement('li'); li.innerHTML = `<a href="#${h.id}">${h.textContent}</a>`; toc.appendChild(li); });
+    const links = [...toc.querySelectorAll('a')];
+    const mark = () => { let cur = 0; heads.forEach((h, i) => { if (h.getBoundingClientRect().top < innerHeight * .35) cur = i; }); links.forEach((a, i) => a.classList.toggle('on', i === cur)); };
+    window.addEventListener('scroll', mark, { passive: true }); mark();
+  }
+
   /* ---------- Копіювання пошти ---------- */
   document.querySelectorAll('[data-copy]').forEach((btn) => {
     const label = btn.textContent;
