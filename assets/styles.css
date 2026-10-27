@@ -862,7 +862,7 @@ img { display: block; max-width: 100%; height: auto; }
   .post-foot { grid-column: 2; max-width: 720px; margin: 0; }
   .post-rail { grid-column: 1; grid-row: 1 / span 2; position: sticky; top: 92px; display: grid; gap: 22px; font-size: 13px; }
 }
-.post-rail { display: none; }
+@media (max-width: 1099px) { .post-rail { display: none; } }
 .post-rail .r-h { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; margin-bottom: 10px; }
 .post-rail ol { list-style: none; padding: 0; display: grid; gap: 2px; border-left: 1px solid var(--line); }
 .post-rail ol a { display: block; padding: 7px 0 7px 14px; color: var(--ink-3); text-decoration: none; margin-left: -1px; border-left: 1px solid transparent; transition: color .2s, border-color .2s; line-height: 1.35; }
