@@ -263,16 +263,16 @@
   const chatLog = document.querySelector('[data-chat] .chat-log');
   if (chatLog) {
     const scriptUk = [
-      ['u', 'Клієнт з минулого тижня, той що питав про три апарати. Що з ним?'],
-      ['a', 'Петренко, запит 14.10. Чекав КП до п\'ятниці, я підготував його за твоїм шаблоном. Надіслати?'],
-      ['u', 'Так. І постав нагадування на вівторок.'],
-      ['a', 'Надіслав. Нагадування у вівторок о 10:00. Ще два клієнти без відповіді понад 3 дні, показати?'],
+      ['u', 'Щойно з переговорів, 40 хвилин диктофону. Кав\'ярня, двоє власників, CRM нема, реклама не працює.'],
+      ['a', 'Записав у картку. Схоже на дистриб\'ютора з минулого року: пропоную ту саму CRM і телефонію. Стратегія буде за 20 хвилин. КП до п\'ятниці?'],
+      ['u', 'Так. Паролі від їхнього кабінету реклами теж туди.'],
+      ['a', 'Паролі в Bitwarden, доступ прив\'язав до картки. Ще два клієнти з дедлайном завтра, показати?'],
     ];
     const scriptEn = [
-      ['u', 'The client from last week, the one asking about three devices. Where are we?'],
-      ['a', 'Petrenko, enquiry of 14 Oct. He expected a proposal by Friday, I drafted it from your template. Send it?'],
-      ['u', 'Yes. And set a reminder for Tuesday.'],
-      ['a', 'Sent. Reminder Tuesday 10:00. Two more clients unanswered for over 3 days, show them?'],
+      ['u', 'Just out of a meeting, 40 minutes of voice memo. A coffee shop, two owners, no CRM, ads not working.'],
+      ['a', 'Saved to the card. Looks like last year\'s distributor: I suggest the same CRM and telephony. Strategy in 20 minutes. Proposal by Friday?'],
+      ['u', 'Yes. Put their ad account passwords there too.'],
+      ['a', 'Passwords in Bitwarden, access tied to the card. Two more clients with a deadline tomorrow, show them?'],
     ];
     let running = false, stop = false;
     const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

@@ -97,5 +97,13 @@
     <xhtml:link rel="alternate" hreflang="uk" href="https://alexbentsa.com/signal/zoshyt.html"/>
     <image:image><image:loc>https://alexbentsa.com/signal/img/zoshyt.png</image:loc></image:image>
   </url>
+  <url>
+    <loc>https://alexbentsa.com/signal/ofis.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://alexbentsa.com/signal/ofis.html"/>
+    <image:image><image:loc>https://alexbentsa.com/signal/img/ofis.png</image:loc></image:image>
+  </url>
 <!-- signal:end -->
 </urlset>
