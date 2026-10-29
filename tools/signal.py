@@ -30,14 +30,15 @@ for i, p in enumerate(posts):
     ld = {"@context":"https://schema.org","@graph":[
         {"@type":"BlogPosting","headline":p['title'],"description":p['deck'],"datePublished":p['date'],"dateModified":p.get('updated',p['date']),"inLanguage":"uk","url":BASE+f'signal/{p["slug"]}.html',"mainEntityOfPage":BASE+f'signal/{p["slug"]}.html',"image":BASE+p['cover'],"keywords":", ".join(p.get('tags',[])),"articleSection":"Сигнал","wordCount":len(re.sub(r'<[^>]+>',' ',body).split()),"author":{"@type":"Person","@id":BASE+"#person","name":"Олександр Бенца","url":BASE+"about/"},"publisher":{"@type":"Person","name":"Олександр Бенца"},"isPartOf":{"@type":"Blog","@id":BASE+"signal/","name":"Сигнал"}},
         {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Головна","item":BASE},{"@type":"ListItem","position":2,"name":"Сигнал","item":BASE+"signal/"},{"@type":"ListItem","position":3,"name":p['title'],"item":BASE+f'signal/{p["slug"]}.html'}]}]}
+    kind_label = (f'Оновлення · {p.get("project_name","")} {p.get("version","")}'.strip() if p.get('kind')=='update' else 'Сигнал')
     out = tmpl
-    for k, v in {'title':html.escape(p['title']),'deck':html.escape(p['deck']),'seo_title':html.escape(p['seo_title']),'seo_desc':html.escape(p['seo_desc']),'slug':p['slug'],'date':p['date'],'date_uk':d_uk(p['date']),'minutes':str(p['minutes']),'number':p['number'],'cover':p['cover'],'ld':json.dumps(ld,ensure_ascii=False),'header':header,'modal':modal,'tail':tail,'body':body,'title_enc':urllib.parse.quote(p['title']),'prev':nav_link(posts[i-1] if i>0 else None,'prev','Попередня'),'next':nav_link(posts[i+1] if i+1<len(posts) else None,'next','Наступна')}.items():
+    for k, v in {'kind_label':kind_label,'kind_class':(' is-update' if p.get('kind')=='update' else ''),'title':html.escape(p['title']),'deck':html.escape(p['deck']),'seo_title':html.escape(p['seo_title']),'seo_desc':html.escape(p['seo_desc']),'slug':p['slug'],'date':p['date'],'date_uk':d_uk(p['date']),'minutes':str(p['minutes']),'number':p['number'],'cover':p['cover'],'ld':json.dumps(ld,ensure_ascii=False),'header':header,'modal':modal,'tail':tail,'body':body,'title_enc':urllib.parse.quote(p['title']),'prev':nav_link(posts[i-1] if i>0 else None,'prev','Попередня'),'next':nav_link(posts[i+1] if i+1<len(posts) else None,'next','Наступна')}.items():
         out = out.replace('{{'+k+'}}', v)
     (ROOT/f'signal/{p["slug"]}.html').write_text(out, encoding='utf-8')
 # список
 rows = '\n'.join(f'''      <a class="post-row" href="{p["slug"]}.html">
         <span class="post-n">{p["number"]}</span>
-        <div class="post-main"><span class="post-meta">{d_uk(p["date"])} · {p["minutes"]} хв</span><h2>{html.escape(p["title"])}</h2><p>{html.escape(p["deck"])}</p></div>
+        <div class="post-main"><span class="post-meta">{("<i class=\"badge\">оновлення · "+p.get("project_name","")+" "+p.get("version","")+"</i> · ") if p.get("kind")=="update" else ""}{d_uk(p["date"])} · {p["minutes"]} хв</span><h2>{html.escape(p["title"])}</h2><p>{html.escape(p["deck"])}</p></div>
         <span class="post-arrow" aria-hidden="true">→</span>
       </a>''' for p in reversed(posts))
 idx_head = about[:about.index('<main id="main">')]
@@ -102,7 +103,7 @@ items = ''.join(f'''
 # тизер на головній
 home = (ROOT/'index.html').read_text(encoding='utf-8')
 teaser = '\n'.join(f'''      <a class="post-row" href="signal/{p["slug"]}.html">
-        <div class="post-main"><span class="post-meta">№{p["number"]} · {d_uk(p["date"])} · {p["minutes"]} хв</span><h3>{html.escape(p["title"])}</h3><p>{html.escape(p["deck"])}</p></div>
+        <div class="post-main"><span class="post-meta">{("<i class=\"badge\">оновлення</i> · ") if p.get("kind")=="update" else "№"+p["number"]+" · "}{d_uk(p["date"])} · {p["minutes"]} хв</span><h3>{html.escape(p["title"])}</h3><p>{html.escape(p["deck"])}</p></div>
       </a>''' for p in list(reversed(posts))[:2])
 home = re.sub(r'(<!-- signal:start -->).*?(<!-- signal:end -->)', lambda m: m.group(1)+'\n'+teaser+'\n      '+m.group(2), home, flags=re.S)
 (ROOT/'index.html').write_text(home, encoding='utf-8')
@@ -121,6 +122,19 @@ def url(loc, date, cf, pr, img):
 block = url(BASE+'signal/', posts[-1]['date'], 'weekly', '0.9', BASE+'assets/og.png') + ''.join(url(BASE+f'signal/{p["slug"]}.html', p.get('updated',p['date']), 'monthly', '0.7', BASE+p['cover']) for p in posts)
 sm = re.sub(r'<!-- signal:start -->.*?<!-- signal:end -->', '<!-- signal:start -->\n'+block+'<!-- signal:end -->', sm, flags=re.S)
 (ROOT/'sitemap.xml').write_text(sm, encoding='utf-8')
+# оновлення проєктів у лабораторії
+lab = (ROOT/'lab/index.html').read_text(encoding='utf-8')
+home2 = (ROOT/'index.html').read_text(encoding='utf-8')
+for proj in sorted({p['project'] for p in posts if p.get('kind')=='update'}):
+    ups = [p for p in reversed(posts) if p.get('kind')=='update' and p['project']==proj]
+    rows_u = ''.join(f'<li><a href="../signal/{p["slug"]}.html"><b>{p.get("version","")}</b><span>{html.escape(p["title"])}</span><time>{d_uk(p["date"])}</time></a></li>' for p in ups)
+    block = f'<!-- updates:{proj}:start -->\n        <div class="stream-updates"><div class="r-h">Оновлення проєкту</div><ul>{rows_u}</ul></div>\n        <!-- updates:{proj}:end -->'
+    lab = re.sub(rf'<!-- updates:{proj}:start -->.*?<!-- updates:{proj}:end -->', block, lab, flags=re.S)
+    last = ups[0]
+    line = f'<!-- updates:{proj}:start --><p class="lab-upd"><a href="signal/{last["slug"]}.html">{last.get("version","")} · {html.escape(last["title"])} →</a></p><!-- updates:{proj}:end -->'
+    home2 = re.sub(rf'<!-- updates:{proj}:start -->.*?<!-- updates:{proj}:end -->', line, home2, flags=re.S)
+(ROOT/'lab/index.html').write_text(lab, encoding='utf-8')
+(ROOT/'index.html').write_text(home2, encoding='utf-8')
 # llms
 ll = (ROOT/'llms.txt').read_text(encoding='utf-8')
 lines = '\n'.join(f'- [{p["title"]}]({BASE}signal/{p["slug"]}.html): {p["deck"]}' for p in reversed(posts))
