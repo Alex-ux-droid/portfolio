@@ -129,7 +129,7 @@ window.I18N = {
     "lab.b.next2": "launch of the current rollout and the fifth case study",
     "lab.c.long1": "I work solo, on top of a main job. There is no extra time to take, so the time I have must be saved. ChatGPT, Claude or Gemini do not solve this: they have a chat and context, but no rules to work by and no dashboard where everything is visible. So I am building an office: a web app where each agent does its own job, everything sits in folders, and I can see what stage a client is at and which deadlines are burning.",
     "lab.c.long2": "How it looks: at the meeting I turn on a voice recorder and hand it to the agent. By the time I get home there is a ready strategy and a filled-in client card: creatives, PDFs, decks, ad data, passwords via Bitwarden. The base remembers every client and sees patterns: a CRM set up here gets suggested there. Agents work on a server while I live my life. First for myself, then for people running small businesses who cannot afford specialists.",
-    "lab.c.now": "the first agent and the structure of the client card",
+    "lab.c.now": "Jerry 1.0 is running: voice, memory, Telegram, client card",
     "lab.p.title": "One process that already works", "lab.p.note": "office applications and document packs",
     "lab.p.intro": "Manual office work: fill in an application, gather documents, build a PDF, check, send. The same path every time. Now a chain of agents walks it, and a person only looks at the result.",
     "lab.p.1h": "Application", "lab.p.1p": "an e-mail, a form or a file from the client",

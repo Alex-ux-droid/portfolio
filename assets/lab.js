@@ -1,8 +1,9 @@
 /* Лабораторія: журнал і архів. Дописуй записи сюди, сторінка /lab/ рендерить сама.
    date: YYYY-MM-DD · tag: agents | base | assistant | site · uk/en: текст */
 window.LAB = {
-  updated: "2026-10-28",
+  updated: "2026-10-29",
   journal: [
+    { date: "2026-10-29", tag: "assistant", uk: "Джері 1.0: помічник отримав ім'я, обличчя, голос і пам'ять. Telegram-бот збирає переписку з клієнтами в картку, лабораторія підбору рішень, картка клієнта як робоче місце, конектори Google і Telegram.", en: "Jerry 1.0: the assistant got a name, a face, a voice and memory. The Telegram bot collects client chats into the card, a solution-picking lab, the client card as a workspace, Google and Telegram connectors." },
     { date: "2026-10-28", tag: "assistant", uk: "Помічник виріс у задум офісу: веб-застосунок, де веду клієнта від диктофону на зустрічі до готової стратегії, картка клієнта з усім в одному місці, агенти на сервері. Розписав у Сигналі.", en: "The assistant grew into an office concept: a web app where I lead a client from a voice memo at the meeting to a ready strategy, a client card with everything in one place, agents on a server. Written up in Signal." },
     { date: "2026-10-25", tag: "assistant", uk: "Почав помічника для соло: перша задача, на якій він буде відточуватись, і схема пам'яті контексту.", en: "Started the solo assistant: the first task it will be honed on, and the context-memory scheme." },
     { date: "2026-10-20", tag: "base", uk: "Нове впровадження: прийшли за рекламою, виявилось, що немає системи. Погоджено відділ продажу, сайт, телефонію, CRM і дашборд керуючому.", en: "New rollout: they came for ads, turned out there was no system. Agreed: sales team, website, telephony, CRM and a manager dashboard." },

@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="uk" class="no-js case-page">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Джері 1.0: ШІ-напарник для ведення клієнтів з голосом, пам&#x27;яттю і Telegram · Сигнал · Олександр Бенца</title>
+  <meta name="description" content="Що з&#x27;явилось у системі client-ops за один день: ШІ-помічник Джері з голосом і пам&#x27;яттю, Telegram-бот, який збирає переписку в картку клієнта, лабораторія підбору CRM, картка клієнта як робоче місце.">
+  <meta name="author" content="Олександр Бенца (Oleksandr Bentsa)">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#07090D">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="canonical" href="https://alexbentsa.com/signal/jerry-1-0.html">
+  <link rel="alternate" type="application/rss+xml" title="Сигнал · Олександр Бенца" href="https://alexbentsa.com/signal/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-10-29">
+  <meta property="article:author" content="Олександр Бенца">
+  <meta property="og:title" content="Джері 1.0: помічник отримав ім&#x27;я, голос і Telegram">
+  <meta property="og:description" content="Що з&#x27;явилось у системі client-ops за один день: ШІ-помічник Джері з голосом і пам&#x27;яттю, Telegram-бот, який збирає переписку в картку клієнта, лабораторія підбору CRM, картка клієнта як робоче місце.">
+  <meta property="og:url" content="https://alexbentsa.com/signal/jerry-1-0.html">
+  <meta property="og:image" content="https://alexbentsa.com/signal/img/jerry-1-0.png">
+  <meta property="og:locale" content="uk_UA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Джері 1.0: помічник отримав ім&#x27;я, голос і Telegram">
+  <meta name="twitter:description" content="Що з&#x27;явилось у системі client-ops за один день: ШІ-помічник Джері з голосом і пам&#x27;яттю, Telegram-бот, який збирає переписку в картку клієнта, лабораторія підбору CRM, картка клієнта як робоче місце.">
+  <meta name="twitter:image" content="https://alexbentsa.com/signal/img/jerry-1-0.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="../assets/styles.css?v=dev">
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Джері 1.0: помічник отримав ім'я, голос і Telegram", "description": "Перший звіт з будівництва офісу агентів. За один день: анімований напарник, який бачить екран і пам'ятає, голос в обидва боки, Telegram-бот збирає переписку з клієнтами, лабораторія підбору рішень, картка клієнта як робоче місце.", "datePublished": "2026-10-29", "dateModified": "2026-10-29", "inLanguage": "uk", "url": "https://alexbentsa.com/signal/jerry-1-0.html", "mainEntityOfPage": "https://alexbentsa.com/signal/jerry-1-0.html", "image": "https://alexbentsa.com/signal/img/jerry-1-0.png", "keywords": "ШІ-агент, client-ops, Telegram-бот, голосовий помічник, CRM", "articleSection": "Сигнал", "wordCount": 549, "author": {"@type": "Person", "@id": "https://alexbentsa.com/#person", "name": "Олександр Бенца", "url": "https://alexbentsa.com/about/"}, "publisher": {"@type": "Person", "name": "Олександр Бенца"}, "isPartOf": {"@type": "Blog", "@id": "https://alexbentsa.com/signal/", "name": "Сигнал"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Головна", "item": "https://alexbentsa.com/"}, {"@type": "ListItem", "position": 2, "name": "Сигнал", "item": "https://alexbentsa.com/signal/"}, {"@type": "ListItem", "position": 3, "name": "Джері 1.0: помічник отримав ім'я, голос і Telegram", "item": "https://alexbentsa.com/signal/jerry-1-0.html"}]}]}
+  </script>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<a class="skip" href="#main" data-i18n="skip">До контенту</a>
+
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">ОБ</span>
+    <span class="brand-name" data-i18n="brand">Олександр Бенца</span>
+  </a>
+  <nav class="site-nav" aria-label="Розділи"><span class="nav-ind" aria-hidden="true"></span>
+    <a href="index.html" data-i18n="nav.about">Про мене</a>
+    <a href="../index.html#think" data-i18n="nav.think">Маніфест</a>
+    <a href="../index.html#work" data-i18n="nav.work">Як працюю</a>
+    <a href="../index.html#case" data-i18n="nav.case">Кейси</a>
+    <a href="../index.html#now" data-i18n="nav.now">Зараз</a>
+    <a href="../signal/" data-i18n="nav.signal">Сигнал</a>
+    <a href="../index.html#works" data-i18n="nav.works">Роботи</a>
+    <a href="../index.html#contact" data-i18n="nav.contact">Контакти</a>
+  </nav>
+  <div class="header-tools">
+    <a class="btn btn-primary btn-sm hdr-cta" href="index.html" data-magnetic><span data-i18n="hdr.cta">Портфоліо</span></a>
+    <button class="lang-toggle" type="button" title="UA / EN"><span data-lang="uk" class="on">UA</span><i></i><span data-lang="en">EN</span></button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="post-hero" id="top">
+    <div class="wrap">
+      <p class="eyebrow is-update"><a href="index.html" style="color:inherit;text-decoration:none">Оновлення · Джері 1.0</a> · №03 · 29 жовтня 2026 · 5 хв читання</p>
+      <h1 data-words>Джері 1.0: помічник отримав ім&#x27;я, голос і Telegram</h1>
+      <p class="post-deck">Перший звіт з будівництва офісу агентів. За один день: анімований напарник, який бачить екран і пам&#x27;ятає, голос в обидва боки, Telegram-бот збирає переписку з клієнтами, лабораторія підбору рішень, картка клієнта як робоче місце.</p>
+      <div class="post-by">
+        <img src="../assets/img/portrait-480.jpg" alt="Олександр Бенца" width="40" height="40">
+        <div><strong><a href="../about/" rel="author">Олександр Бенца</a></strong><span>системи, автоматизація, ШІ</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="post-body">
+    <div class="wrap">
+      <aside class="post-rail" aria-label="Зміст">
+        <div><div class="r-h">Зміст</div><ol data-toc></ol></div>
+        <div class="r-meta"><b>№03 · 5 хв</b><span>29 жовтня 2026</span><span>Олександр Бенца</span></div>
+        <div class="share">
+          <a href="https://t.me/share/url?url=https%3A%2F%2Falexbentsa.com%2Fsignal%2Fjerry-1-0.html&text=%D0%94%D0%B6%D0%B5%D1%80%D1%96%201.0%3A%20%D0%BF%D0%BE%D0%BC%D1%96%D1%87%D0%BD%D0%B8%D0%BA%20%D0%BE%D1%82%D1%80%D0%B8%D0%BC%D0%B0%D0%B2%20%D1%96%D0%BC%27%D1%8F%2C%20%D0%B3%D0%BE%D0%BB%D0%BE%D1%81%20%D1%96%20Telegram" target="_blank" rel="noopener"><img src="../assets/logos/telegram.svg" alt="">Telegram</a>
+          <button type="button" data-copy="https://alexbentsa.com/signal/jerry-1-0.html">Лінк</button>
+        </div>
+      </aside>
+      <article class="prose">
+<div class="key"><b>Коротко</b>
+  <ul>
+    <li>Помічник отримав ім'я, обличчя й характер: Джері. Маленький робот, який завжди на екрані, бачить контекст і пам'ятає.</li>
+    <li>Голос в обидва боки: диктую без пропущених слів, він відповідає живим голосом у навушники.</li>
+    <li>Telegram-бот мовчки збирає переписку з клієнтами в картку, а в особистих це і є Джері.</li>
+    <li>Лабораторія підбору рішень, картка клієнта як робоче місце, конектори. Усе за один день.</li>
+  </ul>
+</div>
+
+<p>Тиждень тому я <a href="ofis.html">написав, що будую офіс з агентів</a>, а не помічника. Це перший звіт з будівництва. Один день роботи над системою, яку я називаю client-ops, і список того, що в ній з'явилось.</p>
+
+<h2>У помічника тепер є ім'я: Джері</h2>
+
+<p>Маленький анімований робот. На комп'ютері сидить у кутку, на телефоні стоїть по центру меню. Кліпає, «слухає», «думає», «говорить». Один на всю систему, без дублів по вкладках.</p>
+
+<p>Головне не в анімації. Джері бачить, що в мене на екрані. Я кажу «додай сюди» або «що з цим клієнтом», і він розуміє, про що мова, бо дивиться на ту саму картку, що й я.</p>
+
+<p>У нього є характер: теплий, говорить простими словами. На «як справи» відповідає по-людськи, а не звітом. І є власна пам'ять: після кожної розмови сам оновлює те, що знає про мене і мою роботу.</p>
+
+<blockquote class="pull"><p>Різниця між чатом і напарником: чат відповідає на питання. Напарник знає, над чим ти працюєш, ще до того, як ти спитав.</p></blockquote>
+
+<h2>Голос в обидва боки</h2>
+
+<p>Диктую, і розпізнавання не пропускає слова: замість вбудованого в браузер стоїть професійне розпізнавання мови. Для мене це ключова деталь, бо весь задум тримається на тому, що після зустрічі я надиктовую, а не друкую.</p>
+
+<p>Джері відповідає живим голосом. Можна попросити «розкажи підсумок дня» і слухати в навушниках дорогою додому.</p>
+
+<h2>Telegram збирає переписку сам</h2>
+
+<ol class="flow">
+  <li><strong>У групах з клієнтами</strong> бот мовчить і збирає всю переписку в картку клієнта. Голосові клієнтів одразу стають текстом.</li>
+  <li><strong>Дві кнопки:</strong> «Підсумок тижня» і «Що ми обіцяли?». Джері проходить переписку і показує домовленості. Те, що раніше жило в пам'яті й губилось.</li>
+  <li><strong>В особистих</strong> бот і є Джері: пишу або надиктовую, і він робить усе в системі, без відкриття комп'ютера.</li>
+</ol>
+
+<h2>Лабораторія: підбір рішення клієнту</h2>
+
+<p>Обираю клієнта й одним реченням описую проблему. Наприклад: «яку CRM поставити, готову чи зробити свою».</p>
+
+<p>Джері сам розгортає сесію: варіанти, критерії з вагами, ціни, плюси й мінуси. Я тестую, ставлю оцінки, система рахує, хто лідер. Висновок одним кліком іде в картку клієнта, а обраний інструмент стає його послугою.</p>
+
+<div class="note"><b>Навіщо це.</b> Торік я <a href="../cases/health-time.html">підбирав CRM і телефонію дистриб'ютору</a> руками: таблиці, дзвінки, порівняння. Тепер цей шлях займає одну сесію, а рішення лишається в системі й працює на наступного клієнта зі схожою задачею.</div>
+
+<h2>Картка клієнта як робоче місце</h2>
+
+<ul>
+  <li>Кожна послуга, сайт, CRM, реклама, телефонія, має свою вкладку з оглядом замість анкети.</li>
+  <li>Дашборд з цифрами лише на головній вкладці, решта віддані під роботу.</li>
+  <li>Пошта, папки на Google Диску і переписка з Telegram в одному місці.</li>
+</ul>
+
+<h2>Конектори і дрібниці</h2>
+
+<p>Окрема сторінка підключень: Google (пошта і диск), голос, Telegram. Далі на черзі автоімпорт цифр з реклами.</p>
+
+<p>І те, що не видно, але економить нерви: незбережений текст не губиться навіть після оновлення сторінки; система сама каже, коли оновилась; жирні іконки; меню на телефоні окремою сторінкою, нічого не гортається за спливаючими вікнами. Повна перевірка безпеки і швидкості: кожна сторінка відкривається менш ніж за пів секунди.</p>
+
+<p class="end">За один день система перетворилась з «бази клієнтів» на робоче середовище з напарником, який чує, бачить контекст, говорить і збирає за мене переписку. Далі: <a href="../lab/">у лабораторії</a>, з датами.</p>
+
+      </article>
+      <div class="post-foot" style="margin-top:clamp(40px,6vw,64px)">
+        <div class="share"><span>Поділитись</span>
+          <a href="https://t.me/share/url?url=https%3A%2F%2Falexbentsa.com%2Fsignal%2Fjerry-1-0.html&text=%D0%94%D0%B6%D0%B5%D1%80%D1%96%201.0%3A%20%D0%BF%D0%BE%D0%BC%D1%96%D1%87%D0%BD%D0%B8%D0%BA%20%D0%BE%D1%82%D1%80%D0%B8%D0%BC%D0%B0%D0%B2%20%D1%96%D0%BC%27%D1%8F%2C%20%D0%B3%D0%BE%D0%BB%D0%BE%D1%81%20%D1%96%20Telegram" target="_blank" rel="noopener"><img src="../assets/logos/telegram.svg" alt="">Telegram</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Falexbentsa.com%2Fsignal%2Fjerry-1-0.html" target="_blank" rel="noopener"><img src="../assets/logos/linkedin.svg" alt="">LinkedIn</a>
+          <button type="button" data-copy="https://alexbentsa.com/signal/jerry-1-0.html">Скопіювати лінк</button>
+        </div>
+        <div class="case-cta">
+          <div><span class="cta-eyebrow">Є що сказати?</span><p>Згодні, не згодні, маєте схожу історію. Напишіть, я читаю все сам.</p></div>
+          <button type="button" class="btn-pill" data-open-contact data-magnetic><span>Написати</span><i class="pill-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button>
+        </div>
+        <nav class="post-nav" aria-label="Сусідні статті">
+          <a class="prev" href="ofis.html"><span>Попередня</span><b>Один у полі не воїн. Тому я будую офіс з агентів.</b></a>
+          <a class="next empty"><span>Наступна</span><b>—</b></a>
+        </nav>
+        <p class="byline"><a href="index.html">← Усі статті Сигналу</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="modal" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="cm-title" hidden>
+  <div class="modal-backdrop" data-close-contact></div>
+  <div class="modal-panel">
+    <button type="button" class="modal-close" data-close-contact aria-label="Закрити">×</button>
+    <div class="modal-side">
+      <span class="cta-eyebrow" data-i18n="cm.eyebrow">Зв'язок</span>
+      <h3 id="cm-title" data-i18n="cm.title">Залиште повідомлення</h3>
+      <p data-i18n="cm.lead">Відповідаю особисто. Без спаму і розсилок: один лист або повідомлення у відповідь.</p>
+      <div class="modal-person">
+        <picture><source srcset="../assets/img/portrait-800.webp" type="image/webp"><img src="../assets/img/portrait-800.jpg" alt="Олександр Бенца" width="56" height="56" loading="lazy"></picture>
+        <div><strong data-i18n="brand">Олександр Бенца</strong><span data-i18n="cm.role">системи, автоматизація, ШІ</span></div>
+      </div>
+    </div>
+    <form class="modal-form" data-contact-form data-endpoint="" novalidate>
+      <label><span data-i18n="cm.name">Ім'я</span><input type="text" name="name" autocomplete="name" required></label>
+      <label><span data-i18n="cm.reply">Email або Telegram</span><input type="text" name="contact" autocomplete="email" required placeholder="you@mail.com / @nick"></label>
+      <label class="full"><span data-i18n="cm.msg">Що за бізнес і що в ньому «так склалось»</span><textarea name="message" rows="5" required></textarea></label>
+      <p class="modal-note" data-i18n="cm.note">Надсилаючи форму, ви погоджуєтесь, що я відповім на вказаний контакт. Більше нічого з даними не роблю.</p>
+      <div class="modal-actions">
+        <button type="submit" class="btn-pill" data-magnetic><span data-i18n="cm.send">Надіслати</span><i class="pill-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button>
+        <a class="btn btn-ghost" href="https://t.me/alexbentsa" target="_blank" rel="noopener"><img src="../assets/logos/telegram.svg" alt="" width="16" height="16"><span>Telegram</span></a>
+      </div>
+      <p class="modal-status" aria-live="polite"></p>
+    </form>
+  </div>
+
+</div>
+
+<div class="lightbox" hidden><button type="button" class="lb-close" aria-label="Закрити">×</button><img alt=""></div>
+
+<div class="cookie" role="dialog" aria-live="polite" aria-label="Cookies" hidden>
+  <div class="cookie-inner">
+    <div class="cookie-head">
+      <svg class="cookie-icon" viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M24 4a20 20 0 1 0 20 20c0-1.6-.2-3.1-.6-4.6a6 6 0 0 1-7.4-7.4A8 8 0 0 1 30 4.9 20 20 0 0 0 24 4z" fill="#D9A066"/>
+        <path d="M24 4a20 20 0 0 0-5 39.4A20 20 0 0 1 30 4.9 8 8 0 0 0 24 4z" fill="#C98B52" opacity=".55"/>
+        <circle cx="15" cy="18" r="2.6" fill="#5A3A1E"/><circle cx="26" cy="30" r="3" fill="#5A3A1E"/><circle cx="15" cy="31" r="2" fill="#5A3A1E"/><circle cx="33" cy="20" r="2.2" fill="#5A3A1E"/><circle cx="22" cy="12" r="1.6" fill="#5A3A1E"/><circle cx="35" cy="34" r="1.8" fill="#5A3A1E"/>
+      </svg>
+      <p class="ck-title" data-i18n="ck.title">Файли cookie</p>
+    </div>
+    <p data-i18n="ck.text">Тільки щоб запам'ятати мову та розуміти, які розділи читають. Без реклами.</p>
+    <div class="cookie-actions">
+      <button type="button" class="btn btn-primary" data-ck="accept"><span data-i18n="ck.accept">Прийняти</span></button>
+      <button type="button" class="btn btn-ghost" data-ck="decline"><span data-i18n="ck.decline">Відхилити</span></button>
+    </div>
+  </div>
+</div>
+
+<button type="button" class="to-top" data-to-top aria-label="Нагору" title="Нагору">
+  <svg viewBox="0 0 44 44" aria-hidden="true"><circle class="tt-track" cx="22" cy="22" r="19"/><circle class="tt-ring" cx="22" cy="22" r="19"/></svg>
+  <i aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 19V6M6 12l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
+</button>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">ОБ</span><span class="brand-name" data-i18n="brand">Олександр Бенца</span></a>
+      <p data-i18n="footer.tagline">Переношу бізнеси в майбутнє. Системи, які працюють без того, хто їх зробив.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Розділи">
+      <span class="footer-h" data-i18n="footer.sections">Розділи</span>
+      <a href="index.html" data-i18n="nav.about">Про мене</a>
+      <a href="../index.html#think" data-i18n="nav.think">Маніфест</a>
+      <a href="../index.html#work" data-i18n="nav.work">Як працюю</a>
+      <a href="../index.html#case" data-i18n="nav.case">Кейси</a>
+      <a href="../index.html#now" data-i18n="nav.now">Зараз</a>
+      <a href="../signal/" data-i18n="nav.signal">Сигнал</a>
+      <a href="../index.html#works" data-i18n="nav.works">Роботи</a>
+    </nav>
+    <div class="footer-contact">
+      <span class="footer-h" data-i18n="footer.contact">Зв'язок</span>
+      <a href="mailto:casperlavkor@gmail.com"><img src="../assets/logos/gmail.svg" alt="" width="16" height="16">casperlavkor@gmail.com</a>
+      <a href="https://t.me/alexbentsa" target="_blank" rel="me noopener"><img src="../assets/logos/telegram.svg" alt="" width="16" height="16">Telegram</a>
+      <a href="https://www.linkedin.com/in/oleksandr-bentsa-8b295433a" target="_blank" rel="me noopener"><img src="../assets/logos/linkedin.svg" alt="" width="16" height="16">LinkedIn</a>
+      <a href="https://www.instagram.com/alex.bentsa" target="_blank" rel="me noopener"><img src="../assets/logos/instagram.svg" alt="" width="16" height="16">Instagram</a>
+      <a href="https://github.com/Alex-ux-droid" target="_blank" rel="me noopener"><img src="../assets/logos/github.svg" alt="" width="16" height="16">GitHub</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> <span data-i18n="footer">Олександр Бенца</span> · Oleksandr Bentsa</span>
+      <span class="footer-dot">·</span>
+      <button type="button" class="footer-lang" data-lang-switch><span data-i18n="footer.lang">English version</span></button>
+      <a class="footer-up" href="../index.html" data-i18n="footer.up">Нагору ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/vendor/gsap.min.js" defer></script>
+<script src="../assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="../assets/i18n.js?v=dev" defer></script>
+<script src="../assets/script.js?v=dev" defer></script>
+</body>
+</html>
+
