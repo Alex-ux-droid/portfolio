@@ -313,8 +313,8 @@
     const fmt = (d) => { const [y, m, dd] = d.split('-'); const mu = ['січ', 'лют', 'бер', 'кві', 'тра', 'чер', 'лип', 'сер', 'вер', 'жов', 'лис', 'гру'], me = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']; return `${+dd} ${(en ? me : mu)[+m - 1]} ${y}`; };
     if (jl) jl.innerHTML = L.journal.map((e) => `<li><time datetime="${e.date}">${fmt(e.date)}</time><p>${en ? e.en : e.uk}</p><span class="j-tag">${tags[e.tag] || e.tag}</span></li>`).join('');
     const al = document.querySelector('[data-lab-archive]');
-    const st = { case: en ? 'became a case study' : 'стало кейсом', paused: en ? 'paused' : 'на паузі', closed: en ? 'closed' : 'закрито' };
-    if (al) al.innerHTML = L.archive.map((e) => `<li><span class="a-meta ${e.status}">${st[e.status]}</span><h3>${en ? e.en : e.uk}</h3><p>${en ? e.en_p : e.uk_p}</p>${e.href ? `<a href="${e.href}">${en ? 'Read the case study →' : 'Читати кейс →'}</a>` : ''}</li>`).join('');
+    const st = { case: en ? 'became a case study' : 'стало кейсом', active: en ? 'in progress' : 'в роботі', paused: en ? 'paused' : 'на паузі', closed: en ? 'closed' : 'закрито' };
+    if (al) al.innerHTML = L.archive.map((e) => `<li><span class="a-meta ${e.status}">${st[e.status]}</span><h3>${en ? e.en : e.uk}</h3><p>${en ? e.en_p : e.uk_p}</p>${e.href ? `<a href="${e.href}">${e.status === 'case' ? (en ? 'Read the case study →' : 'Читати кейс →') : (en ? 'Read the update →' : 'Читати оновлення →')}</a>` : ''}</li>`).join('');
     const up = document.querySelector('[data-lab-updated]'); if (up) up.textContent = fmt(L.updated);
     document.querySelectorAll('[data-lab-stat]').forEach((el) => {
       const days = Math.max(0, Math.round((Date.now() - new Date(L.updated)) / 864e5));

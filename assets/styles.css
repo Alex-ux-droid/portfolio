@@ -888,3 +888,4 @@ img { display: block; max-width: 100%; height: auto; }
 .lab-upd a { color: #35D07F; text-decoration: none; font-weight: 600; }
 .lab-upd a:hover { text-decoration: underline; }
 @media (max-width: 600px) { .stream-updates a { grid-template-columns: auto 1fr; } .stream-updates time { display: none; } }
+.archive .a-meta.active { color: var(--accent-2); }
